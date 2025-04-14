@@ -3,6 +3,7 @@ import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { AlignJustify, X, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
+import bbLogo from "@/assets/img/bb-logo.png";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -33,11 +34,12 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 bg-[#081C3A] bg-opacity-95 shadow-md">
-      <div className="container mx-auto px-4 flex items-center justify-between h-16">
+      <div className="container mx-auto px-4 flex items-center justify-between h-20">
         {/* Logo */}
         <Link href="/" className="flex items-center" onClick={closeMenu}>
-          <div className="text-white text-2xl font-bold">
-            B<span className="text-[#4BA3F2]">.</span>
+          <div className="flex items-center">
+            <img src={bbLogo} alt="B&B Technology" className="h-12 mr-2" />
+            <span className="text-white text-xl font-semibold hidden md:inline">Technology</span>
           </div>
         </Link>
 
@@ -45,31 +47,31 @@ export default function Navbar() {
         <nav className="hidden md:flex items-center space-x-8">
           <Link
             href="/"
-            className={`${isActive("/")} hover:text-[#4BA3F2] transition duration-200`}
+            className={`${isActive("/")} hover:text-[#4BA3F2] transition duration-200 text-sm font-medium uppercase tracking-wide`}
           >
             Home
           </Link>
           <Link
             href="/about"
-            className={`${isActive("/about")} hover:text-[#4BA3F2] transition duration-200`}
+            className={`${isActive("/about")} hover:text-[#4BA3F2] transition duration-200 text-sm font-medium uppercase tracking-wide`}
           >
             About
           </Link>
           <Link
             href="/services"
-            className={`${isActive("/services")} hover:text-[#4BA3F2] transition duration-200`}
+            className={`${isActive("/services")} hover:text-[#4BA3F2] transition duration-200 text-sm font-medium uppercase tracking-wide`}
           >
             Services
           </Link>
           <Link
             href="/pricing"
-            className={`${isActive("/pricing")} hover:text-[#4BA3F2] transition duration-200`}
+            className={`${isActive("/pricing")} hover:text-[#4BA3F2] transition duration-200 text-sm font-medium uppercase tracking-wide`}
           >
             Pricing
           </Link>
           <Link
             href="/contact"
-            className={`${isActive("/contact")} hover:text-[#4BA3F2] transition duration-200`}
+            className={`${isActive("/contact")} hover:text-[#4BA3F2] transition duration-200 text-sm font-medium uppercase tracking-wide`}
           >
             Contact
           </Link>
@@ -79,11 +81,11 @@ export default function Navbar() {
         <Button
           asChild
           variant="outline"
-          className="hidden md:flex items-center bg-[#F5F7FA] text-[#081C3A] hover:bg-gray-100 transition duration-200 border-none"
+          className="hidden md:flex items-center bg-gradient-to-r from-[#4BA3F2] to-[#6e8eff] text-white hover:from-[#3a82d2] hover:to-[#5470d6] transition duration-300 border-none shadow-md hover:shadow-lg"
         >
-          <Link href="/services" onClick={closeMenu}>
+          <Link href="/contact" onClick={closeMenu}>
             <Sparkles className="mr-2 h-4 w-4" />
-            Discover Services
+            Get in Touch
           </Link>
         </Button>
 
@@ -111,35 +113,35 @@ export default function Navbar() {
         <div className="container mx-auto px-4 flex flex-col space-y-4">
           <Link
             href="/"
-            className={`${isActive("/")} hover:text-[#4BA3F2] transition py-2`}
+            className={`${isActive("/")} hover:text-[#4BA3F2] transition py-2 font-medium`}
             onClick={closeMenu}
           >
             Home
           </Link>
           <Link
             href="/about"
-            className={`${isActive("/about")} hover:text-[#4BA3F2] transition py-2`}
+            className={`${isActive("/about")} hover:text-[#4BA3F2] transition py-2 font-medium`}
             onClick={closeMenu}
           >
             About
           </Link>
           <Link
             href="/services"
-            className={`${isActive("/services")} hover:text-[#4BA3F2] transition py-2`}
+            className={`${isActive("/services")} hover:text-[#4BA3F2] transition py-2 font-medium`}
             onClick={closeMenu}
           >
             Services
           </Link>
           <Link
             href="/pricing"
-            className={`${isActive("/pricing")} hover:text-[#4BA3F2] transition py-2`}
+            className={`${isActive("/pricing")} hover:text-[#4BA3F2] transition py-2 font-medium`}
             onClick={closeMenu}
           >
             Pricing
           </Link>
           <Link
             href="/contact"
-            className={`${isActive("/contact")} hover:text-[#4BA3F2] transition py-2`}
+            className={`${isActive("/contact")} hover:text-[#4BA3F2] transition py-2 font-medium`}
             onClick={closeMenu}
           >
             Contact
@@ -147,11 +149,11 @@ export default function Navbar() {
           <Button
             asChild
             variant="outline"
-            className="w-full flex items-center justify-center bg-[#F5F7FA] text-[#081C3A] hover:bg-gray-100 transition border-none"
+            className="w-full flex items-center justify-center bg-gradient-to-r from-[#4BA3F2] to-[#6e8eff] text-white hover:from-[#3a82d2] hover:to-[#5470d6] transition duration-300 border-none"
           >
-            <Link href="/services" onClick={closeMenu}>
+            <Link href="/contact" onClick={closeMenu}>
               <Sparkles className="mr-2 h-4 w-4" />
-              Discover Services
+              Get in Touch
             </Link>
           </Button>
         </div>
