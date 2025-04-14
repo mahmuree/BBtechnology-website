@@ -52,7 +52,7 @@ export default function HeroSection() {
               </Button>
               <Button 
                 asChild
-                className="bg-white hover:bg-gray-100 text-[#081C3A] font-medium py-6 px-6 rounded-lg transition duration-300 shadow-md hover:shadow-lg"
+                className="bg-[#4BA3F2]/10 border border-[#4BA3F2] hover:bg-[#4BA3F2]/20 text-white font-medium py-6 px-6 rounded-lg transition duration-300 shadow-md hover:shadow-lg"
               >
                 <Link href="/contact">
                   <Calendar className="mr-2 h-5 w-5" />
