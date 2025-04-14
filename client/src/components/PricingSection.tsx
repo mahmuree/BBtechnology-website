@@ -2,16 +2,16 @@ import { useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Check, ArrowRight, Sparkles } from "lucide-react";
-import { plans } from "@/data/pricing";
-import { cn } from "@/lib/utils";
+import { pricingCategories } from "@/data/pricingData";
 import { Link } from "wouter";
 
 export default function PricingSection() {
-  const [billingCycle, setBillingCycle] = useState<"monthly" | "yearly">("monthly");
+  const [activeTab, setActiveTab] = useState("smma");
 
-  const toggleBillingCycle = (cycle: "monthly" | "yearly") => {
-    setBillingCycle(cycle);
+  const handleTabChange = (value: string) => {
+    setActiveTab(value);
   };
 
   return (
@@ -26,109 +26,111 @@ export default function PricingSection() {
             className="bg-[#EEF4FF] text-[#4BA3F2] inline-flex px-4 py-1.5 text-sm mb-4"
           >
             <Sparkles className="w-4 h-4 mr-2" />
-            Flexible Pricing Options
+            Transparent Pricing
           </Badge>
           <h2 className="text-3xl md:text-4xl font-bold text-[#081C3A] mb-4">
-            Simple, Transparent Pricing
+            Find the Perfect Plan for Your Needs
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto mb-8">
-            Choose the perfect plan for your business needs with no hidden fees or surprises
+            Transparent pricing options designed to fit any budget and project size
           </p>
+        </div>
 
-          {/* Billing Toggle */}
-          <div className="inline-flex items-center bg-white rounded-full p-1 shadow-md mb-8 border border-gray-100">
-            <button
-              className={cn(
-                "px-6 py-2 text-sm font-medium rounded-full transition-all duration-200",
-                billingCycle === "monthly"
-                  ? "bg-gradient-to-r from-[#4BA3F2] to-[#6e8eff] text-white shadow-sm"
-                  : "text-gray-600 hover:text-gray-800"
-              )}
-              onClick={() => toggleBillingCycle("monthly")}
-            >
-              Monthly
-            </button>
-            <button
-              className={cn(
-                "px-6 py-2 text-sm font-medium rounded-full transition-all duration-200",
-                billingCycle === "yearly"
-                  ? "bg-gradient-to-r from-[#4BA3F2] to-[#6e8eff] text-white shadow-sm"
-                  : "text-gray-600 hover:text-gray-800"
-              )}
-              onClick={() => toggleBillingCycle("yearly")}
-            >
-              Yearly{" "}
-              <span className="text-white ml-1 bg-green-500 px-1.5 py-0.5 text-xs rounded-full">Save 20%</span>
-            </button>
+        <Tabs
+          defaultValue="smma"
+          value={activeTab}
+          onValueChange={handleTabChange}
+          className="space-y-8"
+        >
+          <div className="flex justify-center overflow-x-auto pb-2">
+            <TabsList className="bg-gray-100 p-1 rounded-lg">
+              {pricingCategories.map((category) => (
+                <TabsTrigger
+                  key={category.id}
+                  value={category.id}
+                  className="px-4 py-2 data-[state=active]:bg-gradient-to-r data-[state=active]:from-[#4BA3F2] data-[state=active]:to-[#6e8eff] data-[state=active]:text-white data-[state=active]:shadow-md rounded-md transition-all whitespace-nowrap"
+                >
+                  {category.name}
+                </TabsTrigger>
+              ))}
+            </TabsList>
           </div>
-        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {plans.map((plan, index) => {
-            const price = billingCycle === "yearly" 
-              ? Math.round(plan.price * 0.8)
-              : plan.price;
+          {pricingCategories.map((category) => (
+            <TabsContent
+              key={category.id}
+              value={category.id}
+              className="focus-visible:outline-none focus-visible:ring-0 transition-all duration-300 ease-in-out"
+            >
+              <div className="text-center mb-12">
+                <h3 className="text-2xl font-bold text-[#081C3A] mb-2">
+                  {category.name}
+                </h3>
+                <p className="text-gray-600 max-w-2xl mx-auto">
+                  {category.description}
+                </p>
+              </div>
 
-            return (
-              <Card
-                key={index}
-                className={cn(
-                  "bg-white rounded-xl shadow-lg border-0 overflow-hidden transform transition-all duration-300 hover:-translate-y-1 hover:shadow-xl",
-                  plan.popular && "relative"
-                )}
-              >
-                {plan.popular && (
-                  <div className="absolute top-0 right-0">
-                    <div className="bg-gradient-to-r from-[#4BA3F2] to-[#6e8eff] text-white text-xs font-bold py-1 px-3 rounded-bl-lg">
-                      MOST POPULAR
-                    </div>
-                  </div>
-                )}
-                
-                <CardHeader className={`pb-4 ${plan.popular ? 'bg-[#EEF4FF]' : ''}`}>
-                  <h3 className="text-xl font-bold text-[#081C3A]">{plan.name}</h3>
-                  <div className="mt-2">
-                    <span className="text-3xl font-bold text-[#081C3A]">€{price}</span>
-                    <span className="text-gray-500 ml-1">
-                      /{billingCycle === "monthly" ? "mo" : "yr"}
-                    </span>
-                  </div>
-                  <p className="text-gray-500 mt-1">{plan.subtitle}</p>
-                </CardHeader>
-                
-                <CardContent className="pb-4">
-                  <ul className="space-y-3">
-                    {plan.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex">
-                        <div className="h-5 w-5 rounded-full bg-[#EEF4FF] flex items-center justify-center mr-3 flex-shrink-0">
-                          <Check className="h-3 w-3 text-[#4BA3F2]" />
-                        </div>
-                        <span className="text-gray-600 text-sm">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-                
-                <CardFooter>
-                  <Button
-                    asChild
-                    className={`w-full ${
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                {category.plans.map((plan, index) => (
+                  <Card
+                    key={index}
+                    className={`border rounded-xl overflow-hidden transition-all hover:shadow-xl ${
                       plan.popular
-                        ? "bg-gradient-to-r from-[#4BA3F2] to-[#6e8eff] hover:from-[#3a82d2] hover:to-[#5470d6]"
-                        : "bg-[#081C3A] hover:bg-[#081C3A]/90"
-                    } text-white shadow-md hover:shadow-lg transition-all duration-300`}
+                        ? "border-[#4BA3F2] shadow-lg relative transform hover:-translate-y-1"
+                        : "border-gray-200 hover:-translate-y-1"
+                    }`}
                   >
-                    <Link href="/pricing">
-                      Select Plan
-                    </Link>
-                  </Button>
-                </CardFooter>
-              </Card>
-            );
-          })}
-        </div>
+                    {plan.popular && (
+                      <div className="absolute top-0 right-0">
+                        <div className="bg-gradient-to-r from-[#4BA3F2] to-[#6e8eff] text-white text-xs font-bold py-1 px-3 rounded-bl-lg">
+                          MOST POPULAR
+                        </div>
+                      </div>
+                    )}
+                    <CardHeader className={`pb-4 ${plan.popular ? 'bg-[#EEF4FF]' : ''}`}>
+                      <div className="text-lg font-bold text-[#081C3A]">{plan.name}</div>
+                      <div className="mt-2">
+                        <span className="text-3xl font-bold text-[#081C3A]">
+                          {typeof plan.price === 'number' ? `€${plan.price}` : plan.price}
+                        </span>
+                      </div>
+                      <p className="text-gray-500 mt-1">{plan.subtitle}</p>
+                    </CardHeader>
+                    <CardContent className="pb-4">
+                      <ul className="space-y-3">
+                        {plan.features.map((feature, i) => (
+                          <li key={i} className="flex">
+                            <div className="h-5 w-5 rounded-full bg-[#EEF4FF] flex items-center justify-center mr-3 flex-shrink-0">
+                              <Check className="h-3 w-3 text-[#4BA3F2]" />
+                            </div>
+                            <span className="text-gray-600 text-sm">{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </CardContent>
+                    <CardFooter>
+                      <Button
+                        asChild
+                        className={`w-full ${
+                          plan.popular
+                            ? "bg-gradient-to-r from-[#4BA3F2] to-[#6e8eff] hover:from-[#3a82d2] hover:to-[#5470d6]"
+                            : "bg-[#081C3A] hover:bg-[#081C3A]/90"
+                        } text-white shadow-md hover:shadow-lg transition-all duration-300`}
+                      >
+                        <Link href="/contact">
+                          {plan.cta || "Get Started"}
+                        </Link>
+                      </Button>
+                    </CardFooter>
+                  </Card>
+                ))}
+              </div>
+            </TabsContent>
+          ))}
+        </Tabs>
 
-        <div className="text-center mt-12">
+        <div className="mt-16 text-center">
           <Button 
             asChild
             variant="outline" 
@@ -138,6 +140,23 @@ export default function PricingSection() {
               View All Pricing Options <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </Button>
+        </div>
+        
+        <div className="mt-20 bg-gradient-to-r from-[#081C3A] to-[#0D2E5C] p-12 rounded-xl text-white shadow-xl">
+          <div className="max-w-3xl mx-auto text-center">
+            <h3 className="text-2xl font-bold mb-4">Need a Custom Solution?</h3>
+            <p className="text-gray-300 mb-8">
+              We understand that every business is unique. Our team can create a tailored package that perfectly fits your specific requirements and budget.
+            </p>
+            <Button 
+              asChild
+              className="bg-white text-[#081C3A] hover:bg-gray-100 font-medium px-6 shadow-lg"
+            >
+              <Link href="/contact">
+                Contact Our Specialists <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+          </div>
         </div>
       </div>
     </section>
