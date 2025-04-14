@@ -1,0 +1,296 @@
+Create a modern, interactive, and visually polished Pricing Page for a digital agency called B&B Technology. The website must reflect innovation, reliability, and aesthetic quality, with a focus on both software development and social media services.
+📅 STRUCTURE & FUNCTIONALITY
+The pricing section should feature a 4-tab layout, representing B&B Technology's core service categories:
+Social Media Marketing (SMMA)
+Influencer Marketing
+Branding
+Web Development
+Each tab must show a responsive pricing card layout with Starter / Growth / Pro / Premium packages. When a user clicks on one of the 4 categories, it should dynamically display the corresponding plans, without page reload.
+📈 DESIGN GUIDELINES
+Clean white/light background
+Tailwind CSS or similar utility-based layout preferred
+Rounded card corners, subtle shadows, smooth transitions
+Mobile responsive layout (stacked cards on small screens)
+Highlight 1 package per category as "Most Popular"
+Modern typography (Inter or Poppins)
+Hover animations on buttons and cards
+Add CTA buttons to each plan ("Get Started" / "Contact Us"
+
+SMMA (Social Media Marketing) Packages
+Starter – €500
+4 professional social media posts (graphic + text harmony)
+
+
+1 Reels video (15–30 seconds, music and script aligned)
+
+
+Monthly content plan (delivered via Google Sheet or Notion)
+
+
+Basic performance analysis (metrics like reach, likes, comments)
+
+
+Social media profile optimization (bio, profile image, link setup)
+
+
+1 revision right (for visual content)
+
+
+Growth – €1000
+8 social media posts + 2 Reels videos
+
+
+Monthly content plan + weekly content suggestions (based on trends, special days, industry themes)
+
+
+Brand voice development (adapted to tones like friendly, corporate, humorous)
+
+
+Social media profile optimization (bio, profile image, link setup)
+
+
+Detailed monthly performance report
+
+
+Optimization of content posting times
+
+
+2 revision rights
+
+
+Pro – €1500
+12 posts + 3 Reels videos
+
+
+Weekly content suggestions + monthly content calendar
+
+
+Brand voice development + target audience analysis (demographics, interests, location)
+
+
+Campaign consultancy (scenarios, goal-oriented content)
+
+
+Story content planning (GIFs, interactive stickers, Q&A scenarios)
+
+
+Competitor and industry benchmark analysis
+
+
+Monthly performance report + content timing suggestions
+
+
+Social media profile improvement and guidance
+
+
+Premium – €2000
+16+ content pieces + 4 Reels videos
+
+
+Content production based on segmented audience
+
+
+Influencer collaboration suggestions (list of 3 niche influencers)
+
+
+A/B tested content scenarios
+
+
+Story plan + campaign scenarios
+
+
+Advanced campaign report + strategic development suggestions
+
+
+Full process coverage: brand voice, analytics, posting schedule, revisions
+
+
+Social media profile improvement and direction
+
+
+
+Influencer Marketing (Campaign-Based / 3-Month Plans)
+Starter – €500
+Collaboration with 1 micro-influencer (2 stories + 1 Reels content)
+
+
+Preparation of content brief document
+
+
+Pre-approval process for influencer content
+
+
+Mini performance report (reach and engagement metrics)
+
+
+Growth – €1500
+Targeted campaign with 3 influencers (1 Reels + 2 stories for each)
+
+
+Segment-based targeting
+
+
+Content publishing schedule and coordination
+
+
+Creative direction: copywriting, visuals, storytelling
+
+
+Briefing process, content supervision, and performance report
+
+
+Pro – €2250
+Strategic campaign with 6 influencers
+
+
+Creative content structures tailored to campaign goals
+
+
+Content pre-approval and 1 revision right
+
+
+Post-publishing performance measurement and strategy suggestions
+
+
+Premium – €4000
+10+ influencers, generating 20+ pieces of content (story, Reels, post)
+
+
+Google Drive content pool setup
+
+
+1-year reuse rights (with license documentation)
+
+
+2 revision rights + campaign results presentation
+
+
+
+Branding Services (2025)
+We build the visual identity, style, and personality of your brand with a modern, professional, and unique tone.
+Logo Starter – €300
+2 different logo designs (with varying direction and approach)
+
+
+1 revision right (on the selected logo)
+
+
+Moodboard: color tone, style, and creative direction (with references)
+
+
+Font & color palette suggestions (Google Fonts compatible)
+
+
+Final delivery: PNG (transparent), SVG (scalable), PDF (print-ready)
+
+
+📝 Ideal for new entrepreneurs and individual brands needing a simple but impactful logo
+
+
+Mini Identity – €500
+Includes everything in Logo Starter
+
+
+2 logo variations (colored, black & white, horizontal or vertical versions)
+
+
+Business card design (front and back, 2 revision rights)
+
+
+Email signature design (HTML & image versions – Outlook and Gmail compatible)
+
+
+LinkedIn banner + LinkedIn post templates (visual format)
+
+
+All materials delivered in both print and digital formats (PDF, PNG, SVG)
+
+
+📝 Perfect for clearly displaying your brand identity on social media and corporate communications
+
+
+Full Brand Book – €750
+Includes everything in the Mini Identity package
+
+
+Brand tone guide: how should the brand speak? (friendly, professional, humorous, etc.)
+
+
+Logo usage manual:
+
+
+Correct/incorrect usage
+
+
+Logo safe area
+
+
+Scalability and background variations
+
+
+Color palette (with CMYK, RGB, HEX values)
+
+
+Typography system (headings, body text, alternatives)
+
+
+Custom icon set (5–10 icon suggestions if needed)
+
+
+Brand use cases: social media post, presentation cover, business card
+
+
+Delivered as a comprehensive PDF guide (min. 25 pages)
+
+
+📝 Professional solution for agencies, growing brands, and those standardizing brand guidelines
+
+
+Rebranding – €1200
+Includes all content from the Full Brand Book
+
+
+Existing brand analysis:
+
+
+Website, social media, customer perception
+
+
+Competitor brand analysis
+
+
+Brand strategy:
+
+
+New target audience profile
+
+
+New messaging, vision, and value proposition
+
+
+Logo revision or a completely new logo design
+
+
+Updated colors, fonts, iconography suggestions
+
+
+Social media templates (post, story, profile visuals)
+
+
+Short Brand Book delivery (15+ pages)
+
+
+📝 Best suited for brands looking for a long-term visual transformation or a fresh new image
+
+
+🎯 Why B&B Technology Branding Services?
+All packages include PDF + PNG + SVG formats
+
+
+All designs supported by Adobe Illustrator + Canva
+
+
+Modern + timeless brand aesthetics
+
+
+Continuous communication and reference-based brief process

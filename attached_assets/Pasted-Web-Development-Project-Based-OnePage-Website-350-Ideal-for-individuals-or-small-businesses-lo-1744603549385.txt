@@ -1,0 +1,108 @@
+Web Development – Project-Based
+
+OnePage Website – €350
+Ideal for individuals or small businesses looking for a simple yet effective one-page website.
+
+Mobile-compatible, fast-loading single-page website (modern scroll-based layout)
+
+SEO-optimized structure (title, description, meta tags)
+
+Contact form with email notifications
+
+WhatsApp button (direct link on mobile devices)
+
+Page speed optimization (lazy load, responsive images)
+
+Basic security setup (form protection, basic anti-spam)
+
+Landing Pro Website – €600
+Perfect for campaign pages, product/service promotion, or increasing conversion.
+
+All features from OnePage Website
+
+Sales-focused layout (strong CTAs)
+
+Highlight sections: key benefits, testimonials, trust elements
+
+Form integration (compatible with Typeform, Mailchimp, etc.)
+
+Conversion tracking tools (Meta Pixel, Google Analytics, Clarity)
+
+UX-optimized headline and image hierarchy
+
+Simple animation effects (button hover, section transitions)
+
+Corporate Website – €1000
+Ideal for service providers, agencies, and organizations that need a full company site.
+
+All Landing Pro features included
+
+5 pages: Home, About Us, Services, Blog, Contact
+
+SEO-optimized page structure (unique titles and meta for each page)
+
+Advanced contact form (department selection, subject field, etc.)
+
+Customer reviews module (slider or static)
+
+FAQ section
+
+Multilingual support (2 languages included, additional languages optional)
+
+Sticky header and footer + social media links
+
+Full CMS Website – €1250
+Advanced content management structure for content creators, platforms, blogs, and portals.
+
+All Corporate Website features included
+
+Admin panel (admin login)
+
+Panel for adding, deleting, updating content (title, image, text, date)
+
+Scheduled content publishing (scheduler feature)
+
+Multi-user roles (editor, writer, admin)
+
+Blog content filtering: by category, date, tags
+
+SEO settings through admin panel (slug, title, description, image)
+
+Content performance tracking tools (views, engagement, etc.)
+
+Backend options: Headless CMS (Strapi, WordPress, Sanity)
+
+E-Commerce Website – €2500
+Complete e-commerce solution for brands selling physical or digital products online.
+
+All Full CMS Website features included
+
+Product listing and detail pages (name, description, variations, image)
+
+Stock management panel (quantity, stock alerts)
+
+Payment integration: Stripe, Mollie, PayTR (local & global)
+
+Order management (status updates, order tracking)
+
+Coupons and campaign module
+
+Shopping cart system (add/remove, discounts, calculations)
+
+Automated email notifications (order received, shipped, delivered)
+
+Shipping tracking integration (manual input supported)
+
+Mailchimp integration for newsletters and automated sequences
+
+Optional Services:
+
+Hosting + domain setup (1st year): €120
+
+SSL setup + security configuration: €80
+
+Extra language: €75 / language
+
+Extra page: €50 / page
+
+Website training (video tutorial): €100

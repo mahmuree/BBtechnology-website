@@ -1,11 +1,16 @@
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import { Instagram, Linkedin, Youtube, Twitter } from "lucide-react";
 
 export default function Footer() {
+  const [location] = useLocation();
+
+  // Only use smooth scrolling on home page
   const scrollToSection = (sectionId: string) => {
-    const section = document.getElementById(sectionId);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (location === '/') {
+      const section = document.getElementById(sectionId);
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
     }
   };
 
@@ -14,9 +19,11 @@ export default function Footer() {
       <div className="container mx-auto px-4 py-12">
         <div className="flex flex-col md:flex-row justify-between items-start mb-12">
           <div className="mb-8 md:mb-0">
-            <div className="text-2xl font-bold mb-4">
-              B<span className="text-[#4BA3F2]">.</span>
-            </div>
+            <Link href="/" className="inline-block">
+              <div className="text-2xl font-bold mb-4">
+                B<span className="text-[#4BA3F2]">.</span>
+              </div>
+            </Link>
             <p className="text-gray-400 max-w-xs">
               Smart coding and marketing solutions for companies ready to grow in
               the digital world.
@@ -25,39 +32,27 @@ export default function Footer() {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div>
-              <h4 className="font-semibold mb-4">Features</h4>
+              <h4 className="font-semibold mb-4">Services</h4>
               <ul className="space-y-2">
                 <li>
-                  <button
-                    onClick={() => scrollToSection("services")}
-                    className="text-gray-400 hover:text-white transition"
-                  >
+                  <Link href="/services" className="text-gray-400 hover:text-white transition">
                     Social Media
-                  </button>
+                  </Link>
                 </li>
                 <li>
-                  <button
-                    onClick={() => scrollToSection("services")}
-                    className="text-gray-400 hover:text-white transition"
-                  >
+                  <Link href="/services" className="text-gray-400 hover:text-white transition">
                     Web Development
-                  </button>
+                  </Link>
                 </li>
                 <li>
-                  <button
-                    onClick={() => scrollToSection("services")}
-                    className="text-gray-400 hover:text-white transition"
-                  >
+                  <Link href="/services" className="text-gray-400 hover:text-white transition">
                     Branding
-                  </button>
+                  </Link>
                 </li>
                 <li>
-                  <button
-                    onClick={() => scrollToSection("services")}
-                    className="text-gray-400 hover:text-white transition"
-                  >
+                  <Link href="/services" className="text-gray-400 hover:text-white transition">
                     Influencer Marketing
-                  </button>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -90,7 +85,7 @@ export default function Footer() {
               <h4 className="font-semibold mb-4">Company</h4>
               <ul className="space-y-2">
                 <li>
-                  <Link href="#" className="text-gray-400 hover:text-white transition">
+                  <Link href="/about" className="text-gray-400 hover:text-white transition">
                     About
                   </Link>
                 </li>
@@ -105,7 +100,7 @@ export default function Footer() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="text-gray-400 hover:text-white transition">
+                  <Link href="/contact" className="text-gray-400 hover:text-white transition">
                     Contact
                   </Link>
                 </li>
@@ -156,15 +151,7 @@ export default function Footer() {
           </div>
 
           <p className="text-gray-400 text-sm">
-            © 2024 Alter Template. Made by{" "}
-            <Link href="#" className="underline">
-              Framebase
-            </Link>
-            . Built in{" "}
-            <Link href="#" className="underline">
-              Framer
-            </Link>
-            .
+            © 2024 B&B Technology. All rights reserved.
           </p>
         </div>
       </div>
