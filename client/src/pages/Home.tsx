@@ -3,7 +3,6 @@ import HeroSection from "@/components/HeroSection";
 import TrustedBy from "@/components/TrustedBy";
 import ServicesSection from "@/components/ServicesSection";
 import PricingSection from "@/components/PricingSection";
-import BundlePackagesSection from "@/components/BundlePackagesSection";
 import FAQSection from "@/components/FAQSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import AIMarketingCTA from "@/components/AIMarketingCTA";
@@ -18,7 +17,6 @@ export default function Home() {
         <TrustedBy />
         <ServicesSection />
         <PricingSection />
-        <BundlePackagesSection />
         <TestimonialsSection />
         <FAQSection />
         <AIMarketingCTA />

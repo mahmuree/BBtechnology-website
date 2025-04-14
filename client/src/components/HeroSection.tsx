@@ -42,19 +42,22 @@ export default function HeroSection() {
             
             <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
               <Button 
-                onClick={() => scrollToSection("services")}
+                asChild
                 className="bg-gradient-to-r from-[#4BA3F2] to-[#6e8eff] hover:from-[#3a82d2] hover:to-[#5470d6] text-white font-medium py-6 px-6 rounded-lg transition duration-300 shadow-lg hover:shadow-xl"
               >
-                <Sparkles className="mr-2 h-5 w-5" />
-                Discover Services
+                <Link href="/services">
+                  <Sparkles className="mr-2 h-5 w-5" />
+                  Discover Services
+                </Link>
               </Button>
               <Button 
-                onClick={() => scrollToSection("contact")}
-                variant="outline"
-                className="border-white/30 text-white hover:bg-white/10 font-medium py-6 px-6 rounded-lg transition duration-300"
+                asChild
+                className="bg-white hover:bg-gray-100 text-[#081C3A] font-medium py-6 px-6 rounded-lg transition duration-300 shadow-md hover:shadow-lg"
               >
-                <Calendar className="mr-2 h-5 w-5" />
-                Schedule Consultation
+                <Link href="/contact">
+                  <Calendar className="mr-2 h-5 w-5" />
+                  Schedule Consultation
+                </Link>
               </Button>
             </div>
             
@@ -71,7 +74,7 @@ export default function HeroSection() {
           <div className="md:w-1/2 flex justify-center md:justify-end">
             <div className="relative">
               {/* Main Image Container */}
-              <div className="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl shadow-2xl">
+              <div className="bg-gradient-to-br from-[#081C3A] to-[#0D2E5C] p-8 rounded-2xl shadow-2xl border border-[#4BA3F2]/30">
                 <img 
                   src={bbLogo} 
                   alt="B&B Technology" 
