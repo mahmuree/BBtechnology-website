@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Check, Crown } from "lucide-react";
+import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
+import { Check, ArrowRight, Sparkles } from "lucide-react";
 import { plans } from "@/data/pricing";
 import { cn } from "@/lib/utils";
+import { Link } from "wouter";
 
 export default function PricingSection() {
   const [billingCycle, setBillingCycle] = useState<"monthly" | "yearly">("monthly");
@@ -14,39 +15,34 @@ export default function PricingSection() {
   };
 
   return (
-    <section id="pricing" className="py-20 bg-gray-50">
-      <div className="container mx-auto px-4">
+    <section id="pricing" className="py-24 relative">
+      {/* Background decoration */}
+      <div className="absolute inset-0 bg-gradient-to-b from-white to-gray-50 pointer-events-none"></div>
+      
+      <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
-          <Badge variant="pill" className="bg-gray-200 text-gray-700 inline-flex px-4 py-1 text-sm mb-4">
-            <svg
-              className="w-4 h-4 inline-block mr-1"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-              ></path>
-            </svg>
-            Transparent Pricing, No Surprises
+          <Badge 
+            variant="pill" 
+            className="bg-[#EEF4FF] text-[#4BA3F2] inline-flex px-4 py-1.5 text-sm mb-4"
+          >
+            <Sparkles className="w-4 h-4 mr-2" />
+            Flexible Pricing Options
           </Badge>
           <h2 className="text-3xl md:text-4xl font-bold text-[#081C3A] mb-4">
-            Pricing Plans
+            Simple, Transparent Pricing
           </h2>
-          <p className="text-gray-600 mb-6">Choose Your Plan</p>
+          <p className="text-gray-600 max-w-2xl mx-auto mb-8">
+            Choose the perfect plan for your business needs with no hidden fees or surprises
+          </p>
 
           {/* Billing Toggle */}
-          <div className="inline-flex items-center bg-white rounded-full p-1 shadow-sm mb-8">
+          <div className="inline-flex items-center bg-white rounded-full p-1 shadow-md mb-8 border border-gray-100">
             <button
               className={cn(
-                "px-4 py-2 text-sm font-medium rounded-full",
+                "px-6 py-2 text-sm font-medium rounded-full transition-all duration-200",
                 billingCycle === "monthly"
-                  ? "bg-gray-100"
-                  : "text-gray-600"
+                  ? "bg-gradient-to-r from-[#4BA3F2] to-[#6e8eff] text-white shadow-sm"
+                  : "text-gray-600 hover:text-gray-800"
               )}
               onClick={() => toggleBillingCycle("monthly")}
             >
@@ -54,15 +50,15 @@ export default function PricingSection() {
             </button>
             <button
               className={cn(
-                "px-4 py-2 text-sm font-medium rounded-full",
+                "px-6 py-2 text-sm font-medium rounded-full transition-all duration-200",
                 billingCycle === "yearly"
-                  ? "bg-gray-100"
-                  : "text-gray-600"
+                  ? "bg-gradient-to-r from-[#4BA3F2] to-[#6e8eff] text-white shadow-sm"
+                  : "text-gray-600 hover:text-gray-800"
               )}
               onClick={() => toggleBillingCycle("yearly")}
             >
               Yearly{" "}
-              <span className="ml-1 text-green-500 text-xs">Save 20%</span>
+              <span className="text-white ml-1 bg-green-500 px-1.5 py-0.5 text-xs rounded-full">Save 20%</span>
             </button>
           </div>
         </div>
@@ -70,56 +66,78 @@ export default function PricingSection() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {plans.map((plan, index) => {
             const price = billingCycle === "yearly" 
-              ? (plan.price * 0.8).toFixed(0) 
+              ? Math.round(plan.price * 0.8)
               : plan.price;
 
             return (
               <Card
                 key={index}
                 className={cn(
-                  "bg-white rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.08)] border-none p-6 flex flex-col relative",
-                  plan.popular && "border-2 border-[#8B5CF6]"
+                  "bg-white rounded-xl shadow-lg border-0 overflow-hidden transform transition-all duration-300 hover:-translate-y-1 hover:shadow-xl",
+                  plan.popular && "relative"
                 )}
               >
                 {plan.popular && (
-                  <div className="absolute -top-4 right-8 bg-[#8B5CF6] text-white text-sm font-medium px-3 py-1 rounded-full">
-                    Popular
+                  <div className="absolute top-0 right-0">
+                    <div className="bg-gradient-to-r from-[#4BA3F2] to-[#6e8eff] text-white text-xs font-bold py-1 px-3 rounded-bl-lg">
+                      MOST POPULAR
+                    </div>
                   </div>
                 )}
-                <div className="mb-4">
-                  <h3 className="text-lg font-semibold mb-1">{plan.name}</h3>
-                  <div className="flex items-end mb-4">
-                    <span className="text-3xl font-bold">${price}</span>
-                    <span className="text-gray-500 ml-1">user/month</span>
+                
+                <CardHeader className={`pb-4 ${plan.popular ? 'bg-[#EEF4FF]' : ''}`}>
+                  <h3 className="text-xl font-bold text-[#081C3A]">{plan.name}</h3>
+                  <div className="mt-2">
+                    <span className="text-3xl font-bold text-[#081C3A]">€{price}</span>
+                    <span className="text-gray-500 ml-1">
+                      /{billingCycle === "monthly" ? "mo" : "yr"}
+                    </span>
                   </div>
-                  <Button
-                    variant={plan.popular ? "default" : "outline"}
-                    className={cn(
-                      "w-full py-2 px-4 rounded-lg font-medium flex items-center justify-center mb-4",
-                      plan.popular
-                        ? "bg-[#081C3A] text-white hover:bg-[#081C3A]/90"
-                        : "border-gray-300 text-gray-700 hover:bg-gray-50"
-                    )}
-                  >
-                    <Crown className="w-5 h-5 mr-2" />
-                    Get Template
-                  </Button>
-                </div>
-
-                <div className="border-t pt-4">
-                  <p className="text-sm text-gray-500 mb-4">{plan.subtitle}</p>
+                  <p className="text-gray-500 mt-1">{plan.subtitle}</p>
+                </CardHeader>
+                
+                <CardContent className="pb-4">
                   <ul className="space-y-3">
                     {plan.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-start">
-                        <Check className="w-5 h-5 text-green-500 mr-2 flex-shrink-0" />
+                      <li key={featureIndex} className="flex">
+                        <div className="h-5 w-5 rounded-full bg-[#EEF4FF] flex items-center justify-center mr-3 flex-shrink-0">
+                          <Check className="h-3 w-3 text-[#4BA3F2]" />
+                        </div>
                         <span className="text-gray-600 text-sm">{feature}</span>
                       </li>
                     ))}
                   </ul>
-                </div>
+                </CardContent>
+                
+                <CardFooter>
+                  <Button
+                    asChild
+                    className={`w-full ${
+                      plan.popular
+                        ? "bg-gradient-to-r from-[#4BA3F2] to-[#6e8eff] hover:from-[#3a82d2] hover:to-[#5470d6]"
+                        : "bg-[#081C3A] hover:bg-[#081C3A]/90"
+                    } text-white shadow-md hover:shadow-lg transition-all duration-300`}
+                  >
+                    <Link href="/pricing">
+                      Select Plan
+                    </Link>
+                  </Button>
+                </CardFooter>
               </Card>
             );
           })}
+        </div>
+
+        <div className="text-center mt-12">
+          <Button 
+            asChild
+            variant="outline" 
+            className="border-[#4BA3F2] text-[#4BA3F2] hover:bg-[#4BA3F2] hover:text-white transition-all duration-300"
+          >
+            <Link href="/pricing">
+              View All Pricing Options <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
+          </Button>
         </div>
       </div>
     </section>

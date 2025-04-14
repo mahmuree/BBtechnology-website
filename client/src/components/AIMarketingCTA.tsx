@@ -1,7 +1,8 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight, Info, CircleDot } from "lucide-react";
+import { ArrowRight, Sparkles, ArrowUpRight, BarChart2, MessageSquare, Zap } from "lucide-react";
+import { Link } from "wouter";
 
 export default function AIMarketingCTA() {
   // Chart data for months
@@ -11,87 +12,150 @@ export default function AIMarketingCTA() {
   const heights = [60, 40, 30, 35, 50, 85, 58, 42, 30, 40];
 
   return (
-    <section id="cta" className="py-16 bg-gray-100">
-      <div className="container mx-auto px-4">
-        <div className="bg-gray-200 rounded-2xl p-8 md:p-12">
+    <section id="cta" className="py-24 relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#081C3A] to-[#0D2E5C] pointer-events-none"></div>
+      
+      {/* Glowing circles */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-10">
+        <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-[#4BA3F2] rounded-full filter blur-3xl"></div>
+        <div className="absolute bottom-1/3 right-1/4 w-96 h-96 bg-[#4BA3F2] rounded-full filter blur-3xl"></div>
+      </div>
+      
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 md:p-12 shadow-2xl border border-white/20">
           <div className="flex flex-col md:flex-row items-center justify-between">
-            <div className="md:w-1/2 mb-8 md:mb-0">
-              <Badge variant="pill" className="bg-white text-gray-700 inline-flex px-4 py-1 text-sm mb-4">
-                <svg
-                  className="w-4 h-4 inline-block mr-1"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M13 10V3L4 14h7v7l9-11h-7z"
-                  ></path>
-                </svg>
-                Trusted by 10k+ businesses
+            <div className="md:w-1/2 mb-12 md:mb-0">
+              <Badge variant="pill" className="bg-white/20 text-white inline-flex px-4 py-1.5 text-sm mb-6">
+                <Sparkles className="w-4 h-4 mr-2" />
+                Advanced AI Solutions
               </Badge>
-              <h2 className="text-3xl md:text-4xl font-bold text-[#081C3A] mb-4">
-                Build AI-Powered<br />Marketing Now!
+              
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+                Take Your Business to<br />
+                <span className="text-[#4BA3F2]">the Next Level</span> with AI
               </h2>
-              <p className="text-gray-600 mb-6">
-                Automate lead generation and customer engagement in diverse and
-                dynamic real-world settings
+              
+              <p className="text-gray-200 mb-8 text-lg">
+                Leverage cutting-edge AI technology to automate lead generation and customer engagement, driving unprecedented growth for your business
               </p>
+              
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
+                <div className="flex items-start">
+                  <div className="h-10 w-10 rounded-lg bg-[#4BA3F2]/20 flex items-center justify-center mr-4 flex-shrink-0">
+                    <BarChart2 className="h-5 w-5 text-[#4BA3F2]" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-white mb-1">Data-Driven Insights</h4>
+                    <p className="text-gray-300 text-sm">Make informed decisions with AI-powered analytics</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start">
+                  <div className="h-10 w-10 rounded-lg bg-[#4BA3F2]/20 flex items-center justify-center mr-4 flex-shrink-0">
+                    <MessageSquare className="h-5 w-5 text-[#4BA3F2]" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-white mb-1">Smart Automation</h4>
+                    <p className="text-gray-300 text-sm">Streamline your workflow with intelligent tools</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start">
+                  <div className="h-10 w-10 rounded-lg bg-[#4BA3F2]/20 flex items-center justify-center mr-4 flex-shrink-0">
+                    <Zap className="h-5 w-5 text-[#4BA3F2]" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-white mb-1">Scalable Solutions</h4>
+                    <p className="text-gray-300 text-sm">Grow your business with flexible AI technology</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start">
+                  <div className="h-10 w-10 rounded-lg bg-[#4BA3F2]/20 flex items-center justify-center mr-4 flex-shrink-0">
+                    <ArrowUpRight className="h-5 w-5 text-[#4BA3F2]" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-white mb-1">ROI-Focused</h4>
+                    <p className="text-gray-300 text-sm">Maximize returns with targeted marketing</p>
+                  </div>
+                </div>
+              </div>
+              
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button className="bg-[#8B5CF6] hover:bg-[#8B5CF6]/90 text-white px-6 py-3 rounded-lg">
-                  Get Started
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </Button>
-                <Button
-                  variant="default"
-                  className="bg-[#081C3A] hover:bg-[#081C3A]/90 text-white px-6 py-3 rounded-lg"
+                <Button 
+                  asChild
+                  className="bg-gradient-to-r from-[#4BA3F2] to-[#6e8eff] hover:from-[#3a82d2] hover:to-[#5470d6] text-white px-6 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
                 >
-                  <Info className="w-4 h-4 mr-2" />
-                  Learn More
+                  <Link href="/contact">
+                    Schedule a Demo
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </Link>
+                </Button>
+                
+                <Button
+                  asChild
+                  variant="outline"
+                  className="border-white/30 text-white hover:bg-white/10 px-6 py-3 rounded-lg transition-all duration-300"
+                >
+                  <Link href="/pricing">
+                    View Pricing
+                  </Link>
                 </Button>
               </div>
             </div>
-            <div className="md:w-1/2">
-              <Card className="bg-white rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.08)] border-none">
-                <CardContent className="p-4">
-                  <div className="mb-3 flex items-center justify-between">
-                    <h3 className="font-semibold text-[#081C3A] text-lg">Balance</h3>
-                    <div className="flex items-center text-green-500 text-sm">
-                      <CircleDot className="h-3 w-3 mr-1 fill-green-500 text-green-500" />
-                      On track
+            
+            <div className="md:w-5/12">
+              <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 shadow-lg border border-white/20">
+                <div className="flex items-center justify-between mb-6">
+                  <h3 className="font-semibold text-white text-lg">Campaign Performance</h3>
+                  <div className="bg-green-500/20 text-green-400 text-xs font-medium px-2 py-1 rounded-full flex items-center">
+                    <span className="h-2 w-2 rounded-full bg-green-500 mr-1"></span>
+                    Growth +24%
+                  </div>
+                </div>
+                
+                <div className="w-full h-64 relative">
+                  {/* Stats Cards */}
+                  <div className="grid grid-cols-2 gap-4 mb-6">
+                    <div className="bg-white/10 p-3 rounded-lg">
+                      <p className="text-xs text-gray-300 mb-1">Leads Generated</p>
+                      <p className="text-xl font-bold text-white">245</p>
+                      <p className="text-xs text-green-400">↑ 18.5% vs last month</p>
+                    </div>
+                    
+                    <div className="bg-white/10 p-3 rounded-lg">
+                      <p className="text-xs text-gray-300 mb-1">Conversion Rate</p>
+                      <p className="text-xl font-bold text-white">37.8%</p>
+                      <p className="text-xs text-green-400">↑ 5.2% vs last month</p>
                     </div>
                   </div>
-                  <div className="w-full h-40 relative">
-                    <div className="absolute top-0 left-0 p-3">
-                      <p className="text-xs text-gray-500">Total Spent</p>
-                      <p className="text-xl font-bold text-[#081C3A]">$682.5</p>
-                    </div>
-                    <div className="absolute bottom-0 left-0 right-0 h-32">
-                      <div className="flex items-end justify-between h-full px-4">
-                        {heights.map((height, index) => (
-                          <div 
-                            key={index}
-                            className={`w-6 rounded-t-md ${
-                              index === 5 ? "bg-[#8B5CF6]" : "bg-gray-200"
-                            }`}
-                            style={{ height: `${height}%` }}
-                          ></div>
-                        ))}
-                      </div>
+                  
+                  {/* Chart */}
+                  <div className="w-full h-32 relative">
+                    <div className="flex items-end justify-between h-full">
+                      {heights.map((height, index) => (
+                        <div 
+                          key={index}
+                          className={`w-8 rounded-t-md ${
+                            index === 5 
+                              ? "bg-gradient-to-t from-[#4BA3F2] to-[#6e8eff]" 
+                              : "bg-white/10"
+                          }`}
+                          style={{ height: `${height}%` }}
+                        ></div>
+                      ))}
                     </div>
                     <div className="absolute bottom-0 left-0 right-0">
-                      <div className="flex justify-between px-3 py-1 text-xs text-gray-400">
+                      <div className="flex justify-between px-1 py-1 text-xs text-gray-400">
                         {months.map((month, index) => (
                           <span key={index}>{month}</span>
                         ))}
                       </div>
                     </div>
                   </div>
-                </CardContent>
-              </Card>
+                </div>
+              </div>
             </div>
           </div>
         </div>
