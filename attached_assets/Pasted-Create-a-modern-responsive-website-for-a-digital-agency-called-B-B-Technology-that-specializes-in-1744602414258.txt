@@ -1,0 +1,107 @@
+Create a modern, responsive website for a digital agency called “B&B Technology” that specializes in software development, web design, influencer marketing, social media management (SMMA), and personal branding. The website should have a professional but creative look, reflecting innovation, trust, and aesthetic quality.
+
+Use a clean and elegant color palette: navy blue (#081C3A), soft white (#F5F7FA), and accent light blue (#4BA3F2). The site should use a modern, sans-serif font (e.g., Inter or Poppins) and have smooth transitions and subtle shadows to give depth.
+
+### Structure:
+
+### 1. Header / Navigation
+- Sticky top navbar
+- Left: B&B Technology logo (text or image)
+- Right: Navigation links → Home, Services, Pricing, Contact
+- A call-to-action button on the navbar: “Discover Services” (right-aligned and styled to stand out)
+
+---
+
+### 2. Hero Section
+- Fullscreen section with slogan:
+  - “We Code, We Market, You Grow.”
+- Subtext:
+  - “B&B Technology provides smart coding and marketing solutions for companies ready to grow in the digital world.”
+- 2 CTA Buttons:
+  - “Discover Services” (primary, filled)
+  - “Save Your Spot” (secondary, outlined)
+- Background: soft abstract blur or gradient (light grey/white)
+
+---
+
+### 3. Trusted By Section
+- Line of logos (can be placeholder logos like Asterisk, Opal, etc.)
+- Subtext: “Adopted by renowned, trusted, and leading enterprises”
+
+---
+
+### 4. Services Section
+- Title: “Our Services”
+- Subheading: “Full-service digital solutions tailored to your brand’s journey.”
+- 4 cards (in grid layout, responsive)
+  - **Social Media Marketing**
+    - Strategy, content creation, and growth on Instagram, TikTok, LinkedIn, and X.
+  - **Web Development**
+    - Modern, responsive websites built for performance and visual impact.
+  - **Influencer Marketing**
+    - Connecting tech-focused brands with niche influencers.
+  - **Personal Branding**
+    - Helping professionals build a personal brand and grow digital authority.
+- Each card includes a “Learn More” button with icon
+
+---
+
+### 5. Pricing Section
+- Title: “Pricing Plans”
+- Subtext: “Transparent Pricing, No Surprises”
+- 3 cards side by side (responsive stack on mobile)
+- Monthly/Yearly switch (optional with JS toggle)
+
+#### Pricing Tiers:
+- **Starter – €300/month**
+  - 1 social platform
+  - Basic content & strategy
+  - Email support
+- **Pro – €700/month**
+  - Web dev (landing page)
+  - 2 social platforms
+  - Personal branding
+  - Priority support
+- **Custom**
+  - Full website & CRM integration
+  - Cross-platform marketing
+  - Influencer management
+  - Custom quote
+
+Each plan has a bold "Get Started" or "Contact Us" button with hover effects
+
+---
+
+### 6. FAQ Section
+- Accordion style Q&A (expandable)
+- Sample questions:
+  - What services do you offer?
+  - Do I need a personal brand?
+  - Can I request custom features?
+  - How long does a website take?
+
+---
+
+### 7. Contact Section
+- Title: “Let’s Build Together”
+- Simple contact form:
+  - Name, Email, Message
+  - Dropdown for service of interest
+- Submit button with hover animation
+
+---
+
+### 8. Footer
+- Dark background with white text
+- Quick links, contact info, social media icons
+- Text: “© 2025 B&B Technology. All rights reserved.” and “info@bbtechnology.io”
+
+---
+
+### Technical Style Notes:
+- Tailwind CSS utility classes preferred
+- Responsive layout (mobile-first)
+- Use hover effects on buttons and links
+- Use card shadows and border radius for soft UI feel
+- If possible, animate CTA buttons subtly
+
