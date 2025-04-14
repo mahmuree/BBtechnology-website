@@ -1,6 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import PremiumNavbar from "@/components/PremiumNavbar";
+import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Users, Award, Zap, Clock } from "lucide-react";
 import { Link } from "wouter";
@@ -8,7 +8,7 @@ import { Link } from "wouter";
 export default function About() {
   return (
     <div className="min-h-screen flex flex-col">
-      <PremiumNavbar />
+      <Navbar />
       <main className="flex-grow">
         <section className="py-20 bg-white">
           <div className="container mx-auto px-4">

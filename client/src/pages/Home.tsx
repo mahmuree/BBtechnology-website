@@ -1,5 +1,5 @@
-import PremiumNavbar from "@/components/PremiumNavbar";
-import PremiumHeroSection from "@/components/PremiumHeroSection";
+import Navbar from "@/components/Navbar";
+import HeroSection from "@/components/HeroSection";
 import TrustedBy from "@/components/TrustedBy";
 import ServicesSection from "@/components/ServicesSection";
 import PricingSection from "@/components/PricingSection";
@@ -11,9 +11,9 @@ import Footer from "@/components/Footer";
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
-      <PremiumNavbar />
+      <Navbar />
       <main>
-        <PremiumHeroSection />
+        <HeroSection />
         <TrustedBy />
         <ServicesSection />
         <PricingSection />
