@@ -1,0 +1,118 @@
+Create a premium, fully responsive, and interactive website for *B&B Technology*, a high-end digital agency specializing in:
+
+- Social Media Marketing (SMMA)
+- Influencer Marketing
+- Branding
+- Web Development
+- Bundle Packages
+
+The entire design must reflect *an elite, modern, and trustworthy digital brand*. Think aesthetics inspired by companies like Apple, Stripe, and Notion.
+
+---
+
+🌟 HOMEPAGE STRUCTURE (FULL PAGE)
+
+Design a *one-page homepage* that includes all service pricing plans directly on the homepage itself (not just previews).
+
+### Required Sections:
+
+1. *Hero Section*
+
+- Fullscreen hero area
+- Slogan: *“We Code, We Market, You Grow.”*
+- Subheading: "Digital solutions for brands ready to scale with code, strategy, and creativity."
+- CTA Buttons: “Explore Our Plans” and “Get In Touch”
+- Background: *Smooth gradient (left to right or top to bottom)* in navy/sky tones
+
+2. *About Us*
+
+- 1–2 paragraph description of the company
+- Optional: founder photo cards with titles
+
+3. *Our Services*
+
+- Grid layout with 4 cards: SMMA, Influencer Marketing, Branding, Web Dev
+- Icons or small illustrations for each
+- Each card includes a short description + “See Plans” button
+
+4. ✅ *FULL PRICING SECTION (REQUIRED)*
+
+- Show *all packages* from all 4 services on the homepage
+- Layout: 4 categories (SMMA, Influencer, Branding, Web Dev)
+- For each category, stack 4 pricing cards: Starter, Growth, Pro, Premium
+- Each card must include:
+  - Title (e.g., “SMMA Growth Plan”)
+  - Price (e.g., €1000)
+  - Full list of features (as provided)
+  - CTA button: “Get Started” or “Request Proposal”
+- Highlight 1 package per category with “Most Popular” tag
+
+✅ Also include a 5th section for *Bundled Packages* (Startup Essentials, Brand Uplift, etc.), laid out similarly with 4 cards.
+
+5. *Contact Section*
+
+- Name, email, dropdown for interest, message field
+- WhatsApp & email buttons
+- Clean layout with soft input fields and button
+
+6. *Sticky Header & Elegant Footer*
+
+- Sticky navbar on scroll
+- Footer includes logo, email, quick links, and social icons
+
+---
+
+🎨 DESIGN RULES & UI STYLE
+
+- *Gradient background* across sections or for the entire page\
+  → Suggested: linear gradient from navy blue (#081C3A) to sky blue (#4BA3F2)
+- Cards must have *rounded corners, **subtle shadows*
+- Buttons must have:
+  - Gradient background (e.g., light to dark blue)
+  - *Hover effect:* light glow or color shift
+- Use *modern typography*: Inter, Poppins, or Satoshi
+- Use generous *whitespace and padding* for premium spacing
+- Animate:
+  - Section transitions on scroll (fade/slide)
+  - Card hover (slight scale or glow)
+  - Button hover (gradient transition + scale 1.05)
+
+---
+
+📦 PACKAGE CONTENT
+
+Use the full English translations of each B&B Technology package, with:
+
+- SMMA (4 tiers)
+- Influencer Marketing (4 tiers)
+- Branding (4 tiers)
+- Web Development (5 tiers)
+- Bundled Packages (4 combined offers)
+
+Each plan must include bullet points (6–10 per card), pricing (€), and a unique value proposition.
+
+---
+
+🖼️ VISUAL ASSETS
+
+Use the *B&B Technology logo* (we will provide) in:
+
+- Header
+- Footer
+- Hero section
+- Page favicon
+
+Color Palette:
+
+- Primary: Navy Blue #081C3A
+- Accent: Sky Blue #4BA3F2
+- Background: White or #F5F7FA
+
+---
+
+🎯 GOAL:
+
+Create a *high-end, single-page website* that feels confident, beautiful, and actionable.\
+Make users feel they are partnering with a *world-class agency* from the very first scroll.
+
+This site must *convert, **impress, and **represent excellence* — both visually and functionally.
