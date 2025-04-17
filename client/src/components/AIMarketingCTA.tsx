@@ -14,7 +14,7 @@ export default function AIMarketingCTA() {
   return (
     <section id="cta" className="py-24 relative overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#081C3A] to-[#0D2E5C] pointer-events-none"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-[#02124d] to-[#0A2040] pointer-events-none"></div>
       
       {/* Glowing circles */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-10">
@@ -96,10 +96,11 @@ export default function AIMarketingCTA() {
                 <Button
                   asChild
                   variant="outline"
-                  className="border-white/30 text-white hover:bg-white/10 px-6 py-3 rounded-lg transition-all duration-300"
+                  className="bg-[#4BA3F2]/10 border border-[#4BA3F2] text-white hover:bg-[#4BA3F2]/20 px-6 py-3 rounded-lg transition-all duration-300"
                 >
                   <Link href="/pricing">
                     View Pricing
+                    <ArrowRight className="w-4 h-4 ml-2" />
                   </Link>
                 </Button>
               </div>

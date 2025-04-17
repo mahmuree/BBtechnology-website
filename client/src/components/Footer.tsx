@@ -1,6 +1,6 @@
 import { Link, useLocation } from "wouter";
 import { Instagram, Linkedin, Youtube, Twitter, Mail, MapPin, Phone } from "lucide-react";
-import bbLogo from "@/assets/img/bb-logo.png";
+import bbLogo from "@/assets/img/bb-logo-new.png";
 
 export default function Footer() {
   const [location] = useLocation();
@@ -16,7 +16,7 @@ export default function Footer() {
   };
 
   return (
-    <footer id="contact" className="bg-[#081C3A] text-white">
+    <footer id="contact" className="bg-[#02124d] text-white">
       <div className="container mx-auto px-4 py-16">
         {/* Footer Top */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
@@ -34,8 +34,8 @@ export default function Footer() {
             <div className="space-y-4">
               <div className="flex items-center">
                 <Mail className="h-5 w-5 text-[#4BA3F2] mr-3" />
-                <a href="mailto:info@bb-technology.com" className="text-gray-300 hover:text-white transition">
-                  info@bb-technology.com
+                <a href="mailto:info@bbtechnology.io" className="text-gray-300 hover:text-white transition">
+                  info@bbtechnology.io
                 </a>
               </div>
               <div className="flex items-center">
