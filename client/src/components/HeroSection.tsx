@@ -21,7 +21,7 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section className="relative h-screen flex flex-col justify-center bg-gradient-to-br from-[#081C3A] to-[#4BA3F2] overflow-hidden">
+    <section className="relative h-screen flex flex-col justify-center bg-gradient-to-b from-[#02124d] to-[#0B2A4A] overflow-hidden">
       {/* Subtle animated background elements */}
       <div className="absolute inset-0 z-0">
         <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-[#4BA3F2] rounded-full opacity-5 blur-3xl animate-pulse"></div>
@@ -46,10 +46,7 @@ export default function HeroSection() {
             <img 
               src={bbLogo} 
               alt="B&B Technology" 
-              className="h-24 md:h-32 filter drop-shadow-[0_0_20px_rgba(75,163,242,0.6)] animate-pulse"
-              style={{
-                animation: "glowPulse 3s ease-in-out infinite",
-              }}
+              className="h-24 md:h-32 filter drop-shadow-[0_0_10px_rgba(75,163,242,0.3)]"
             />
           </div>
           
@@ -59,8 +56,9 @@ export default function HeroSection() {
           </h2>
           
           {/* Main Heading */}
-          <h1 className="text-4xl md:text-7xl font-bold leading-tight mb-6">
-            <span className="bg-gradient-to-r from-[#081C3A] via-[#2D5789] to-[#4BA3F2] text-transparent bg-clip-text">We Code, We Market, <br />You Grow.</span>
+          <h1 className="text-4xl md:text-7xl font-bold text-white leading-tight mb-6 bg-clip-text">
+            We Code, We Market, <br />
+            <span className="bg-gradient-to-r from-[#4BA3F2] to-[#6e8eff] text-transparent bg-clip-text">You Grow.</span>
           </h1>
           
           {/* Description */}

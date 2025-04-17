@@ -33,7 +33,7 @@ export default function Navbar() {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-gradient-to-br from-[#081C3A] to-[#4BA3F2] bg-opacity-95 backdrop-blur-sm shadow-md">
+    <header className="sticky top-0 z-50 bg-[#02124d] bg-opacity-95 shadow-md">
       <div className="container mx-auto px-4 flex items-center justify-between h-20">
         {/* Logo */}
         <Link href="/" className="flex items-center" onClick={closeMenu}>
@@ -106,7 +106,7 @@ export default function Navbar() {
       {/* Mobile Menu */}
       <div
         className={cn(
-          "md:hidden bg-gradient-to-br from-[#081C3A] to-[#4BA3F2] absolute w-full transition-all duration-300 ease-in-out",
+          "md:hidden bg-[#02124d] absolute w-full transition-all duration-300 ease-in-out",
           isMenuOpen ? "max-h-72 py-4" : "max-h-0 py-0 overflow-hidden"
         )}
       >
