@@ -47,3 +47,9 @@
 .gradient-bg {
   background: linear-gradient(135deg, rgba(75, 163, 242, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
 }
+
+@keyframes glowPulse {
+  0% { filter: drop-shadow(0 0 10px rgba(75, 163, 242, 0.3)); }
+  50% { filter: drop-shadow(0 0 20px rgba(75, 163, 242, 0.7)); }
+  100% { filter: drop-shadow(0 0 10px rgba(75, 163, 242, 0.3)); }
+}

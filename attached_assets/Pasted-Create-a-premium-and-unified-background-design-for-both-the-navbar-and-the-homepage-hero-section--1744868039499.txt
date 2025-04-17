@@ -1,0 +1,88 @@
+Create a premium and unified background design for both the *navbar* and the *homepage hero section* of a digital agency website called *B&B Technology*.
+
+---
+
+🎨 BACKGROUND STYLE:
+
+- Use a smooth *linear gradient* background that feels luxurious, tech-forward, and modern
+- Gradient colors:
+  - Start: Deep Navy Blue #081C3A
+  - End: Vibrant Sky Blue #4BA3F2
+- Suggested direction:
+  → to bottom right or 135deg for diagonal movement
+
+Example CSS:
+```css
+background: linear-gradient(135deg, #081C3A 0%, #4BA3F2 100%);
+This background must cover:
+
+The entire viewport of the homepage
+
+The navbar, using backdrop-blur if desired or just sharing the same background
+
+💡 LOGO AREA:
+
+In the center of the hero section, place a large version of the B&B Technology logo
+
+Add visual effects to the logo:
+
+drop-shadow
+
+soft glow
+
+blurred radial light behind the logo to give depth
+
+Example logo effect (CSS):
+
+css
+Kopyala
+Düzenle
+.logo-large {
+  filter: drop-shadow(0 4px 20px rgba(75, 163, 242, 0.6));
+  animation: glowPulse 3s ease-in-out infinite;
+}
+@keyframes glowPulse {
+  0% { filter: drop-shadow(0 0 10px rgba(75, 163, 242, 0.3)); }
+  50% { filter: drop-shadow(0 0 20px rgba(75, 163, 242, 0.7)); }
+  100% { filter: drop-shadow(0 0 10px rgba(75, 163, 242, 0.3)); }
+}
+Optional enhancement:
+
+Add a radial gradient light spot behind the logo (like Apple product reveals)
+
+css
+Kopyala
+Düzenle
+background-image: radial-gradient(circle at center, rgba(255, 255, 255, 0.08), transparent 70%);
+📐 DESIGN TONE:
+
+The overall visual should feel like:
+
+Professional
+
+Clean
+
+Futuristic
+
+Reliable
+
+It should create a cinematic first impression, without overwhelming animations
+
+🎯 GOAL:
+
+Make users feel like they’ve landed on a premium digital experience.
+The gradient + large glowing logo should immediately build trust and show design authority.
+
+yaml
+Kopyala
+Düzenle
+
+---
+
+Bu prompt doğrudan:
+
+- Replit
+- GPT Web Builder
+- Framer AI
+- Vercel AI site builder  
+gibi sistemlere uyumlu olacak şekilde optimize edilmiştir.
