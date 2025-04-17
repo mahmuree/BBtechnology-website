@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Sparkles, ArrowRight, MoveRight, Calendar } from "lucide-react";
 import { Link } from "wouter";
 import { Badge } from "@/components/ui/badge";
-import bbLogo from "@/assets/img/bb-logo.png";
+import bbLogo from "@/assets/img/bb-logo-new.png";
 
 export default function HeroSection() {
   const scrollToSection = (sectionId: string) => {
@@ -13,7 +13,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative py-24 md:py-32 bg-gradient-to-br from-[#081C3A] to-[#0D2E5C] overflow-hidden text-white">
+    <section className="relative py-24 md:py-32 bg-gradient-to-br from-[#02124d] to-[#0A2040] overflow-hidden text-white">
       {/* Background Circles */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-10">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#4BA3F2] rounded-full filter blur-3xl"></div>
@@ -74,7 +74,7 @@ export default function HeroSection() {
           <div className="md:w-1/2 flex justify-center md:justify-end">
             <div className="relative">
               {/* Main Image Container */}
-              <div className="bg-gradient-to-br from-[#081C3A] to-[#0D2E5C] p-8 rounded-2xl shadow-2xl border border-[#4BA3F2]/30">
+              <div className="bg-gradient-to-br from-[#02124d] to-[#0A2040] p-8 rounded-2xl shadow-2xl border border-[#4BA3F2]/30">
                 <img 
                   src={bbLogo} 
                   alt="B&B Technology" 
