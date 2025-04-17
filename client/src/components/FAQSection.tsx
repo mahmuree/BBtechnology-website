@@ -123,10 +123,10 @@ export default function FAQSection() {
               Have specific questions? Our support team is ready to help you with detailed answers.
             </p>
             <a 
-              href="mailto:support@bbtechnology.com" 
+              href="mailto:info@bbtechnology.io" 
               className="text-[#4BA3F2] font-medium hover:text-[#3a82d2] transition-colors inline-flex items-center"
             >
-              support@bbtechnology.com
+              info@bbtechnology.io
             </a>
           </Card>
           

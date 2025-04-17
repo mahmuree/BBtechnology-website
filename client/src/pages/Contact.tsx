@@ -79,12 +79,12 @@ export default function Contact() {
                   </div>
                   <h3 className="text-lg font-semibold text-[#081C3A] mb-2">Email Us</h3>
                   <p className="text-gray-600 mb-2">For general inquiries:</p>
-                  <a href="mailto:info@bbtechnology.com" className="text-[#4BA3F2] font-medium">
-                    info@bbtechnology.com
+                  <a href="mailto:info@bbtechnology.io" className="text-[#4BA3F2] font-medium">
+                    info@bbtechnology.io
                   </a>
                   <p className="text-gray-600 mt-2 mb-2">For support:</p>
-                  <a href="mailto:support@bbtechnology.com" className="text-[#4BA3F2] font-medium">
-                    support@bbtechnology.com
+                  <a href="mailto:info@bbtechnology.io" className="text-[#4BA3F2] font-medium">
+                    info@bbtechnology.io
                   </a>
                 </CardContent>
               </Card>
