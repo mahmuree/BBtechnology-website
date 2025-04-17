@@ -88,18 +88,7 @@ export default function HeroSection() {
             </Button>
           </div>
           
-          {/* Links */}
-          <div className={`flex flex-wrap justify-center gap-12 text-gray-400 transition-all duration-1000 delay-500 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-            <Link href="/pricing" className="text-lg hover:text-white hover:underline transition-colors">
-              View Pricing
-            </Link>
-            <Link href="/about" className="text-lg hover:text-white hover:underline transition-colors">
-              About Us
-            </Link>
-            <Link href="/contact" className="text-lg hover:text-white hover:underline transition-colors">
-              Contact
-            </Link>
-          </div>
+
         </div>
       </div>
       
