@@ -1,0 +1,139 @@
+B&B Technology adlı yazılım ve dijital pazarlama ajansı için, Apple benzeri sade ama etkileyici bir giriş bölümü (hero section) oluştur.
+
+Tasarımın hem görsel olarak elit görünmesi hem de CSS ile zenginleştirilmiş olması gerekiyor.
+
+&#x20;&#x20;
+
+Tasarım Apple’ın ana sayfa estetiğinden ilham almalı: sade ama etkileyici, modern ama dikkat çekici, profesyonel ve prestijli bir hava vermeli.
+
+
+
+\---
+
+
+
+🎯 \\*Marka Hakkında\\*
+
+B&B Technology, yazılım geliştirme, web tasarımı, sosyal medya yönetimi (SMMA), influencer iş birlikleri ve kişisel marka (personal branding) geliştirme alanlarında hizmet veren bir dijital ajanstır.
+
+
+
+\---
+
+
+
+\### 🎯 GİRİŞ (HERO) BÖLÜMÜ ÖZELLİKLERİ
+
+
+
+\- \\*Ekranı kaplayan (fullscreen)\\* bir yapı olsun &#x20;
+
+\- Arka plan: &#x20;
+
+&#x20; → Geçişli (gradient) arka plan kullanılmalı &#x20;
+
+&#x20; → Marka renkleriyle uyumlu: &#x20;
+
+&#x20;   \- Koyu Lacivert: \#081C3A\ &#x20;
+
+&#x20;   \- Açık Mavi: \#4BA3F2\ &#x20;
+
+
+
+
+
+
+
+\---
+
+
+
+\### 🖼️ GÖRSEL DESTEK & LOGO KULLANIMI
+
+
+
+\- \\*Logo mutlaka görünür şekilde kullanılmalı\\* &#x20;
+
+&#x20; → Üst menüde, arka planda büyük şekilde ya da görsel animasyonla &#x20;
+
+\- İsteğe bağlı olarak: &#x20;
+
+&#x20; \- Logo'nun arka planda hafif silüet şeklinde animasyonla gösterilmesi &#x20;
+
+&#x20; \- Veya B&B yazısının arkasından geçen parlayan bir çizgi / degrade efekti
+
+\- Apple’daki gibi ürün görseli yerine \\*ajansa özel bir ilüstrasyon\\* ya da \\*stilize logo sunumu\\* olabilir.
+
+
+
+\---
+
+
+
+\### 🎨 TASARIM STİLİ
+
+
+
+\- Butonlar: geçişli renkler (mavi tonları), hover efektiyle büyüme veya parıltı &#x20;
+
+\- Kartlar ya da butonlar hover’da yumuşak animasyonla tepki versin (scale 1.05 gibi)
+
+\- Sayfa açıldığında içerikler fade-in ya da slide-up şeklinde ekrana gelsin
+
+
+
+\---
+
+
+
+\### 📱 MOBİL UYUMLULUK
+
+
+
+\- Mobil cihazlarda içerikler ortalanmalı &#x20;
+
+\- Butonlar alt alta gelmeli &#x20;
+
+\- Başlıklar daha küçük ama okunabilir şekilde ayarlanmalı
+
+
+
+\---
+
+
+
+🎯 \\*HEDEF:\\*
+
+Ziyaretçi bu siteye girdiği anda “bu çok iyi bir ajans” hissini almalı. &#x20;
+
+Sadelik, zarafet ve profesyonellik bir arada olmalı. &#x20;
+
+Apple gibi hissettiren ama B&B Technology’ye özgü bir giriş ekranı sunulmalı.
+
+
+
+---
+
+🎨 1. ARKA PLAN & RENKLER
+
+- Sayfa arka planı *linear gradient* olmalı\
+  → Geçiş: Lacivert (#081C3A) → Açık Mavi (#4BA3F2)\
+  → Örnek:\
+  background: linear-gradient(135deg, #081C3A 0%, #4BA3F2 100%);
+
+- Sayfa genelinde gradient sadece arka planda değil, *butonlarda, başlıklarda ve linklerde de efekt olarak* kullanılmalı
+
+---
+
+🖼️ 2. LOGO KULLANIMI
+
+- Logonun arka planı kaldırılarak (.png / .svg format) şeffaf biçimde kullanılmalı
+- Hero bölümünde logoya hafif opacity veya glow efekti verilebilir
+
+CSS Örnek:
+
+css
+.logo {
+  width: 100px;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
+}
