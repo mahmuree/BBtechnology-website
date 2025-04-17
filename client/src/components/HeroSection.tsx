@@ -21,7 +21,7 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex flex-col justify-center bg-gradient-to-b from-[#02124d] to-[#0B2A4A] overflow-hidden">
+    <section className="relative h-screen flex flex-col justify-center bg-gradient-to-b from-[#02124d] to-[#0B2A4A] overflow-hidden">
       {/* Subtle animated background elements */}
       <div className="absolute inset-0 z-0">
         <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-[#4BA3F2] rounded-full opacity-5 blur-3xl animate-pulse"></div>
@@ -93,10 +93,10 @@ export default function HeroSection() {
       </div>
       
       {/* Scroll down indicator */}
-      <div className="absolute bottom-8 left-0 right-0 flex justify-center animate-bounce">
+      <div className="fixed bottom-12 left-0 right-0 flex justify-center animate-bounce z-20">
         <button 
           onClick={() => scrollToSection("services")} 
-          className="text-white/50 hover:text-white transition-colors"
+          className="text-white/70 hover:text-white transition-colors bg-[#4BA3F2]/10 backdrop-blur-sm p-2 rounded-full"
           aria-label="Scroll down"
         >
           <ChevronDown className="h-8 w-8" />
