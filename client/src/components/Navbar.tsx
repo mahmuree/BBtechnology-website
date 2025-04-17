@@ -33,7 +33,7 @@ export default function Navbar() {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-[#02124d] bg-opacity-95 shadow-md">
+    <header className="sticky top-0 z-50 bg-[#02124d] shadow-md">
       <div className="container mx-auto px-4 flex items-center justify-between h-20">
         {/* Logo */}
         <Link href="/" className="flex items-center" onClick={closeMenu}>

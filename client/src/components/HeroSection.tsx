@@ -1,11 +1,15 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, ChevronDown } from "lucide-react";
+import { ArrowRight, ChevronDown, Sparkles } from "lucide-react";
 import { Link } from "wouter";
 import bbLogo from "@/assets/img/bb-logo-new.png";
 
 export default function HeroSection() {
   const [isVisible, setIsVisible] = useState(false);
+  const [codeText, setCodeText] = useState("");
+  const [growText, setGrowText] = useState("");
+  const codeFullText = "We Code, We Market,";
+  const growFullText = "You Grow.";
   
   // Scroll to section function
   const scrollToSection = (sectionId: string) => {
@@ -15,28 +19,48 @@ export default function HeroSection() {
     }
   };
   
-  // Animation on load
+  // Type animation effect
   useEffect(() => {
+    let codeIndex = 0;
+    let growIndex = 0;
+    let codeTimer: ReturnType<typeof setTimeout>;
+    let growTimer: ReturnType<typeof setTimeout>;
+    
+    // First animation - "We Code, We Market,"
+    const animateCode = () => {
+      if (codeIndex < codeFullText.length) {
+        setCodeText(codeFullText.substring(0, codeIndex + 1));
+        codeIndex++;
+        codeTimer = setTimeout(animateCode, 70);
+      } else {
+        // Start second animation after a delay
+        setTimeout(() => {
+          const animateGrow = () => {
+            if (growIndex < growFullText.length) {
+              setGrowText(growFullText.substring(0, growIndex + 1));
+              growIndex++;
+              growTimer = setTimeout(animateGrow, 70);
+            }
+          };
+          animateGrow();
+        }, 500);
+      }
+    };
+    
+    // Start the first animation after component is visible
+    setTimeout(animateCode, 500);
+    
+    // Set visibility for fade-in effect
     setIsVisible(true);
+    
+    return () => {
+      clearTimeout(codeTimer);
+      clearTimeout(growTimer);
+    };
   }, []);
 
   return (
-    <section className="relative h-screen flex flex-col justify-center bg-gradient-to-b from-[#02124d] to-[#0B2A4A] overflow-hidden">
-      {/* Subtle animated background elements */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-[#4BA3F2] rounded-full opacity-5 blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/3 right-1/3 w-[300px] h-[300px] bg-[#4BA3F2] rounded-full opacity-5 blur-3xl animate-pulse" style={{ animationDelay: "1s" }}></div>
-      </div>
-      
-      {/* Logo in background (subtle) */}
-      <div className="absolute inset-0 z-0 flex items-center justify-center opacity-[0.03]">
-        <img 
-          src={bbLogo} 
-          alt="" 
-          className="w-[700px] h-[700px] object-contain"
-        />
-      </div>
-      
+    <section className="relative h-screen flex flex-col justify-center bg-[#02124d] overflow-hidden">
       {/* Content */}
       <div className="container mx-auto px-4 relative z-10 flex flex-col items-center">
         {/* Main Content with animations */}
@@ -55,10 +79,22 @@ export default function HeroSection() {
             Software · Digital Marketing · Branding
           </h2>
           
-          {/* Main Heading */}
-          <h1 className="text-4xl md:text-7xl font-bold text-white leading-tight mb-6 bg-clip-text">
-            We Code, We Market, <br />
-            <span className="bg-gradient-to-r from-[#4BA3F2] to-[#6e8eff] text-transparent bg-clip-text">You Grow.</span>
+          {/* Main Heading with typing effect */}
+          <h1 className="text-4xl md:text-7xl font-bold text-white leading-tight mb-6">
+            <div className="flex items-center justify-center h-16 md:h-24">
+              <span className="mr-2">{codeText}</span>
+            </div>
+            <div className="flex items-center justify-center h-16 md:h-24">
+              <span 
+                className="bg-gradient-to-r from-[#4BA3F2] to-[#6e8eff] text-transparent bg-clip-text animate-pulse"
+                style={{filter: "drop-shadow(0 0 10px rgba(75,163,242,0.7))"}}
+              >
+                {growText}
+              </span>
+              {growText.length === growFullText.length && (
+                <Sparkles className="h-6 w-6 text-[#4BA3F2] animate-pulse ml-2" />
+              )}
+            </div>
           </h1>
           
           {/* Description */}
@@ -87,8 +123,6 @@ export default function HeroSection() {
               </Link>
             </Button>
           </div>
-          
-
         </div>
       </div>
       
