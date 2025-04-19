@@ -36,7 +36,7 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 bg-[#02124d] shadow-none backdrop-blur-sm">
         {/* Premium gradient effect */}
         <div className="absolute inset-0 z-0 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-b from-[#02124d] to-[#02124d]"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-[#02124d]"></div>
           <div className="absolute bottom-0 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-[#4BA3F2]/10 to-transparent"></div>
         </div>
       <div className="container mx-auto px-4 flex items-center justify-between h-20 relative z-10">
