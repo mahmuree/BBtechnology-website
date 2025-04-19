@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
-import { Check, ArrowRight, Users, TrendingUp } from "lucide-react";
+import { Check, ArrowRight, Megaphone, Users, Instagram } from "lucide-react";
 import { formatCurrency } from "@/lib/utils";
 import { pricingCategories } from "@/data/pricingData";
 import { Link } from "wouter";
@@ -9,7 +9,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export default function InfluencerMarketing() {
-  // Get the influencer pricing category data
+  // Get the influencer marketing pricing category
   const serviceData = pricingCategories.find(cat => cat.id === "influencer");
 
   if (!serviceData) {
@@ -40,7 +40,7 @@ export default function InfluencerMarketing() {
             </Badge>
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Influencer Marketing</h1>
             <p className="text-xl text-gray-200 max-w-3xl mx-auto mb-8">
-              We connect brands with tech and software-focused influencers to drive impactful collaborations.
+              Strategic influencer partnerships that amplify your brand and drive authentic engagement.
             </p>
             <Button 
               asChild
@@ -59,38 +59,37 @@ export default function InfluencerMarketing() {
             <div className="max-w-4xl mx-auto">
               <h2 className="text-3xl font-bold text-[#081C3A] mb-6">What We Offer</h2>
               <p className="text-gray-700 mb-8 text-lg">
-                Our Influencer Marketing services connect your brand with the perfect content creators 
-                and industry voices to amplify your message. We specialize in tech and software-focused 
-                influencer collaborations that drive authentic engagement and measurable results.
+                Our Influencer Marketing services connect your brand with the right content creators and
+                social media personalities to reach engaged audiences through authentic, trusted voices.
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
                 <div className="bg-gray-50 p-6 rounded-lg">
-                  <h3 className="text-xl font-semibold text-[#081C3A] mb-3">Influencer Identification</h3>
+                  <h3 className="text-xl font-semibold text-[#081C3A] mb-3">Influencer Discovery</h3>
                   <p className="text-gray-600">
-                    We research and identify the perfect influencers for your brand based on audience demographics, 
-                    engagement rates, and alignment with your brand values and goals.
+                    We identify and vet the perfect influencers for your brand based on audience demographics,
+                    engagement metrics, content quality, and brand alignment.
                   </p>
                 </div>
                 <div className="bg-gray-50 p-6 rounded-lg">
                   <h3 className="text-xl font-semibold text-[#081C3A] mb-3">Campaign Strategy</h3>
                   <p className="text-gray-600">
-                    Our team develops comprehensive campaign strategies that define goals, messaging, creative 
-                    direction, and performance metrics to maximize your influencer collaborations.
+                    We develop comprehensive influencer campaigns with clear objectives, creative direction, 
+                    content guidelines, and performance metrics to maximize your ROI.
                   </p>
                 </div>
                 <div className="bg-gray-50 p-6 rounded-lg">
                   <h3 className="text-xl font-semibold text-[#081C3A] mb-3">Relationship Management</h3>
                   <p className="text-gray-600">
-                    We handle all aspects of influencer communications, contract negotiations, content approvals, 
-                    and ongoing relationship building to ensure smooth collaborations.
+                    Our team handles all aspects of influencer relationships, from initial outreach and negotiations
+                    to contract management, content approval, and long-term partnership development.
                   </p>
                 </div>
                 <div className="bg-gray-50 p-6 rounded-lg">
-                  <h3 className="text-xl font-semibold text-[#081C3A] mb-3">Performance Analysis</h3>
+                  <h3 className="text-xl font-semibold text-[#081C3A] mb-3">Performance Analytics</h3>
                   <p className="text-gray-600">
-                    Detailed campaign tracking and reporting provide insights into engagement, reach, conversions, 
-                    and ROI to refine your influencer marketing strategy continuously.
+                    We track and analyze campaign performance with detailed reports on engagement, 
+                    reach, conversions, and ROI to optimize future influencer collaborations.
                   </p>
                 </div>
               </div>
@@ -172,7 +171,7 @@ export default function InfluencerMarketing() {
 
             <div className="text-center mt-12">
               <p className="text-gray-600 mb-6">
-                Need a custom influencer strategy? Contact us for a tailored solution.
+                Need a custom influencer marketing solution? Contact us to discuss your specific campaign goals.
               </p>
               <Button 
                 asChild
@@ -190,9 +189,9 @@ export default function InfluencerMarketing() {
         {/* CTA Section */}
         <section className="py-16 bg-gradient-to-r from-[#081C3A] to-[#0D2E5C] text-white">
           <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl font-bold mb-6">Ready to Amplify Your Brand with Influencers?</h2>
+            <h2 className="text-3xl font-bold mb-6">Ready to Leverage Influencer Marketing?</h2>
             <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-              Partner with us to create authentic influencer campaigns that resonate with your target audience and drive measurable results.
+              Partner with the right creators to amplify your brand message and connect with new audiences authentically.
             </p>
             <Button 
               asChild

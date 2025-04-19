@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
-import { Check, ArrowRight } from "lucide-react";
+import { Check, ArrowRight, Share2, Megaphone } from "lucide-react";
 import { formatCurrency } from "@/lib/utils";
 import { pricingCategories } from "@/data/pricingData";
 import { Link } from "wouter";
@@ -9,7 +9,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export default function SocialMediaMarketing() {
-  // Get the SMMA pricing category data
+  // Get the social media pricing category
   const serviceData = pricingCategories.find(cat => cat.id === "smma");
 
   if (!serviceData) {
@@ -40,7 +40,7 @@ export default function SocialMediaMarketing() {
             </Badge>
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Social Media Marketing</h1>
             <p className="text-xl text-gray-200 max-w-3xl mx-auto mb-8">
-              Strategy, content creation, and growth on platforms like Instagram, TikTok, LinkedIn, and X.
+              Strategic social media management to boost your brand's online presence and engagement.
             </p>
             <Button 
               asChild
@@ -59,39 +59,37 @@ export default function SocialMediaMarketing() {
             <div className="max-w-4xl mx-auto">
               <h2 className="text-3xl font-bold text-[#081C3A] mb-6">What We Offer</h2>
               <p className="text-gray-700 mb-8 text-lg">
-                Our Social Media Marketing Agency (SMMA) services provide comprehensive management and 
-                growth strategies for your social media presence. We focus on creating engaging content, 
-                implementing targeted campaigns, and analyzing performance to maximize your brand's impact 
-                on social platforms.
+                Our Social Media Marketing services help you build a strong online presence, engage with your audience, 
+                and drive measurable results through strategic content and campaigns across all major platforms.
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
                 <div className="bg-gray-50 p-6 rounded-lg">
-                  <h3 className="text-xl font-semibold text-[#081C3A] mb-3">Platform Expertise</h3>
+                  <h3 className="text-xl font-semibold text-[#081C3A] mb-3">Platform Strategy</h3>
                   <p className="text-gray-600">
-                    We specialize in content creation and marketing strategies for Instagram, TikTok, 
-                    LinkedIn, Twitter/X, Facebook, and YouTube, tailoring approaches to each platform's unique audience.
+                    We create custom social media strategies tailored to your business goals, target audience, 
+                    and industry, focusing on the platforms that will drive the best results for your brand.
                   </p>
                 </div>
                 <div className="bg-gray-50 p-6 rounded-lg">
                   <h3 className="text-xl font-semibold text-[#081C3A] mb-3">Content Creation</h3>
                   <p className="text-gray-600">
-                    Our team creates professional posts, stories, reels, and videos designed to engage your 
-                    target audience and enhance your brand presence with consistent messaging.
+                    Our team develops engaging, high-quality content that resonates with your audience—from 
+                    eye-catching graphics and videos to compelling copy that drives engagement.
                   </p>
                 </div>
                 <div className="bg-gray-50 p-6 rounded-lg">
                   <h3 className="text-xl font-semibold text-[#081C3A] mb-3">Community Management</h3>
                   <p className="text-gray-600">
-                    We handle audience interaction, respond to comments and messages, and build an engaged 
-                    community around your brand through active conversation management.
+                    We actively engage with your audience through comments, messages, and mentions, building 
+                    relationships and fostering a loyal community around your brand.
                   </p>
                 </div>
                 <div className="bg-gray-50 p-6 rounded-lg">
-                  <h3 className="text-xl font-semibold text-[#081C3A] mb-3">Analytics & Reporting</h3>
+                  <h3 className="text-xl font-semibold text-[#081C3A] mb-3">Paid Advertising</h3>
                   <p className="text-gray-600">
-                    Gain insights into performance with detailed analytics reports tracking engagement, 
-                    growth, reach, and conversion metrics to continuously refine your strategy.
+                    Our experts create and manage targeted social media ad campaigns that maximize your ROI, 
+                    reach new audiences, and drive specific business objectives.
                   </p>
                 </div>
               </div>
@@ -173,7 +171,7 @@ export default function SocialMediaMarketing() {
 
             <div className="text-center mt-12">
               <p className="text-gray-600 mb-6">
-                Not sure which plan is right for you? Contact us for a custom solution.
+                Need a custom social media solution? Contact us to discuss your specific needs.
               </p>
               <Button 
                 asChild
@@ -193,7 +191,7 @@ export default function SocialMediaMarketing() {
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-3xl font-bold mb-6">Ready to Transform Your Social Media Presence?</h2>
             <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-              Let's work together to build your audience, increase engagement, and drive results through strategic social media marketing.
+              Let's build a strategic social media presence that connects with your audience and drives real business results.
             </p>
             <Button 
               asChild

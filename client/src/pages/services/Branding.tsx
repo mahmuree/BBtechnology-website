@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
-import { Check, ArrowRight } from "lucide-react";
+import { Check, ArrowRight, User, Brush, Palette } from "lucide-react";
 import { formatCurrency } from "@/lib/utils";
 import { pricingCategories } from "@/data/pricingData";
 import { Link } from "wouter";
@@ -9,7 +9,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export default function Branding() {
-  // Get the branding pricing category data
+  // Get the branding pricing category
   const serviceData = pricingCategories.find(cat => cat.id === "branding");
 
   if (!serviceData) {
@@ -40,7 +40,7 @@ export default function Branding() {
             </Badge>
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Branding</h1>
             <p className="text-xl text-gray-200 max-w-3xl mx-auto mb-8">
-              Build your online identity and position yourself as an expert in your industry.
+              Distinctive brand identities that resonate with your audience and set you apart in the market.
             </p>
             <Button 
               asChild
@@ -59,38 +59,37 @@ export default function Branding() {
             <div className="max-w-4xl mx-auto">
               <h2 className="text-3xl font-bold text-[#081C3A] mb-6">What We Offer</h2>
               <p className="text-gray-700 mb-8 text-lg">
-                Our Branding services help establish a compelling, cohesive brand identity that resonates with your 
-                target audience. We develop branding strategies that communicate your unique value proposition and 
-                create a lasting impression in your market.
+                Our Branding services help you build a strong, cohesive brand identity that communicates your values,
+                connects with your target audience, and creates memorable experiences across all touchpoints.
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
                 <div className="bg-gray-50 p-6 rounded-lg">
                   <h3 className="text-xl font-semibold text-[#081C3A] mb-3">Brand Strategy</h3>
                   <p className="text-gray-600">
-                    We develop comprehensive brand strategies that define your brand positioning, 
-                    voice, messaging, and values to create a solid foundation for all your marketing efforts.
+                    We define your brand's positioning, values, personality, and messaging through comprehensive research
+                    and strategic development to create a foundation for all your marketing efforts.
                   </p>
                 </div>
                 <div className="bg-gray-50 p-6 rounded-lg">
                   <h3 className="text-xl font-semibold text-[#081C3A] mb-3">Visual Identity</h3>
                   <p className="text-gray-600">
-                    Our designers create stunning visual identities including logos, color schemes, 
-                    typography, and design systems that express your brand's personality and values.
+                    Our design team creates distinctive visual elements including logos, color palettes, typography, and
+                    imagery that bring your brand to life and create a consistent, recognizable presence.
                   </p>
                 </div>
                 <div className="bg-gray-50 p-6 rounded-lg">
                   <h3 className="text-xl font-semibold text-[#081C3A] mb-3">Brand Guidelines</h3>
                   <p className="text-gray-600">
-                    We provide detailed brand guidelines that ensure consistent implementation 
-                    of your brand across all touchpoints, from digital channels to print materials.
+                    We develop comprehensive brand guidelines that document all aspects of your brand identity and
+                    provide clear rules for consistent application across all channels and materials.
                   </p>
                 </div>
                 <div className="bg-gray-50 p-6 rounded-lg">
-                  <h3 className="text-xl font-semibold text-[#081C3A] mb-3">Brand Messaging</h3>
+                  <h3 className="text-xl font-semibold text-[#081C3A] mb-3">Brand Application</h3>
                   <p className="text-gray-600">
-                    Our team crafts compelling brand messaging, including taglines, value propositions, 
-                    and content frameworks that communicate your brand's story effectively.
+                    From business cards and marketing materials to digital assets and environments, we apply
+                    your brand identity across all touchpoints to create a cohesive brand experience.
                   </p>
                 </div>
               </div>
@@ -137,8 +136,8 @@ export default function Branding() {
                       <span className="text-3xl font-bold text-[#081C3A]">
                         {typeof plan.price === 'number' ? formatCurrency(plan.price) : plan.price}
                       </span>
-                      {typeof plan.price === 'number' && (
-                        <span className="text-gray-500 text-sm ml-1">/month</span>
+                      {typeof plan.price === 'number' && plan.name !== 'Custom' && (
+                        <span className="text-gray-500 text-sm ml-1">one-time</span>
                       )}
                     </div>
                     <ul className="space-y-3 mb-6">
@@ -172,7 +171,7 @@ export default function Branding() {
 
             <div className="text-center mt-12">
               <p className="text-gray-600 mb-6">
-                Looking for a custom branding solution? Contact us to discuss your specific needs.
+                Need a custom branding solution? Contact us to discuss your specific business needs.
               </p>
               <Button 
                 asChild
@@ -190,9 +189,9 @@ export default function Branding() {
         {/* CTA Section */}
         <section className="py-16 bg-gradient-to-r from-[#081C3A] to-[#0D2E5C] text-white">
           <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl font-bold mb-6">Ready to Build a Powerful Brand?</h2>
+            <h2 className="text-3xl font-bold mb-6">Ready to Build a Distinctive Brand?</h2>
             <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-              Let's create a distinctive brand identity that sets you apart from competitors and connects with your audience.
+              Let's create a memorable brand identity that resonates with your audience and sets your business apart.
             </p>
             <Button 
               asChild
