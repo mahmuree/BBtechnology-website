@@ -65,13 +65,13 @@ export default function ServicesSection() {
                 </h3>
                 <p className="text-gray-600 mb-6">{service.description}</p>
                 <Link 
-                  href={`/pricing?tab=${service.title.toLowerCase().includes('social') ? 'smma' : 
-                                        service.title.toLowerCase().includes('influencer') ? 'influencer' : 
+                  href={`/services/${service.title.toLowerCase().includes('social') ? 'social-media-marketing' : 
+                                        service.title.toLowerCase().includes('influencer') ? 'influencer-marketing' : 
                                         service.title.toLowerCase().includes('brand') ? 'branding' : 
-                                        'webdev'}`}
+                                        'web-development'}`}
                   className="flex items-center text-[#4BA3F2] font-medium hover:text-[#3a82d2] transition-colors"
                 >
-                  View Pricing <ArrowRight className="ml-2 h-4 w-4" />
+                  Learn More <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </CardContent>
             </Card>

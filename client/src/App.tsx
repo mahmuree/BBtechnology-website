@@ -6,6 +6,10 @@ import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
 import About from "@/pages/About";
 import Services from "@/pages/Services";
+import SocialMediaMarketing from "@/pages/services/SocialMediaMarketing";
+import InfluencerMarketing from "@/pages/services/InfluencerMarketing";
+import Branding from "@/pages/services/Branding";
+import WebDevelopment from "@/pages/services/WebDevelopment";
 import Pricing from "@/pages/Pricing";
 import Contact from "@/pages/Contact";
 import { useEffect } from "react";
@@ -32,6 +36,10 @@ function Router() {
         <Route path="/" component={Home} />
         <Route path="/about" component={About} />
         <Route path="/services" component={Services} />
+        <Route path="/services/social-media-marketing" component={SocialMediaMarketing} />
+        <Route path="/services/influencer-marketing" component={InfluencerMarketing} />
+        <Route path="/services/branding" component={Branding} />
+        <Route path="/services/web-development" component={WebDevelopment} />
         <Route path="/pricing" component={Pricing} />
         <Route path="/contact" component={Contact} />
         <Route component={NotFound} />

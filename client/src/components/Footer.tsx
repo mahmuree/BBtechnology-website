@@ -64,22 +64,22 @@ export default function Footer() {
             </h4>
             <ul className="space-y-3">
               <li>
-                <Link href="/pricing?tab=smma" className="text-gray-400 hover:text-white transition flex items-center">
+                <Link href="/services/social-media-marketing" className="text-gray-400 hover:text-white transition flex items-center">
                   <span className="text-[#4BA3F2] mr-2">›</span> Social Media Marketing
                 </Link>
               </li>
               <li>
-                <Link href="/pricing?tab=webdev" className="text-gray-400 hover:text-white transition flex items-center">
+                <Link href="/services/web-development" className="text-gray-400 hover:text-white transition flex items-center">
                   <span className="text-[#4BA3F2] mr-2">›</span> Web Development
                 </Link>
               </li>
               <li>
-                <Link href="/pricing?tab=branding" className="text-gray-400 hover:text-white transition flex items-center">
+                <Link href="/services/branding" className="text-gray-400 hover:text-white transition flex items-center">
                   <span className="text-[#4BA3F2] mr-2">›</span> Branding
                 </Link>
               </li>
               <li>
-                <Link href="/pricing?tab=influencer" className="text-gray-400 hover:text-white transition flex items-center">
+                <Link href="/services/influencer-marketing" className="text-gray-400 hover:text-white transition flex items-center">
                   <span className="text-[#4BA3F2] mr-2">›</span> Influencer Marketing
                 </Link>
               </li>

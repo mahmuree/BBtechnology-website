@@ -71,7 +71,13 @@ export default function Services() {
                   </div>
                   <h3 className="font-semibold text-[#081C3A] text-xl mb-3">{service.title}</h3>
                   <p className="text-gray-600 mb-4">{service.description}</p>
-                  <Link href={`/services/${service.title.toLowerCase().replace(/\s+/g, '-')}`} className="inline-flex items-center text-[#4BA3F2] font-medium">
+                  <Link 
+                    href={`/services/${service.title.toLowerCase().includes('social') ? 'social-media-marketing' : 
+                                        service.title.toLowerCase().includes('influencer') ? 'influencer-marketing' : 
+                                        service.title.toLowerCase().includes('brand') ? 'branding' : 
+                                        'web-development'}`} 
+                    className="inline-flex items-center text-[#4BA3F2] font-medium"
+                  >
                     Learn more
                     <ArrowRight className="ml-1 h-4 w-4" />
                   </Link>
