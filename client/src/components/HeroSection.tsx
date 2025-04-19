@@ -61,6 +61,24 @@ export default function HeroSection() {
 
   return (
     <section className="relative h-screen flex flex-col justify-center bg-[#02124d] overflow-hidden">
+      {/* Bubble gradients in background */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        {/* Large bubbles */}
+        <div className="absolute top-[10%] left-[15%] w-[350px] h-[350px] rounded-full bg-gradient-radial from-[#fefffb]/10 to-[#02124d] opacity-30"></div>
+        <div className="absolute bottom-[20%] right-[10%] w-[300px] h-[300px] rounded-full bg-gradient-radial from-[#fefffb]/15 to-[#02124d] opacity-30"></div>
+        <div className="absolute top-[40%] left-[50%] w-[500px] h-[500px] rounded-full bg-gradient-radial from-[#fefffb]/5 to-[#02124d] opacity-20 transform -translate-x-1/2"></div>
+        
+        {/* Medium bubbles */}
+        <div className="absolute top-[15%] right-[20%] w-[180px] h-[180px] rounded-full bg-gradient-radial from-[#fefffb]/10 to-[#02124d] opacity-25"></div>
+        <div className="absolute bottom-[15%] left-[25%] w-[200px] h-[200px] rounded-full bg-gradient-radial from-[#fefffb]/10 to-[#02124d] opacity-30"></div>
+        <div className="absolute top-[70%] right-[35%] w-[220px] h-[220px] rounded-full bg-gradient-radial from-[#fefffb]/8 to-[#02124d] opacity-25"></div>
+        
+        {/* Small bubbles */}
+        <div className="absolute top-[35%] right-[40%] w-[120px] h-[120px] rounded-full bg-gradient-radial from-[#fefffb]/10 to-[#02124d] opacity-20"></div>
+        <div className="absolute bottom-[40%] left-[15%] w-[100px] h-[100px] rounded-full bg-gradient-radial from-[#fefffb]/12 to-[#02124d] opacity-20"></div>
+        <div className="absolute top-[60%] left-[30%] w-[80px] h-[80px] rounded-full bg-gradient-radial from-[#fefffb]/15 to-[#02124d] opacity-25"></div>
+        <div className="absolute top-[25%] left-[40%] w-[90px] h-[90px] rounded-full bg-gradient-radial from-[#fefffb]/12 to-[#02124d] opacity-20"></div>
+      </div>
       {/* Content */}
       <div className="container mx-auto px-4 relative z-10 flex flex-col items-center">
         {/* Main Content with animations */}
