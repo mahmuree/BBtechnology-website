@@ -26,8 +26,8 @@ export async function sendEmail(params: EmailParams): Promise<boolean> {
       to: params.to,
       from: from,
       subject: params.subject,
-      text: params.text,
-      html: params.html,
+      text: params.text || '',
+      html: params.html || '',
     });
     
     // Also send a copy to the business email
@@ -35,8 +35,8 @@ export async function sendEmail(params: EmailParams): Promise<boolean> {
       to: from,
       from: from,
       subject: `[COPY] ${params.subject}`,
-      text: params.text ? `Copy of email sent to ${params.to}\n\n${params.text}` : undefined,
-      html: params.html ? `<p>Copy of email sent to ${params.to}</p>${params.html}` : undefined,
+      text: params.text ? `Copy of email sent to ${params.to}\n\n${params.text}` : '',
+      html: params.html ? `<p>Copy of email sent to ${params.to}</p>${params.html}` : '',
     });
     
     console.log(`Email sent to ${params.to} and copied to ${from}`);
