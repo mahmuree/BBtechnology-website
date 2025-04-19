@@ -60,7 +60,7 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section className="relative h-screen flex flex-col justify-center bg-gradient-to-b from-[#081C3A] to-[#4BA3F2] overflow-hidden">
+    <section className="relative h-screen flex flex-col justify-center bg-[#02124d] overflow-hidden">
       {/* Content */}
       <div className="container mx-auto px-4 relative z-10 flex flex-col items-center">
         {/* Main Content with animations */}
@@ -75,8 +75,8 @@ export default function HeroSection() {
           </div>
           
           {/* Tagline */}
-          <h2 className="text-white/80 font-semibold text-xl md:text-2xl mb-4">
-            Social Media · Web Development · Branding · Influencer Marketing
+          <h2 className="text-[#4BA3F2] font-semibold text-xl md:text-2xl mb-4">
+            Software · Digital Marketing · Branding
           </h2>
           
           {/* Main Heading with typing effect */}
@@ -87,7 +87,7 @@ export default function HeroSection() {
             <div className="flex items-center justify-center h-16 md:h-24">
               <span 
                 className="bg-gradient-to-r from-[#4BA3F2] to-[#6e8eff] text-transparent bg-clip-text animate-pulse"
-                style={{filter: "drop-shadow(0 0 12px rgba(75,163,242,0.8))", textShadow: "0 0 15px rgba(75,163,242,0.8)"}}
+                style={{filter: "drop-shadow(0 0 10px rgba(75,163,242,0.7))"}}
               >
                 {growText}
               </span>
