@@ -64,8 +64,8 @@ export default function HeroSection() {
       {/* Premium background effect with white to #02124d gradient */}
       <div className="absolute inset-0 z-0 overflow-hidden">
 
-        {/* Main background gradient with specified colors, emphasizing darker tones */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#02124d] via-[#02124d] via-[#092381] to-[#4b5a8b]"></div>
+        {/* Main background gradient with slightly more emphasis on navy blue */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#02124d] via-[#02124d] via-[#02124d] via-[#092381] to-[#4b5a8b]"></div>
         
         {/* Premium overlay effect - very subtle depth pattern */}
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiIGlkPSJhIj48c3RvcCBzdG9wLWNvbG9yPSIjMDIxMjRkIiBzdG9wLW9wYWNpdHk9IjAuMDIiIG9mZnNldD0iMCUiLz48c3RvcCBzdG9wLWNvbG9yPSIjODA4OGEzIiBzdG9wLW9wYWNpdHk9Ii4wMSIgb2Zmc2V0PSIxMDAlIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHBhdGggZmlsbD0idXJsKCNhKSIgZD0iTTAgMGg2MHY2MEgweiIvPjwvc3ZnPg==')] opacity-40"></div>
@@ -87,12 +87,12 @@ export default function HeroSection() {
       <div className="container mx-auto px-4 relative z-10 flex flex-col items-center">
         {/* Main Content with animations */}
         <div className={`text-center max-w-4xl mx-auto transition-all duration-1000 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-          {/* Logo */}
-          <div className="mb-12 flex justify-center">
+          {/* Logo - enlarged and moved up */}
+          <div className="mb-16 -mt-8 flex justify-center">
             <img 
               src={bbLogo} 
               alt="B&B Technology" 
-              className="h-24 md:h-32 filter drop-shadow-[0_0_10px_rgba(75,163,242,0.3)]"
+              className="h-28 md:h-36 filter drop-shadow-[0_0_12px_rgba(75,163,242,0.4)]"
             />
           </div>
           
