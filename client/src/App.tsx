@@ -12,6 +12,7 @@ import Branding from "./pages/services/Branding";
 import WebDevelopment from "./pages/services/WebDevelopment";
 import Pricing from "@/pages/Pricing";
 import Contact from "@/pages/Contact";
+import Schedule from "@/pages/Schedule";
 import { useEffect } from "react";
 
 // Scroll to top component for page transitions
@@ -42,6 +43,7 @@ function Router() {
         <Route path="/services/web-development" component={WebDevelopment} />
         <Route path="/pricing" component={Pricing} />
         <Route path="/contact" component={Contact} />
+        <Route path="/schedule" component={Schedule} />
         <Route component={NotFound} />
       </Switch>
     </>

@@ -179,7 +179,7 @@ export default function WebDevelopment() {
                 variant="outline" 
                 className="bg-white border-[#4BA3F2] text-[#4BA3F2] hover:bg-[#4BA3F2]/5"
               >
-                <Link href="/contact">
+                <Link href="/schedule">
                   Schedule a Consultation
                 </Link>
               </Button>

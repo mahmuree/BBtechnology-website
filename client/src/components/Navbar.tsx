@@ -88,9 +88,9 @@ export default function Navbar() {
           variant="outline"
           className="hidden md:flex items-center bg-gradient-to-r from-[#4BA3F2] to-[#6e8eff] text-white hover:from-[#3a82d2] hover:to-[#5470d6] transition duration-300 border-none shadow-md hover:shadow-lg"
         >
-          <Link href="/contact" onClick={closeMenu}>
+          <Link href="/schedule" onClick={closeMenu}>
             <Sparkles className="mr-2 h-4 w-4" />
-            Get in Touch
+            Schedule a Call
           </Link>
         </Button>
 
@@ -151,14 +151,21 @@ export default function Navbar() {
           >
             Contact
           </Link>
+          <Link
+            href="/schedule"
+            className={`${isActive("/schedule")} hover:text-[#4BA3F2] transition py-2 font-medium`}
+            onClick={closeMenu}
+          >
+            Schedule a Call
+          </Link>
           <Button
             asChild
             variant="outline"
             className="w-full flex items-center justify-center bg-gradient-to-r from-[#4BA3F2] to-[#6e8eff] text-white hover:from-[#3a82d2] hover:to-[#5470d6] transition duration-300 border-none"
           >
-            <Link href="/contact" onClick={closeMenu}>
+            <Link href="/schedule" onClick={closeMenu}>
               <Sparkles className="mr-2 h-4 w-4" />
-              Get in Touch
+              Book Consultation
             </Link>
           </Button>
         </div>
