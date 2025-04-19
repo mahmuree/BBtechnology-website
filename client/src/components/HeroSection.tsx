@@ -64,24 +64,24 @@ export default function HeroSection() {
       {/* Premium background effect with white to #02124d gradient */}
       <div className="absolute inset-0 z-0 overflow-hidden">
 
-        {/* Main background gradient with specified colors */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#8088a3] via-[#092381] to-[#02124d]"></div>
+        {/* Main background gradient with specified colors in reverse order */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#02124d] via-[#092381] via-[#4b5a8b] to-[#8088a3]"></div>
         
         {/* Premium overlay effect - very subtle depth pattern */}
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiIGlkPSJhIj48c3RvcCBzdG9wLWNvbG9yPSIjODA4OGEzIiBzdG9wLW9wYWNpdHk9IjAuMDIiIG9mZnNldD0iMCUiLz48c3RvcCBzdG9wLWNvbG9yPSIjMDIxMjRkIiBzdG9wLW9wYWNpdHk9Ii4wMSIgb2Zmc2V0PSIxMDAlIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHBhdGggZmlsbD0idXJsKCNhKSIgZD0iTTAgMGg2MHY2MEgweiIvPjwvc3ZnPg==')] opacity-40"></div>
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiIGlkPSJhIj48c3RvcCBzdG9wLWNvbG9yPSIjMDIxMjRkIiBzdG9wLW9wYWNpdHk9IjAuMDIiIG9mZnNldD0iMCUiLz48c3RvcCBzdG9wLWNvbG9yPSIjODA4OGEzIiBzdG9wLW9wYWNpdHk9Ii4wMSIgb2Zmc2V0PSIxMDAlIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHBhdGggZmlsbD0idXJsKCNhKSIgZD0iTTAgMGg2MHY2MEgweiIvPjwvc3ZnPg==')] opacity-40"></div>
         
-        {/* Subtle light gradients for depth */}
-        <div className="absolute top-0 inset-x-0 h-[100px] bg-gradient-to-b from-[#8088a3]/20 to-transparent"></div>
-        <div className="absolute bottom-0 inset-x-0 h-[100px] bg-gradient-to-t from-[#02124d]/50 to-transparent"></div>
+        {/* Subtle light gradients for depth - adjusted for new direction */}
+        <div className="absolute top-0 inset-x-0 h-[100px] bg-gradient-to-b from-[#02124d]/30 to-transparent"></div>
+        <div className="absolute bottom-0 inset-x-0 h-[100px] bg-gradient-to-t from-[#8088a3]/20 to-transparent"></div>
         
-        {/* Diagonal light accent */}
+        {/* Diagonal light accent - adjusted for new direction */}
         <div className="absolute top-0 right-0 bottom-0 left-0 overflow-hidden">
-          <div className="absolute top-[-10%] left-[-10%] w-[120%] h-[120%] bg-gradient-to-br from-[#8088a3]/10 via-[#092381]/5 to-transparent transform rotate-12 opacity-30"></div>
+          <div className="absolute top-[-10%] left-[-10%] w-[120%] h-[120%] bg-gradient-to-br from-[#02124d]/10 via-[#4b5a8b]/5 to-transparent transform rotate-12 opacity-30"></div>
         </div>
         
-        {/* Subtle light edge accents */}
-        <div className="absolute top-0 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-[#8088a3]/30 to-transparent"></div>
-        <div className="absolute bottom-0 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-[#092381]/20 to-transparent"></div>
+        {/* Subtle light edge accents - adjusted for new direction */}
+        <div className="absolute top-0 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-[#02124d]/30 to-transparent"></div>
+        <div className="absolute bottom-0 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-[#8088a3]/20 to-transparent"></div>
       </div>
       {/* Content */}
       <div className="container mx-auto px-4 relative z-10 flex flex-col items-center">
