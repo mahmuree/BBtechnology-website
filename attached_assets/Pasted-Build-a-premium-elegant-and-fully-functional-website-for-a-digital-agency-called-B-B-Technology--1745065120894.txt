@@ -1,0 +1,85 @@
+Build a premium, elegant, and fully functional website for a digital agency called **B&B Technology**.
+
+✨ GENERAL DESIGN AESTHETIC:
+- Use a **clean, minimal, and elegant design** with a smooth **linear gradient background**
+- Background gradient: from deep navy blue (`#081C3A`) to sky blue (`#4BA3F2`)
+- Smooth gradient flow across sections with **no visible divider lines**
+- The **navbar must not have any borders**; it should blend seamlessly into the hero section
+
+🖼️ HERO SECTION:
+- Centered, large glowing logo (use transparent logo provided)
+- Company slogan below the logo:  
+  `"We Code, We Market, You Grow."`  
+  → Apply a subtle **fade-in or slide-up animation** and **text glow effect**
+- Add two call-to-action buttons:
+  - “Discover Services”
+  - “Schedule a Consultation”
+- Buttons must have gradient backgrounds and smooth hover effects (slight glow or scale)
+- Typography: Use `Poppins` or `Inter`, bold for titles, light for subtitles
+
+🧭 NAVBAR:
+- Sticky top navbar with transparent background (no borders or shadows)
+- Sections: `Home`, `Services`, `Pricing`, `Company`, `Contact`
+- Highlight current section with animated underline
+
+🔗 SECTIONS TO INCLUDE:
+
+1. **Services**
+   - List 4 service categories with individual “Learn More” buttons:
+     - Social Media Marketing (SMMA)
+     - Influencer Marketing
+     - Branding
+     - Web Development
+   - Create a **dedicated page** for each service. Each page should describe the service, list the packages (Starter / Growth / Pro / Premium), and include a CTA to contact or schedule a consultation.
+
+2. **Pricing**
+   - Display same pricing section on both `Home` and `Pricing` pages
+   - Tabbed layout with all 4 categories (SMMA, Influencer Marketing, Branding, Web Dev)
+   - Dynamic tab switching (no reload)
+   - Mark one package in each tab as "Most Popular"
+   - Responsive cards with icons, gradients, and subtle hover animations
+
+3. **Schedule a Consultation**
+   - Add a booking form that allows users to select **date and time** (30-minute slots)
+   - Show available time slots synced from our **Google Calendar** (use a service like Calendly, Cron, or Google Calendar API)
+   - Collect:
+     - Name
+     - Email
+     - Preferred service
+     - Preferred date & time
+   - Send confirmation to both user and internal email
+
+4. **Legal**
+   - Create the following pages and link them in the footer:
+     - Privacy Policy
+     - Terms of Service
+     - Cookie Policy
+     - GDPR Compliance
+   - Use clean typography and legal layout format
+   - Display these under “Legal” column in the footer
+
+5. **Footer**
+   - Clean 4-column layout:
+     - Services | Company | Contact | Legal
+   - Underline links with full-width underline on hover
+   - Remove “Trusted by industry leaders” section
+   - Add copyright text:  
+     `© 2025 B&B Technology. All rights reserved.`
+
+🧩 FUNCTIONAL DETAILS:
+- All “Learn More” buttons should now link to real, existing service pages instead of 404
+- Responsive design across all screen sizes (mobile, tablet, desktop)
+- Ensure accessibility best practices (contrast, semantic tags)
+- Animations should be **subtle and tasteful**
+
+📂 FILE & ORGANIZATION:
+- Structure site with clean routing:
+  - `/services/social-media-marketing`
+  - `/services/influencer-marketing`
+  - `/services/branding`
+  - `/services/web-development`
+  - `/legal/privacy-policy`, etc.
+
+🎯 GOAL:
+Deliver a visually stunning, functional, and trustworthy website for B&B Technology that demonstrates premium quality in both design and execution. The landing experience must feel elite, yet simple and professional.
+
