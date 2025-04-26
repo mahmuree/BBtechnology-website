@@ -1,42 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
-import { AlignJustify, X, Sparkles, ChevronDown } from "lucide-react";
+import { AlignJustify, X, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
 import bbLogo from "@/assets/img/bb-logo-new.png";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [location] = useLocation();
-  const [showServicesButton, setShowServicesButton] = useState(true);
-
-  useEffect(() => {
-    // Only set up the scroll listener on the home page
-    if (location !== '/') {
-      setShowServicesButton(false);
-      return;
-    }
-
-    const handleScroll = () => {
-      const servicesSection = document.getElementById('services');
-      if (servicesSection) {
-        const servicesSectionTop = servicesSection.getBoundingClientRect().top;
-        // Show button when above services section, hide when at or below
-        setShowServicesButton(servicesSectionTop > 100);
-      }
-    };
-
-    // Set initial state
-    handleScroll();
-    
-    // Add scroll event listener
-    window.addEventListener('scroll', handleScroll);
-    
-    // Clean up
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [location]);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -111,17 +82,7 @@ export default function Navbar() {
           </Link>
         </nav>
 
-        {/* Our Services Button - visible only on homepage and when above services section */}
-        {location === '/' && showServicesButton && (
-          <Button
-            onClick={() => scrollToSection('services')}
-            variant="ghost"
-            className="hidden md:flex items-center text-white hover:text-[#4BA3F2] hover:bg-transparent transition duration-200"
-          >
-            <span className="mr-1">Our Services</span>
-            <ChevronDown className="h-4 w-4" />
-          </Button>
-        )}
+
 
         {/* CTA Button */}
         <Button
@@ -178,15 +139,7 @@ export default function Navbar() {
           >
             Services
           </Link>
-          {location === '/' && showServicesButton && (
-            <button
-              onClick={() => scrollToSection('services')}
-              className="text-white hover:text-[#4BA3F2] transition py-2 font-medium text-left flex items-center"
-            >
-              <span className="mr-1">Our Services</span>
-              <ChevronDown className="h-4 w-4" />
-            </button>
-          )}
+
           <Link
             href="/pricing"
             className={`${isActive("/pricing")} hover:text-[#4BA3F2] transition py-2 font-medium`}

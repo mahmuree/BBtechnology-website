@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ChevronDown, Sparkles } from "lucide-react";
 import { Link } from "wouter";
@@ -8,6 +8,7 @@ export default function HeroSection() {
   const [isVisible, setIsVisible] = useState(false);
   const [codeText, setCodeText] = useState("");
   const [growText, setGrowText] = useState("");
+  const [showScrollIndicator, setShowScrollIndicator] = useState(true);
   const codeFullText = "We Code, We Market,";
   const growFullText = "You Grow.";
   
@@ -18,6 +19,29 @@ export default function HeroSection() {
       section.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
+
+  // Handle scroll to show/hide the scroll indicator
+  useEffect(() => {
+    const handleScroll = () => {
+      const servicesSection = document.getElementById('services');
+      if (servicesSection) {
+        const servicesSectionTop = servicesSection.getBoundingClientRect().top;
+        // Show indicator when above services section, hide when at or below
+        setShowScrollIndicator(servicesSectionTop > 200);
+      }
+    };
+
+    // Set initial state
+    handleScroll();
+    
+    // Add scroll event listener
+    window.addEventListener('scroll', handleScroll);
+    
+    // Clean up
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
   
   // Type animation effect
   useEffect(() => {
@@ -148,16 +172,18 @@ export default function HeroSection() {
         </div>
       </div>
       
-      {/* Scroll down indicator */}
-      <div className="fixed bottom-12 left-0 right-0 flex justify-center animate-bounce z-20">
-        <button 
-          onClick={() => scrollToSection("services")} 
-          className="text-white/70 hover:text-white transition-colors bg-[#4BA3F2]/10 backdrop-blur-sm p-2 rounded-full"
-          aria-label="Scroll down"
-        >
-          <ChevronDown className="h-8 w-8" />
-        </button>
-      </div>
+      {/* Scroll down indicator - only visible when above services section */}
+      {showScrollIndicator && (
+        <div className="fixed bottom-12 left-0 right-0 flex justify-center animate-bounce z-20">
+          <button 
+            onClick={() => scrollToSection("services")} 
+            className="text-white/70 hover:text-white transition-colors bg-[#4BA3F2]/10 backdrop-blur-sm p-3 rounded-full shadow-lg shadow-[#4BA3F2]/20"
+            aria-label="Scroll down to services"
+          >
+            <ChevronDown className="h-8 w-8" />
+          </button>
+        </div>
+      )}
     </section>
   );
 }
