@@ -188,7 +188,7 @@ This is an automatically generated event from the B&B Technology booking system.
     });
 
     // Return the Google Meet link if available, or a fallback
-    const meetLink = response.data.hangoutLink || "https://meet.google.com";
+    const meetLink = response.data.hangoutLink || "https://meet.google.com/new";
     return meetLink;
   } catch (error) {
     console.error('Error creating calendar event:', error);
@@ -198,7 +198,7 @@ This is an automatically generated event from the B&B Technology booking system.
       console.warn('Google Calendar authentication failed when creating event. Credentials may be invalid or expired.');
     }
     
-    // In case of error, return a placeholder
-    return "https://meet.google.com/placeholder-link";
+    // In case of error, return link to create a new meeting
+    return "https://meet.google.com/new";
   }
 }

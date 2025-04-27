@@ -64,11 +64,11 @@ Thank you for scheduling a consultation with B&B Technology!
 ⏰ Time: ${time}
 🌐 Service: ${service}
 
-Your Google Meet link:
+Create your Google Meet meeting:
 🔗 ${meetingLink}
 
-We're looking forward to discussing your project needs and how we can help your business grow. 
-Please join the video call at the scheduled time using the link above.
+After creating your meeting, please share the link with us at info@bbtechnology.io.
+We're looking forward to discussing your project needs and how we can help your business grow.
 
 If you need to reschedule or cancel, please contact us at info@bbtechnology.io or reply to this email.
 
@@ -136,15 +136,15 @@ The B&B Technology Team
       </div>
       
       <div class="meeting-link">
-        <p><strong>Your Google Meet link:</strong></p>
-        <p><a href="${meetingLink}" target="_blank">${meetingLink}</a></p>
-        <p style="font-size: 13px; margin-top: 10px; color: #666;">Click the link above at your scheduled time to join the meeting. No installation needed - works directly in your browser.</p>
+        <p><strong>Create Your Google Meet Meeting:</strong></p>
+        <p><a href="${meetingLink}" target="_blank">Create Meeting Link</a></p>
+        <p style="font-size: 13px; margin-top: 10px; color: #666;">Please click the link above to create a Google Meet meeting, then share the meeting link with us at <a href="mailto:info@bbtechnology.io" style="color: #4BA3F2;">info@bbtechnology.io</a> so we can join at the scheduled time.</p>
       </div>
       
-      <p>We're looking forward to connecting with you and exploring how we can help your business grow.</p>
+      <p>After creating your meeting, please email us the link so we can add it to our calendar. We're looking forward to connecting with you and exploring how we can help your business grow.</p>
       
       <div class="button-container">
-        <a href="${meetingLink}" class="button" target="_blank">Join Meeting at Scheduled Time</a>
+        <a href="${meetingLink}" class="button" target="_blank">Create Google Meet Session</a>
       </div>
       
       <div class="divider"></div>

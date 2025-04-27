@@ -101,33 +101,10 @@ router.post('/api/booking', async (req: Request, res: Response) => {
       });
     }
     
-    // For now, skip Google Calendar verification due to authentication issues
-    // Create a placeholder meeting link with real Google Meet format
-    // Format: https://meet.google.com/xxx-yyyy-zzz where xxx, yyyy, zzz are random alphanumeric strings
-    const generateRandomMeetCode = () => {
-      const chars = 'abcdefghijklmnopqrstuvwxyz';
-      const nums = '0123456789';
-      const all = chars + nums;
-      
-      // First part: 3 characters
-      let part1 = '';
-      for (let i = 0; i < 3; i++) {
-        part1 += chars.charAt(Math.floor(Math.random() * chars.length));
-      }
-      
-      // Second and third parts: 4 characters each
-      let part2 = '';
-      let part3 = '';
-      for (let i = 0; i < 4; i++) {
-        part2 += all.charAt(Math.floor(Math.random() * all.length));
-        part3 += all.charAt(Math.floor(Math.random() * all.length));
-      }
-      
-      return `${part1}-${part2}-${part3}`;
-    };
-    
-    const meetCode = generateRandomMeetCode();
-    const meetingLink = `https://meet.google.com/${meetCode}`;
+    // Instead of creating a random meeting code that will cause security issues
+    // We'll use the official Google Meet new meeting page that will allow the user
+    // to create their own valid meeting
+    const meetingLink = "https://meet.google.com/new";
     
     // Store the reservation
     const reservation = reservationStorage.createReservation({
