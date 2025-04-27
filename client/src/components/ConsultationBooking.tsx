@@ -323,7 +323,7 @@ export default function ConsultationBooking() {
           </div>
           <p className="text-sm text-gray-500 text-center mb-6">
             <Info className="h-4 w-4 inline-block mr-1" />
-            The meeting will be created in our calendar in Europe/Amsterdam time zone, but the times shown are in your local time zone.
+            The meeting will be created in your local time zone ({userTimezone}). The time you selected is exactly the time the meeting will appear in your calendar.
           </p>
           <Button 
             onClick={handleBookAnother}
@@ -533,7 +533,7 @@ export default function ConsultationBooking() {
             
             <div className="text-sm text-gray-500 flex items-center mb-4">
               <Info className="h-4 w-4 mr-2" />
-              <span>We're available Monday-Friday, 9:00 AM - 5:00 PM (Europe/Amsterdam). Weekend slots are unavailable.</span>
+              <span>We're available Monday-Friday, 9:00 AM - 5:00 PM. All times are shown in your local time zone ({userTimezone}). Weekend slots are unavailable.</span>
             </div>
           </div>
           

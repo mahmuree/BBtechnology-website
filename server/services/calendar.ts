@@ -58,13 +58,17 @@ function getOAuth2Client(): OAuth2Client {
  * @param time - Time string in "h:mm a" format (e.g., "3:30 PM")
  * @returns Date object
  */
+/**
+ * Parse the date and time strings from the user input and create a correct date object.
+ * This function carefully preserves the exact time specified by the user without any timezone adjustments.
+ */
 function parseDateTime(date: string, time: string): Date {
   console.log(`Creating calendar event for: ${date}, Time: ${time}`);
   
-  // Tarihi ve saati ayrı ayrı parçalara ayıralım
+  // Parse date components
   const [month, day, year] = date.match(/(\w+)\s+(\d+),\s+(\d+)/)?.slice(1) || ['', '', ''];
   
-  // Saat bilgisini parçalara ayıralım
+  // Parse time components
   const [timeStr, ampm] = time.split(' ');
   const [hourStr, minuteStr] = timeStr.split(':');
   
@@ -72,7 +76,7 @@ function parseDateTime(date: string, time: string): Date {
   const minute = parseInt(minuteStr, 10);
   const isPM = ampm?.toLowerCase() === 'pm';
   
-  // 12 saat formatından 24 saat formatına dönüştürme
+  // Convert from 12-hour to 24-hour format
   let hour24 = hour;
   if (isPM && hour !== 12) {
     hour24 = hour + 12;
@@ -80,13 +84,14 @@ function parseDateTime(date: string, time: string): Date {
     hour24 = 0;
   }
   
-  // Ay indeksini bulalım (JavaScript'te aylar 0-11 arasındadır)
+  // Convert month name to month index (0-11)
   const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 
                      'July', 'August', 'September', 'October', 'November', 'December'];
   const monthIndex = monthNames.findIndex(m => m.toLowerCase() === month.toLowerCase());
   
-  // Tarih nesnesi oluşturalım
-  const dateObj = new Date(Date.UTC(
+  // Create a date object that exactly represents the user's selected date and time
+  // We use the Date constructor with explicit components to avoid timezone issues
+  const dateObj = new Date(
     parseInt(year, 10),
     monthIndex,
     parseInt(day, 10),
@@ -94,14 +99,14 @@ function parseDateTime(date: string, time: string): Date {
     minute,
     0,
     0
-  ));
+  );
   
-  // Log detaylı bilgileri
+  // Log detailed information for debugging
   console.log(`Time conversion check (improved):
   - Input date/time: "${date} ${time}"
   - Parsed components: year=${year}, month=${month}(${monthIndex}), day=${day}
   - Time components: hour=${hour}, minute=${minute}, ampm=${ampm}, hour24=${hour24}
-  - Created UTC date object: ${dateObj.toISOString()}
+  - Created date object (ISO): ${dateObj.toISOString()}
   - Local representation: ${format(dateObj, 'MMMM d, yyyy h:mm a')}
   - Current system time zone: ${Intl.DateTimeFormat().resolvedOptions().timeZone}
   `);
@@ -204,9 +209,13 @@ DURATION: 30 minutes
 This is an automatically generated event from the B&B Technology booking system.
 `;
 
+    // Add user's message if provided
     if (message) {
       description += `\nCLIENT'S MESSAGE:\n${message}`;
     }
+    
+    // Always include the timezone information for debugging/troubleshooting
+    description += `\n\nUSER TIMEZONE: ${userTimezone}`;
     
     // Hazırlık notlarını kaldırdık
 

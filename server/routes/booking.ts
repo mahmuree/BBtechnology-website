@@ -107,7 +107,7 @@ router.post('/api/booking', async (req: Request, res: Response) => {
     
     try {
       // Create an event in Google Calendar including a Google Meet link
-      console.log(`Creating calendar event for: ${bookingData.name}, Date: ${bookingData.date}, Time: ${bookingData.time}`);
+      console.log(`Creating calendar event for: ${bookingData.name}, Date: ${bookingData.date}, Time: ${bookingData.time}, Timezone: ${bookingData.userTimezone}`);
       
       const meetingLink = await createCalendarEvent(
         bookingData.name,
@@ -165,6 +165,7 @@ Email: ${bookingData.email}
 Service: ${bookingData.service}
 Date: ${bookingData.date}
 Time: ${bookingData.time}
+User's Timezone: ${bookingData.userTimezone}
 Google Meet Link: ${meetingLink}
 Message: ${bookingData.message || 'No message provided'}
 
@@ -181,6 +182,7 @@ This meeting has been automatically added to your Google Calendar.
     <p><strong>Service:</strong> ${bookingData.service}</p>
     <p><strong>Date:</strong> ${bookingData.date}</p>
     <p><strong>Time:</strong> ${bookingData.time}</p>
+    <p><strong>User's Timezone:</strong> ${bookingData.userTimezone}</p>
     <p><strong>Google Meet Link:</strong> <a href="${meetingLink}">${meetingLink}</a></p>
     <p><strong>Message:</strong> ${bookingData.message || 'No message provided'}</p>
   </div>
