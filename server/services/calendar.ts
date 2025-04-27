@@ -57,8 +57,15 @@ function getOAuth2Client(): OAuth2Client {
  * @returns Date object
  */
 function parseDateTime(date: string, time: string): Date {
+  // Dize formatında tarih ve saati birleştir
   const combinedDateTimeStr = `${date} ${time}`;
-  return parse(combinedDateTimeStr, 'MMMM d, yyyy h:mm a', new Date());
+  
+  // Parse işlemini gerçekleştir
+  const parsedDate = parse(combinedDateTimeStr, 'MMMM d, yyyy h:mm a', new Date());
+  
+  console.log(`Parsed date info - Original input: "${date} ${time}" -> Parsed as: "${parsedDate.toISOString()}"`);
+  
+  return parsedDate;
 }
 
 /**
@@ -171,11 +178,11 @@ This is an automatically generated event from the B&B Technology booking system.
       description,
       start: {
         dateTime: startTime.toISOString(),
-        timeZone: 'UTC',
+        timeZone: 'Europe/Istanbul', // Türkiye saat dilimi
       },
       end: {
         dateTime: endTime.toISOString(),
-        timeZone: 'UTC',
+        timeZone: 'Europe/Istanbul', // Türkiye saat dilimi
       },
       attendees: [
         { email: email, displayName: name },

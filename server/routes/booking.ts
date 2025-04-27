@@ -106,6 +106,8 @@ router.post('/api/booking', async (req: Request, res: Response) => {
     
     try {
       // Create an event in Google Calendar including a Google Meet link
+      console.log(`Creating calendar event for: ${bookingData.name}, Date: ${bookingData.date}, Time: ${bookingData.time}`);
+      
       const meetingLink = await createCalendarEvent(
         bookingData.name,
         bookingData.email,
