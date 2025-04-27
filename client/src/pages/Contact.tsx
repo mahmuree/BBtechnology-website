@@ -5,7 +5,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail } from "lucide-react";
 import { useState } from "react";
 
 export default function Contact() {
@@ -84,40 +84,9 @@ export default function Contact() {
                 </CardContent>
               </Card>
 
-              <Card className="bg-white rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.08)] border-none">
-                <CardContent className="p-6 flex flex-col items-center text-center">
-                  <div className="h-12 w-12 rounded-full bg-[#EEF4FF] flex items-center justify-center mb-4">
-                    <Phone className="h-6 w-6 text-[#4BA3F2]" />
-                  </div>
-                  <h3 className="text-lg font-semibold text-[#081C3A] mb-2">Call Us</h3>
-                  <p className="text-gray-600 mb-2">Main Office:</p>
-                  <a href="tel:+1234567890" className="text-[#4BA3F2] font-medium">
-                    +1 (234) 567-890
-                  </a>
-                  <p className="text-gray-600 mt-2 mb-2">Customer Support:</p>
-                  <a href="tel:+1234567899" className="text-[#4BA3F2] font-medium">
-                    +1 (234) 567-899
-                  </a>
-                </CardContent>
-              </Card>
-
-              <Card className="bg-white rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.08)] border-none">
-                <CardContent className="p-6 flex flex-col items-center text-center">
-                  <div className="h-12 w-12 rounded-full bg-[#EEF4FF] flex items-center justify-center mb-4">
-                    <MapPin className="h-6 w-6 text-[#4BA3F2]" />
-                  </div>
-                  <h3 className="text-lg font-semibold text-[#081C3A] mb-2">Visit Us</h3>
-                  <p className="text-gray-600 mb-2">Headquarters:</p>
-                  <address className="text-[#081C3A] not-italic font-medium">
-                    123 Digital Avenue<br />
-                    Tech District<br />
-                    New York, NY 10001
-                  </address>
-                  <p className="text-gray-600 mt-3 text-sm">
-                    Monday - Friday: 9am - 6pm
-                  </p>
-                </CardContent>
-              </Card>
+              {/* Card for future phone information has been temporarily removed */}
+              
+              {/* Card for future address information has been temporarily removed */}
             </div>
 
             <div className="bg-gray-50 rounded-xl p-8 md:p-12">

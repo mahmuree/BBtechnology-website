@@ -83,7 +83,7 @@ export default function PricingSection() {
                   >
                     {plan.popular && (
                       <div className="absolute -top-3 right-5 z-10">
-                        <div className="bg-gradient-to-r from-[#4BA3F2] to-[#6e8eff] text-white text-xs font-bold py-1 px-4 rounded-full shadow-md">
+                        <div className="bg-[#4BA3F2] text-white text-xs font-bold py-1 px-4 rounded-full shadow-md">
                           MOST POPULAR
                         </div>
                       </div>
@@ -133,11 +133,10 @@ export default function PricingSection() {
         <div className="mt-16 text-center">
           <Button 
             asChild
-            variant="outline" 
-            className="border-[#4BA3F2] text-[#4BA3F2] hover:bg-[#4BA3F2] hover:text-white transition-all duration-300"
+            className="bg-gradient-to-r from-[#4BA3F2] to-[#6e8eff] hover:from-[#3a82d2] hover:to-[#5470d6] text-white font-medium px-8 py-6 text-lg shadow-lg hover:shadow-xl transition-all duration-300"
           >
             <Link href="/pricing">
-              View All Pricing Options <ArrowRight className="ml-2 h-4 w-4" />
+              View All Plans <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
           </Button>
         </div>

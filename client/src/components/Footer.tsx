@@ -1,5 +1,5 @@
 import { Link, useLocation } from "wouter";
-import { Instagram, Linkedin, Youtube, Twitter, Mail, MapPin, Phone } from "lucide-react";
+import { Instagram, Linkedin, Youtube, Twitter, Mail } from "lucide-react";
 import bbLogo from "@/assets/img/bb-logo-new.png";
 
 export default function Footer() {
@@ -38,20 +38,7 @@ export default function Footer() {
                   info@bbtechnology.io
                 </a>
               </div>
-              <div className="flex items-center">
-                <Phone className="h-5 w-5 text-[#4BA3F2] mr-3" />
-                <a href="tel:+1234567890" className="text-gray-300 hover:text-white transition">
-                  +1 (234) 567-890
-                </a>
-              </div>
-              <div className="flex items-start">
-                <MapPin className="h-5 w-5 text-[#4BA3F2] mr-3 mt-1" />
-                <address className="text-gray-300 not-italic">
-                  Westblaak 180<br />
-                  3012 KN Rotterdam<br />
-                  The Netherlands
-                </address>
-              </div>
+
             </div>
           </div>
 
