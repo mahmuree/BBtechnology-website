@@ -82,8 +82,20 @@ export default function About() {
                 </div>
               </div>
               <div className="rounded-xl overflow-hidden h-[400px] relative">
-                <div className="absolute inset-0 bg-gradient-to-tr from-[#02124d] to-[#4BA3F2] opacity-90"></div>
-                <div className="absolute inset-0 flex flex-col items-center justify-center text-white p-8">
+                {/* Premium background effect with color gradient similar to homepage */}
+                <div className="absolute inset-0 z-0 overflow-hidden">
+                  {/* Main background gradient with navy blue emphasis */}
+                  <div className="absolute inset-0 bg-gradient-to-b from-[#02124d] via-[#02124d] via-[#092381] to-[#4b5a8b]"></div>
+                  
+                  {/* Premium overlay effect - subtle depth pattern */}
+                  <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiIGlkPSJhIj48c3RvcCBzdG9wLWNvbG9yPSIjMDIxMjRkIiBzdG9wLW9wYWNpdHk9IjAuMDIiIG9mZnNldD0iMCUiLz48c3RvcCBzdG9wLWNvbG9yPSIjODA4OGEzIiBzdG9wLW9wYWNpdHk9Ii4wMSIgb2Zmc2V0PSIxMDAlIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHBhdGggZmlsbD0idXJsKCNhKSIgZD0iTTAgMGg2MHY2MEgweiIvPjwvc3ZnPg==')] opacity-40"></div>
+                  
+                  {/* Diagonal light accent */}
+                  <div className="absolute top-0 right-0 bottom-0 left-0 overflow-hidden">
+                    <div className="absolute top-[-10%] left-[-10%] w-[120%] h-[120%] bg-gradient-to-br from-[#02124d]/15 via-[#092381]/10 to-transparent transform rotate-12 opacity-30"></div>
+                  </div>
+                </div>
+                <div className="absolute inset-0 flex flex-col items-center justify-center text-white p-8 z-10">
                   <h3 className="text-3xl font-bold mb-6 text-center">Our Global Vision</h3>
                   <div className="mb-8 w-20 h-1 bg-white/50 rounded"></div>
                   <p className="text-center text-white/80 max-w-md">
@@ -146,16 +158,32 @@ export default function About() {
               </div>
             </div>
 
-            <div className="bg-[#081C3A] rounded-xl p-8 md:p-12 text-center">
-              <h3 className="text-2xl font-bold text-white mb-4">
-                Ready to Transform Your Digital Presence?
-              </h3>
-              <p className="text-gray-300 max-w-2xl mx-auto mb-8">
-                Partner with B&B Technology and take your business to new heights. Our team is ready to help you achieve your digital goals.
-              </p>
-              <Button asChild className="bg-white text-[#081C3A] hover:bg-gray-100">
-                <Link href="/contact">Get in Touch</Link>
-              </Button>
+            <div className="rounded-xl overflow-hidden text-white shadow-xl relative">
+              {/* Premium background effect with color gradient similar to homepage */}
+              <div className="absolute inset-0 z-0 overflow-hidden">
+                {/* Main background gradient with navy blue emphasis */}
+                <div className="absolute inset-0 bg-gradient-to-b from-[#02124d] via-[#02124d] via-[#092381] to-[#4b5a8b]"></div>
+                
+                {/* Premium overlay effect - subtle depth pattern */}
+                <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiIGlkPSJhIj48c3RvcCBzdG9wLWNvbG9yPSIjMDIxMjRkIiBzdG9wLW9wYWNpdHk9IjAuMDIiIG9mZnNldD0iMCUiLz48c3RvcCBzdG9wLWNvbG9yPSIjODA4OGEzIiBzdG9wLW9wYWNpdHk9Ii4wMSIgb2Zmc2V0PSIxMDAlIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHBhdGggZmlsbD0idXJsKCNhKSIgZD0iTTAgMGg2MHY2MEgweiIvPjwvc3ZnPg==')] opacity-40"></div>
+                
+                {/* Diagonal light accent */}
+                <div className="absolute top-0 right-0 bottom-0 left-0 overflow-hidden">
+                  <div className="absolute top-[-10%] left-[-10%] w-[120%] h-[120%] bg-gradient-to-br from-[#02124d]/15 via-[#092381]/10 to-transparent transform rotate-12 opacity-30"></div>
+                </div>
+              </div>
+              
+              <div className="p-8 md:p-12 text-center relative z-10">
+                <h3 className="text-2xl font-bold text-white mb-4">
+                  Ready to Transform Your Digital Presence?
+                </h3>
+                <p className="text-gray-300 max-w-2xl mx-auto mb-8">
+                  Partner with B&B Technology and take your business to new heights. Our team is ready to help you achieve your digital goals.
+                </p>
+                <Button asChild className="bg-white text-[#02124d] hover:bg-gray-100">
+                  <Link href="/contact">Get in Touch</Link>
+                </Button>
+              </div>
             </div>
           </div>
         </section>
