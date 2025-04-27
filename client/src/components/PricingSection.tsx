@@ -131,29 +131,39 @@ export default function PricingSection() {
         </Tabs>
 
         <div className="mt-16 text-center">
-          <div className="mx-auto max-w-xl py-4 px-8 bg-white shadow-lg rounded-lg border-2 border-[#4BA3F2] mb-8">
-            <h3 className="text-xl font-bold text-[#081C3A] mb-3">Need to see all our pricing options?</h3>
-            <p className="text-gray-600 mb-4">Check out our complete pricing page for detailed information about all our plans and packages.</p>
-            <Button 
-              asChild
-              className="bg-[#02124d]/90 text-white font-medium px-8 py-6 text-lg shadow-lg hover:shadow-xl transition-all duration-300 border border-white/20 hover:bg-[#02124d]"
-            >
-              <Link href="/pricing">
-                View All Plans <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
-            </Button>
-          </div>
+          <Button 
+            asChild
+            className="bg-[#02124d]/90 text-white font-medium px-8 py-6 text-lg shadow-lg hover:shadow-xl transition-all duration-300 border border-white/20 hover:bg-[#02124d]"
+          >
+            <Link href="/pricing">
+              View All Plans <ArrowRight className="ml-2 h-5 w-5" />
+            </Link>
+          </Button>
         </div>
         
-        <div className="mt-20 bg-gradient-to-r from-[#081C3A] to-[#0D2E5C] p-12 rounded-xl text-white shadow-xl">
-          <div className="max-w-3xl mx-auto text-center">
+        <div className="mt-20 rounded-xl overflow-hidden text-white shadow-xl relative">
+          {/* Premium background effect with color gradient similar to homepage */}
+          <div className="absolute inset-0 z-0 overflow-hidden">
+            {/* Main background gradient with navy blue emphasis */}
+            <div className="absolute inset-0 bg-gradient-to-b from-[#02124d] via-[#02124d] via-[#092381] to-[#4b5a8b]"></div>
+            
+            {/* Premium overlay effect - subtle depth pattern */}
+            <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiIGlkPSJhIj48c3RvcCBzdG9wLWNvbG9yPSIjMDIxMjRkIiBzdG9wLW9wYWNpdHk9IjAuMDIiIG9mZnNldD0iMCUiLz48c3RvcCBzdG9wLWNvbG9yPSIjODA4OGEzIiBzdG9wLW9wYWNpdHk9Ii4wMSIgb2Zmc2V0PSIxMDAlIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHBhdGggZmlsbD0idXJsKCNhKSIgZD0iTTAgMGg2MHY2MEgweiIvPjwvc3ZnPg==')] opacity-40"></div>
+            
+            {/* Diagonal light accent */}
+            <div className="absolute top-0 right-0 bottom-0 left-0 overflow-hidden">
+              <div className="absolute top-[-10%] left-[-10%] w-[120%] h-[120%] bg-gradient-to-br from-[#02124d]/15 via-[#092381]/10 to-transparent transform rotate-12 opacity-30"></div>
+            </div>
+          </div>
+          
+          <div className="max-w-3xl mx-auto text-center p-12 relative z-10">
             <h3 className="text-2xl font-bold mb-4">Need a Custom Solution?</h3>
             <p className="text-gray-300 mb-8">
               We understand that every business is unique. Our team can create a tailored package that perfectly fits your specific requirements and budget.
             </p>
             <Button 
               asChild
-              className="bg-white text-[#081C3A] hover:bg-gray-100 font-medium px-6 shadow-lg"
+              className="bg-white text-[#02124d] hover:bg-gray-100 font-medium px-6 shadow-lg"
             >
               <Link href="/contact">
                 Contact Our Specialists <ArrowRight className="ml-2 h-4 w-4" />
