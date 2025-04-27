@@ -95,7 +95,7 @@ export default function AIMarketingCTA() {
                   asChild
                   className="bg-gradient-to-r from-[#4BA3F2] to-[#6e8eff] hover:from-[#3a82d2] hover:to-[#5470d6] text-white px-6 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
                 >
-                  <Link href="/contact">
+                  <Link href="/schedule">
                     Schedule a Demo
                     <ArrowRight className="w-4 h-4 ml-2" />
                   </Link>

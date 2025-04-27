@@ -19,8 +19,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { format, addDays, addBusinessDays, isWeekend, setHours, setMinutes, isAfter, isBefore } from "date-fns";
-import { apiRequest } from "@/lib/queryClient";
+import { format, isWeekend, setHours, setMinutes, isAfter, isBefore } from "date-fns";
 
 // SendGrid integration component for scheduling consultations
 export default function ConsultationBooking() {
@@ -124,7 +123,7 @@ export default function ConsultationBooking() {
       // Format date for API
       const formattedDate = date ? format(date, "MMMM d, yyyy") : "";
       
-      const response = await apiRequest("/api/booking", {
+      const response = await fetch("/api/booking", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -137,7 +136,9 @@ export default function ConsultationBooking() {
         }),
       });
       
-      if (response.success) {
+      const data = await response.json();
+      
+      if (response.ok && data.success) {
         setIsBooked(true);
         toast({
           title: "Consultation Scheduled Successfully",
@@ -149,7 +150,7 @@ export default function ConsultationBooking() {
           ),
         });
       } else {
-        throw new Error(response.message || "Failed to book consultation");
+        throw new Error(data.message || "Failed to book consultation");
       }
     } catch (error) {
       console.error("Booking error:", error);

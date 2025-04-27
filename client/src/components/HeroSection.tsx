@@ -162,7 +162,7 @@ export default function HeroSection() {
               asChild
               className="bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20 font-medium py-7 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-[1.02]"
             >
-              <Link href="/contact">
+              <Link href="/schedule">
                 Schedule a Consultation
               </Link>
             </Button>

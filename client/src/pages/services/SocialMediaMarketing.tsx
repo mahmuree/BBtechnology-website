@@ -211,7 +211,7 @@ export default function SocialMediaMarketing() {
               asChild
               className="bg-white text-[#02124d] hover:bg-gray-100 px-8 py-3 text-lg"
             >
-              <Link href="/contact">
+              <Link href="/schedule">
                 Get Started Today
               </Link>
             </Button>
