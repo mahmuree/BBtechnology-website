@@ -301,7 +301,7 @@ export default function ConsultationBooking() {
                       <path d="M4 4v7a4 4 0 004 4h12"></path>
                     </svg>
                   </div>
-                  Google Meet Link:
+                  Zoom Meeting Link:
                 </h5>
                 <div className="bg-blue-50 p-3 rounded-md mb-2 break-all">
                   <a 
@@ -314,7 +314,7 @@ export default function ConsultationBooking() {
                   </a>
                 </div>
                 <p className="text-xs text-gray-500">
-                  Click the link above at your scheduled time to join the consultation. We'll also email you this link for your reference.
+                  At your scheduled time, click the link above to join the Zoom meeting. We've also emailed these details to you for reference.
                 </p>
               </div>
             )}
