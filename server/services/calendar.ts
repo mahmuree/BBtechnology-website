@@ -59,35 +59,54 @@ function getOAuth2Client(): OAuth2Client {
  * @returns Date object
  */
 function parseDateTime(date: string, time: string): Date {
-  // Combine date and time into a string
-  const combinedDateTimeStr = `${date} ${time}`;
+  console.log(`Creating calendar event for: ${date}, Time: ${time}`);
   
-  // Parse the date and time
-  let parsedDate = parse(combinedDateTimeStr, 'MMMM d, yyyy h:mm a', new Date());
+  // Tarihi ve saati ayrı ayrı parçalara ayıralım
+  const [month, day, year] = date.match(/(\w+)\s+(\d+),\s+(\d+)/)?.slice(1) || ['', '', ''];
   
-  // Prevent time zone adjustment issues by explicitly interpreting the time
-  // as entered by the user without automatic conversions
-  const [hours, minutes] = time.match(/(\d+):(\d+)/)?.slice(1).map(Number) || [0, 0];
-  const isPM = /pm/i.test(time);
+  // Saat bilgisini parçalara ayıralım
+  const [timeStr, ampm] = time.split(' ');
+  const [hourStr, minuteStr] = timeStr.split(':');
   
-  // Set hours with 12-hour format conversion
-  const adjustedHours = isPM && hours !== 12 ? hours + 12 : (!isPM && hours === 12 ? 0 : hours);
+  const hour = parseInt(hourStr, 10);
+  const minute = parseInt(minuteStr, 10);
+  const isPM = ampm?.toLowerCase() === 'pm';
   
-  // Create a new date with the correct hour and minute but in local time
-  parsedDate = new Date(parsedDate);
-  parsedDate.setHours(adjustedHours, minutes, 0, 0);
+  // 12 saat formatından 24 saat formatına dönüştürme
+  let hour24 = hour;
+  if (isPM && hour !== 12) {
+    hour24 = hour + 12;
+  } else if (!isPM && hour === 12) {
+    hour24 = 0;
+  }
   
-  // Log detailed information for debugging
-  console.log(`Time conversion check:
+  // Ay indeksini bulalım (JavaScript'te aylar 0-11 arasındadır)
+  const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 
+                     'July', 'August', 'September', 'October', 'November', 'December'];
+  const monthIndex = monthNames.findIndex(m => m.toLowerCase() === month.toLowerCase());
+  
+  // Tarih nesnesi oluşturalım
+  const dateObj = new Date(Date.UTC(
+    parseInt(year, 10),
+    monthIndex,
+    parseInt(day, 10),
+    hour24,
+    minute,
+    0,
+    0
+  ));
+  
+  // Log detaylı bilgileri
+  console.log(`Time conversion check (improved):
   - Input date/time: "${date} ${time}"
-  - Extracted hours: ${hours}, minutes: ${minutes}, isPM: ${isPM}
-  - Adjusted hours: ${adjustedHours} 
-  - Final ISO time: ${parsedDate.toISOString()}
-  - Local representation: ${format(parsedDate, 'h:mm a')}
+  - Parsed components: year=${year}, month=${month}(${monthIndex}), day=${day}
+  - Time components: hour=${hour}, minute=${minute}, ampm=${ampm}, hour24=${hour24}
+  - Created UTC date object: ${dateObj.toISOString()}
+  - Local representation: ${format(dateObj, 'MMMM d, yyyy h:mm a')}
   - Current system time zone: ${Intl.DateTimeFormat().resolvedOptions().timeZone}
   `);
   
-  return parsedDate;
+  return dateObj;
 }
 
 /**
@@ -188,10 +207,7 @@ This is an automatically generated event from the B&B Technology booking system.
       description += `\nCLIENT'S MESSAGE:\n${message}`;
     }
     
-    description += `\n\nPREPARATION NOTES:
-- Review client information before the call
-- Prepare relevant service materials and pricing details
-- Log into Google Meet 5 minutes before the scheduled time`;
+    // Hazırlık notlarını kaldırdık
 
     // Create event with Google Meet integration
     const event: calendar_v3.Schema$Event = {
