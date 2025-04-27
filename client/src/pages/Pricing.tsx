@@ -35,9 +35,32 @@ export default function Pricing() {
     <div className="min-h-screen flex flex-col">
       <Navbar />
       <main className="flex-grow">
-        {/* Hero Section */}
-        <section className="bg-gradient-to-r from-[#081C3A] to-[#0D2E5C] py-20 text-white">
-          <div className="container mx-auto px-4">
+        {/* Hero Section - Using the same background as the homepage hero */}
+        <section className="relative py-20 text-white">
+          {/* Premium background effect with color gradient similar to homepage */}
+          <div className="absolute inset-0 z-0 overflow-hidden">
+            {/* Main background gradient with navy blue emphasis */}
+            <div className="absolute inset-0 bg-gradient-to-b from-[#02124d] via-[#02124d] via-[#092381] to-[#4b5a8b]"></div>
+            
+            {/* Premium overlay effect - subtle depth pattern */}
+            <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiIGlkPSJhIj48c3RvcCBzdG9wLWNvbG9yPSIjMDIxMjRkIiBzdG9wLW9wYWNpdHk9IjAuMDIiIG9mZnNldD0iMCUiLz48c3RvcCBzdG9wLWNvbG9yPSIjODA4OGEzIiBzdG9wLW9wYWNpdHk9Ii4wMSIgb2Zmc2V0PSIxMDAlIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHBhdGggZmlsbD0idXJsKCNhKSIgZD0iTTAgMGg2MHY2MEgweiIvPjwvc3ZnPg==')] opacity-40"></div>
+            
+            {/* Subtle light gradients for depth */}
+            <div className="absolute top-0 inset-x-0 h-[150px] bg-gradient-to-b from-[#02124d]/40 to-transparent"></div>
+            <div className="absolute bottom-0 inset-x-0 h-[100px] bg-gradient-to-t from-[#4b5a8b]/15 to-transparent"></div>
+            
+            {/* Diagonal light accent */}
+            <div className="absolute top-0 right-0 bottom-0 left-0 overflow-hidden">
+              <div className="absolute top-[-10%] left-[-10%] w-[120%] h-[120%] bg-gradient-to-br from-[#02124d]/15 via-[#092381]/10 to-transparent transform rotate-12 opacity-30"></div>
+            </div>
+            
+            {/* Subtle light edge accents */}
+            <div className="absolute top-0 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-[#02124d]/40 to-transparent"></div>
+            <div className="absolute bottom-0 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-[#092381]/25 to-transparent"></div>
+          </div>
+          
+          {/* Content */}
+          <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-3xl mx-auto text-center">
               <Badge variant="pill" className="bg-white/10 text-white inline-flex px-4 py-1 text-sm mb-6">
                 <Sparkles className="w-4 h-4 mr-2" />
