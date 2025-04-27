@@ -27,14 +27,9 @@ export default function ConsultationBooking() {
     script.src = 'https://assets.calendly.com/assets/external/widget.js';
     script.async = true;
     
-    head?.appendChild(script);
-    
-    script.onload = () => {
-      setIsLoaded(true);
-    };
-    
-    // Add Calendly event listener for booking confirmation
-    window.addEventListener('calendly:event:scheduled', function(e) {
+    // Define the event handler function for events
+    const handleCalendlyEvent = (e: CustomEvent) => {
+      console.log("Calendly event scheduled", e);
       // Set booked state and show toast notification
       setIsBooked(true);
       toast({
@@ -46,29 +41,67 @@ export default function ConsultationBooking() {
           </div>
         ),
       });
-    });
+    };
+    
+    // Check if script already exists to prevent duplicate loading
+    const existingScript = document.querySelector('script[src="https://assets.calendly.com/assets/external/widget.js"]');
+    
+    if (!existingScript) {
+      head?.appendChild(script);
+      
+      script.onload = () => {
+        setIsLoaded(true);
+        console.log("Calendly script loaded successfully");
+      };
+      
+      script.onerror = (error) => {
+        console.error("Error loading Calendly script:", error);
+      };
+    } else {
+      setIsLoaded(true);
+      console.log("Calendly script already loaded");
+    }
+    
+    // Add Calendly event listener for booking confirmation
+    window.addEventListener('calendly:event:scheduled', handleCalendlyEvent);
     
     return () => {
-      // Clean up script when component unmounts
-      if (head?.contains(script)) {
-        head.removeChild(script);
-      }
-      // Remove event listener
-      window.removeEventListener('calendly:event:scheduled', function() {});
+      // Remove event listener with the same function reference
+      window.removeEventListener('calendly:event:scheduled', handleCalendlyEvent);
+      
+      // Only remove script if component is being completely unmounted
+      // We don't want to remove the script if the component is just being re-rendered
+      // as other components might depend on it
+      // if (head?.contains(script) && !document.querySelector('[id^="calendly"]')) {
+      //   head.removeChild(script);
+      // }
     };
-  }, []);
+  }, [toast]);
 
   // Re-initialize Calendly when service changes
   useEffect(() => {
-    if (isLoaded && (window as any).Calendly) {
-      (window as any).Calendly.initInlineWidget({
-        url: calendlyUrls[selectedService as keyof typeof calendlyUrls],
-        parentElement: document.getElementById('calendly-embed'),
-        prefill: {},
-        utm: {}
-      });
+    if (isLoaded && window.Calendly) {
+      try {
+        const embedElement = document.getElementById('calendly-embed');
+        if (embedElement) {
+          // Clear any previous widgets
+          while (embedElement.firstChild) {
+            embedElement.removeChild(embedElement.firstChild);
+          }
+          
+          // Initialize with the new service
+          window.Calendly.initInlineWidget({
+            url: calendlyUrls[selectedService as keyof typeof calendlyUrls],
+            parentElement: embedElement,
+            prefill: {},
+            utm: {}
+          });
+        }
+      } catch (error) {
+        console.error("Error initializing Calendly widget:", error);
+      }
     }
-  }, [isLoaded, selectedService]);
+  }, [isLoaded, selectedService, calendlyUrls]);
 
   return (
     <div className="w-full max-w-4xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden">

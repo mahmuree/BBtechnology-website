@@ -116,7 +116,7 @@ export default function HeroSection() {
             <img 
               src={bbLogo} 
               alt="B&B Technology" 
-              className="h-28 md:h-36 filter drop-shadow-[0_0_12px_rgba(75,163,242,0.4)]"
+              className="h-36 md:h-44 filter drop-shadow-[0_0_12px_rgba(75,163,242,0.4)]"
             />
           </div>
           
