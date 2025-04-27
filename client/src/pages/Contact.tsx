@@ -71,8 +71,8 @@ export default function Contact() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
-              <Card className="bg-white rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.08)] border-none">
+            <div className="flex justify-center mb-16">
+              <Card className="bg-white rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.08)] border-none max-w-md w-full">
                 <CardContent className="p-6 flex flex-col items-center text-center">
                   <div className="h-12 w-12 rounded-full bg-[#EEF4FF] flex items-center justify-center mb-4">
                     <Mail className="h-6 w-6 text-[#4BA3F2]" />
@@ -83,10 +83,6 @@ export default function Contact() {
                   </a>
                 </CardContent>
               </Card>
-
-              {/* Card for future phone information has been temporarily removed */}
-              
-              {/* Card for future address information has been temporarily removed */}
             </div>
 
             <div className="bg-gray-50 rounded-xl p-8 md:p-12">
