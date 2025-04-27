@@ -81,8 +81,23 @@ export default function About() {
                   </Button>
                 </div>
               </div>
-              <div className="rounded-xl overflow-hidden bg-gray-100 h-[400px] flex items-center justify-center">
-                <div className="text-2xl font-bold text-gray-400">Team Image</div>
+              <div className="rounded-xl overflow-hidden h-[400px] relative">
+                <div className="absolute inset-0 bg-gradient-to-tr from-[#02124d] to-[#4BA3F2] opacity-90"></div>
+                <div className="absolute inset-0 flex flex-col items-center justify-center text-white p-8">
+                  <h3 className="text-3xl font-bold mb-6 text-center">Our Global Vision</h3>
+                  <div className="mb-8 w-20 h-1 bg-white/50 rounded"></div>
+                  <p className="text-lg text-center mb-4">
+                    Based in Rotterdam, Netherlands
+                  </p>
+                  <p className="text-center text-white/80 max-w-md">
+                    With strong European roots, we leverage our multicultural perspective to create solutions that resonate with audiences across the globe.
+                  </p>
+                  <div className="mt-8 flex space-x-2">
+                    <div className="h-2 w-2 bg-white rounded-full animate-pulse"></div>
+                    <div className="h-2 w-2 bg-white rounded-full animate-pulse delay-100"></div>
+                    <div className="h-2 w-2 bg-white rounded-full animate-pulse delay-200"></div>
+                  </div>
+                </div>
               </div>
             </div>
 

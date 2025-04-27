@@ -47,9 +47,9 @@ export default function Footer() {
               <div className="flex items-start">
                 <MapPin className="h-5 w-5 text-[#4BA3F2] mr-3 mt-1" />
                 <address className="text-gray-300 not-italic">
-                  123 Digital Avenue<br />
-                  Tech District<br />
-                  New York, NY 10001
+                  Westblaak 180<br />
+                  3012 KN Rotterdam<br />
+                  The Netherlands
                 </address>
               </div>
             </div>
