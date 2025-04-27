@@ -39,14 +39,39 @@ export default function About() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20">
-              <div className="space-y-6">
-                <h3 className="text-2xl font-bold text-[#081C3A]">Our Story</h3>
-                <p className="text-gray-600">
-                  Founded in 2020, B&B Technology was born out of a passion for helping businesses thrive in the digital realm. Our founders recognized that many companies struggled to effectively navigate the ever-evolving digital landscape, and set out to build an agency that would provide comprehensive solutions.
+              <div className="space-y-4">
+                <h3 className="text-2xl font-bold text-[#081C3A] mb-4">Our Story</h3>
+                <p className="text-gray-600 mb-3">
+                  B&B Technology was founded with the mission of combining technology and marketing to help brands grow.
                 </p>
-                <p className="text-gray-600">
-                  What began as a small team of dedicated professionals has grown into a dynamic agency with expertise across web development, digital marketing, content creation, and brand strategy. We've helped businesses of all sizes—from startups to established enterprises—achieve significant growth through our tailored digital solutions.
+                <p className="text-gray-600 mb-3">
+                  Fueled by the passion of two young entrepreneurs for software and the digital world, we deliver powerful solutions in SMMA, Web Development, Influencer Marketing, and Personal Branding.
                 </p>
+                <p className="text-gray-600 mb-3">
+                  With our Netherlands-based structure, we leave our mark not only in the local market but also beyond borders, driven by a global vision.
+                </p>
+                <div className="border-l-4 border-[#4BA3F2]/30 pl-4 my-6">
+                  <p className="text-gray-700 italic">
+                    We don't just follow the rapidly changing dynamics of the digital world — we understand, manage, and transform them into opportunities for brands.
+                  </p>
+                </div>
+                <p className="text-gray-600 mb-3">
+                  At B&B Technology, we approach every project not as a service provider, but as a true partner. Our goal is to add real value to the identity, story, and ambitions of every brand we work with.
+                </p>
+                <p className="text-gray-600 mb-6">
+                  Because we believe that in today's world, success is not only about having a great product or service — it's about the powerful story, the right strategy, and the trusted partnership behind it.
+                </p>
+                <div className="mt-6 mb-4">
+                  <p className="text-gray-700 font-medium">
+                    Your growth is our success.
+                  </p>
+                  <p className="text-gray-700 font-medium">
+                    Let's write your story together.
+                  </p>
+                  <p className="text-[#4BA3F2] font-bold mt-2 text-xl">
+                    We Code, We Market, You Grow.
+                  </p>
+                </div>
                 <div className="flex space-x-4 mt-8">
                   <Button asChild className="bg-[#081C3A] hover:bg-[#081C3A]/90 text-white">
                     <Link href="/services">Our Services</Link>
