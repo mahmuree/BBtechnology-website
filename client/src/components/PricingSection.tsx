@@ -131,14 +131,18 @@ export default function PricingSection() {
         </Tabs>
 
         <div className="mt-16 text-center">
-          <Button 
-            asChild
-            className="bg-gradient-to-r from-[#4BA3F2] to-[#6e8eff] hover:from-[#3a82d2] hover:to-[#5470d6] text-white font-medium px-8 py-6 text-lg shadow-lg hover:shadow-xl transition-all duration-300"
-          >
-            <Link href="/pricing">
-              View All Plans <ArrowRight className="ml-2 h-5 w-5" />
-            </Link>
-          </Button>
+          <div className="mx-auto max-w-xl py-4 px-8 bg-white shadow-lg rounded-lg border-2 border-[#4BA3F2] mb-8">
+            <h3 className="text-xl font-bold text-[#081C3A] mb-3">Need to see all our pricing options?</h3>
+            <p className="text-gray-600 mb-4">Check out our complete pricing page for detailed information about all our plans and packages.</p>
+            <Button 
+              asChild
+              className="bg-gradient-to-r from-[#4BA3F2] to-[#6e8eff] hover:from-[#3a82d2] hover:to-[#5470d6] text-white font-medium px-8 py-6 text-lg shadow-lg hover:shadow-xl transition-all duration-300"
+            >
+              <Link href="/pricing">
+                View All Plans <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+            </Button>
+          </div>
         </div>
         
         <div className="mt-20 bg-gradient-to-r from-[#081C3A] to-[#0D2E5C] p-12 rounded-xl text-white shadow-xl">

@@ -48,7 +48,7 @@ export default function About() {
                   Fueled by the passion of two young entrepreneurs for software and the digital world, we deliver powerful solutions in SMMA, Web Development, Influencer Marketing, and Personal Branding.
                 </p>
                 <p className="text-gray-600 mb-3">
-                  With our Netherlands-based structure, we leave our mark not only in the local market but also beyond borders, driven by a global vision.
+                  With our global perspective, we leave our mark not only in the local market but also beyond borders, driven by a clear vision.
                 </p>
                 <div className="border-l-4 border-[#4BA3F2]/30 pl-4 my-6">
                   <p className="text-gray-700 italic">
@@ -86,9 +86,6 @@ export default function About() {
                 <div className="absolute inset-0 flex flex-col items-center justify-center text-white p-8">
                   <h3 className="text-3xl font-bold mb-6 text-center">Our Global Vision</h3>
                   <div className="mb-8 w-20 h-1 bg-white/50 rounded"></div>
-                  <p className="text-lg text-center mb-4">
-                    Based in Rotterdam, Netherlands
-                  </p>
                   <p className="text-center text-white/80 max-w-md">
                     With strong European roots, we leverage our multicultural perspective to create solutions that resonate with audiences across the globe.
                   </p>
