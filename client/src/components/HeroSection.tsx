@@ -152,13 +152,11 @@ export default function HeroSection() {
           {/* CTA Buttons */}
           <div className={`flex flex-col sm:flex-row justify-center gap-5 mb-16 transition-all duration-1000 delay-300 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
             <Button 
-              asChild
-              className="bg-gradient-to-r from-[#4BA3F2] to-[#6e8eff] hover:from-[#3a82d2] hover:to-[#5470d6] text-white font-medium py-7 px-8 rounded-full text-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02]"
+              onClick={() => scrollToSection("services")}
+              className="bg-gradient-to-r from-[#4BA3F2] to-[#6e8eff] hover:from-[#3a82d2] hover:to-[#5470d6] text-white font-medium py-7 px-8 rounded-full text-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] flex items-center"
             >
-              <Link href="/services">
-                Discover Our Services
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
+              Explore All Services
+              <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
             <Button 
               asChild

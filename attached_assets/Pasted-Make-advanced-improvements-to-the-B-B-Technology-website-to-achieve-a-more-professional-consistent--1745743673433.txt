@@ -1,0 +1,80 @@
+Make advanced improvements to the B&B Technology website to achieve a more professional, consistent, and premium look.
+
+Apply the following changes carefully:
+
+---
+
+🎯 HOMEPAGE (Anasayfa) Adjustments:
+- **Remove** the section "Trusted by industry leaders worldwide" completely.
+- Adjust the **"Most Popular" badges** in Pricing Cards:
+  - Move the badge slightly higher and closer to the card top, to align better visually and look more professional.
+- In the Hero section:
+  - Ensure “Explore All Services” button scrolls directly to the Services section within the same homepage, not a separate page.
+
+---
+
+📋 SERVICES PAGE Improvements:
+- **Expand the Services Page** with detailed information about each service.
+- Each service must include:
+  - A title
+  - 1–2 paragraphs explaining the service
+  - Key features list
+  - Visual icons if possible
+- Avoid simply repeating the homepage overview.
+
+---
+
+📄 LEGAL PAGES Setup:
+Under the "Legal" section in the footer:
+- Create and fill the following pages with standard legal content:
+  - Privacy Policy
+  - Terms of Service
+  - Cookie Policy
+  - GDPR Compliance
+- Link each page correctly and ensure a clean, readable layout.
+
+---
+
+🖋️ FOOTER Corrections:
+- Extend the underline effect beneath "Services", "Company", and "Legal" links:
+  - The underline must stretch the entire width of the text, not cut off halfway.
+- Remove temporary placeholders:
+  - Delete any phone numbers and physical addresses for now.
+- Add a new social icon linking to Instagram:
+  - **Instagram profile link**: [https://www.instagram.com/bbtechnology.io](https://www.instagram.com/bbtechnology.io)
+
+---
+
+💳 PRICING PAGE Improvements:
+- Ensure the “View All Plans” button is visible and working.
+- Button should scroll down to show all plans properly.
+- Button should be placed right below the plan tabs and centered.
+
+---
+
+📅 SCHEDULE A CALL Page Fix:
+- Fix the “Schedule a Consultation” page to properly allow:
+  - Picking a date and time.
+  - Booking 30-minute slots synced with our availability.
+- Ensure form fields are working: Name, Email, Selected Service, Preferred Date & Time.
+- Add a confirmation message after successful booking.
+
+---
+
+🎨 DESIGN SYSTEM:
+- Maintain premium, minimalistic styling.
+- Keep background gradients consistent.
+- Use smooth, subtle animations on buttons and hover effects.
+
+---
+
+📈 SEO + PERFORMANCE:
+- Ensure that all internal links (buttons, footer links) are correctly pointing to their respective pages.
+- Optimize page load speed by minimizing unnecessary images or scripts.
+
+---
+
+🎯 GOAL:
+Create a seamless, highly professional, user-friendly, and elegant website experience for B&B Technology visitors.  
+Focus on consistency, premium aesthetics, and full functional integrity.
+

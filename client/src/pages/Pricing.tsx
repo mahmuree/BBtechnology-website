@@ -100,18 +100,29 @@ export default function Pricing() {
               onValueChange={handleTabChange}
               className="space-y-8"
             >
-              <div className="flex justify-center overflow-x-auto pb-2">
-                <TabsList className="bg-gray-100 p-1 rounded-lg">
-                  {pricingCategories.map((category) => (
-                    <TabsTrigger
-                      key={category.id}
-                      value={category.id}
-                      className="px-4 py-2 data-[state=active]:bg-gradient-to-r data-[state=active]:from-[#4BA3F2] data-[state=active]:to-[#6e8eff] data-[state=active]:text-white data-[state=active]:shadow-md rounded-md transition-all whitespace-nowrap"
-                    >
-                      {category.name}
-                    </TabsTrigger>
-                  ))}
-                </TabsList>
+              <div className="flex flex-col items-center space-y-4">
+                <div className="flex justify-center overflow-x-auto pb-2">
+                  <TabsList className="bg-gray-100 p-1 rounded-lg">
+                    {pricingCategories.map((category) => (
+                      <TabsTrigger
+                        key={category.id}
+                        value={category.id}
+                        className="px-4 py-2 data-[state=active]:bg-gradient-to-r data-[state=active]:from-[#4BA3F2] data-[state=active]:to-[#6e8eff] data-[state=active]:text-white data-[state=active]:shadow-md rounded-md transition-all whitespace-nowrap"
+                      >
+                        {category.name}
+                      </TabsTrigger>
+                    ))}
+                  </TabsList>
+                </div>
+                
+                <Button 
+                  variant="outline" 
+                  className="border-[#4BA3F2] text-[#4BA3F2] hover:bg-[#4BA3F2]/10 transition-all duration-300 flex items-center"
+                  onClick={() => document.getElementById('pricing-options')?.scrollIntoView({ behavior: 'smooth' })}
+                >
+                  View All Plans 
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
               </div>
 
               {pricingCategories.map((category) => (
@@ -140,8 +151,8 @@ export default function Pricing() {
                         }`}
                       >
                         {plan.popular && (
-                          <div className="absolute top-0 right-0">
-                            <div className="bg-gradient-to-r from-[#4BA3F2] to-[#6e8eff] text-white text-xs font-bold py-1 px-3 rounded-bl-lg">
+                          <div className="absolute -top-3 right-5 z-10">
+                            <div className="bg-gradient-to-r from-[#4BA3F2] to-[#6e8eff] text-white text-xs font-bold py-1 px-4 rounded-full shadow-md">
                               MOST POPULAR
                             </div>
                           </div>

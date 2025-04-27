@@ -82,8 +82,8 @@ export default function PricingSection() {
                     }`}
                   >
                     {plan.popular && (
-                      <div className="absolute top-0 right-0">
-                        <div className="bg-gradient-to-r from-[#4BA3F2] to-[#6e8eff] text-white text-xs font-bold py-1 px-3 rounded-bl-lg">
+                      <div className="absolute -top-3 right-5 z-10">
+                        <div className="bg-gradient-to-r from-[#4BA3F2] to-[#6e8eff] text-white text-xs font-bold py-1 px-4 rounded-full shadow-md">
                           MOST POPULAR
                         </div>
                       </div>
