@@ -34,7 +34,6 @@ We provide elegant, scalable, and efficient solutions tailored for modern busine
 - **Styling Framework:** TailwindCSS
 - **Calendar Integration:** Google Calendar API
 - **Email Notifications:** SendGrid API
-- **Deployment:** Replit & GitHub Pages
 - **Form Handling:** Custom backend (Express.js / Node.js)
 - **Version Control:** Git & GitHub
 
