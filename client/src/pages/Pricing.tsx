@@ -140,8 +140,8 @@ export default function Pricing() {
                         }`}
                       >
                         {plan.popular && (
-                          <div className="absolute -top-2 right-0 z-10">
-                            <div className="bg-[#4BA3F2] text-white text-xs font-bold py-1 px-4 rounded-tr-xl rounded-bl-xl shadow-sm">
+                          <div className="absolute top-0 right-0 z-10">
+                            <div className="bg-[#4BA3F2] text-white text-xs font-bold py-1 px-3 rounded-bl-lg">
                               MOST POPULAR
                             </div>
                           </div>

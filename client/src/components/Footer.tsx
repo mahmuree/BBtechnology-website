@@ -46,7 +46,7 @@ export default function Footer() {
             <h4 className="font-semibold mb-6 text-lg relative">
               <span className="relative inline-block">
                 Services
-                <span className="absolute bottom-0 left-0 w-1/2 h-0.5 bg-[#4BA3F2]"></span>
+                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-[#4BA3F2]"></span>
               </span>
             </h4>
             <ul className="space-y-3">
@@ -82,7 +82,7 @@ export default function Footer() {
             <h4 className="font-semibold mb-6 text-lg relative">
               <span className="relative inline-block">
                 Company
-                <span className="absolute bottom-0 left-0 w-1/2 h-0.5 bg-[#4BA3F2]"></span>
+                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-[#4BA3F2]"></span>
               </span>
             </h4>
             <ul className="space-y-3">
@@ -113,7 +113,7 @@ export default function Footer() {
             <h4 className="font-semibold mb-6 text-lg relative">
               <span className="relative inline-block">
                 Legal
-                <span className="absolute bottom-0 left-0 w-1/2 h-0.5 bg-[#4BA3F2]"></span>
+                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-[#4BA3F2]"></span>
               </span>
             </h4>
             <ul className="space-y-3">
@@ -153,7 +153,7 @@ export default function Footer() {
             <Link href="#" className="text-gray-400 hover:text-[#4BA3F2] transition bg-gray-800 p-2 rounded-full">
               <Youtube className="w-5 h-5" />
             </Link>
-            <Link href="#" className="text-gray-400 hover:text-[#4BA3F2] transition bg-gray-800 p-2 rounded-full">
+            <Link href="https://www.instagram.com/bbtechnology.io" className="text-gray-400 hover:text-[#4BA3F2] transition bg-gray-800 p-2 rounded-full">
               <Instagram className="w-5 h-5" />
             </Link>
           </div>
