@@ -123,19 +123,30 @@ export async function createCalendarEvent(
 
     // Format the description with the client's message if provided
     let description = `
-Service: ${service}
-Client: ${name} (${email})
-Date: ${date}
-Time: ${time}
+B&B TECHNOLOGY CONSULTATION
+----------------------------
+SERVICE TYPE: ${service}
+CLIENT: ${name}
+EMAIL: ${email}
+DATE: ${date}
+TIME: ${time}
+DURATION: 30 minutes
+
+This is an automatically generated event from the B&B Technology booking system.
 `;
 
     if (message) {
-      description += `\nClient's Message:\n${message}`;
+      description += `\nCLIENT'S MESSAGE:\n${message}`;
     }
+    
+    description += `\n\nPREPARATION NOTES:
+- Review client information before the call
+- Prepare relevant service materials and pricing details
+- Log into Google Meet 5 minutes before the scheduled time`;
 
     // Create event with Google Meet integration
     const event: calendar_v3.Schema$Event = {
-      summary: `B&B Technology Consultation: ${service}`,
+      summary: `${service} Consultation with ${name}`,
       location: 'Google Meet',
       description,
       start: {
@@ -150,6 +161,17 @@ Time: ${time}
         { email: email, displayName: name },
         { email: 'info@bbtechnology.io' }
       ],
+      // Add detailed event metadata
+      extendedProperties: {
+        private: {
+          clientName: name,
+          clientEmail: email,
+          serviceType: service,
+          scheduledDate: date,
+          scheduledTime: time,
+          clientMessage: message || 'No additional message provided'
+        }
+      },
       // Automatically add Google Meet conference data
       conferenceData: {
         createRequest: {
