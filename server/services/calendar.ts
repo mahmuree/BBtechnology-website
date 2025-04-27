@@ -91,6 +91,7 @@ function parseDateTime(date: string, time: string): Date {
   
   // Create a date object that exactly represents the user's selected date and time
   // We use the Date constructor with explicit components to avoid timezone issues
+  // This creates a date object in the local timezone of the server
   const dateObj = new Date(
     parseInt(year, 10),
     monthIndex,

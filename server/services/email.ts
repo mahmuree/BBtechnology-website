@@ -52,7 +52,8 @@ export function generateConsultationConfirmationEmail(
   service: string,
   date: string,
   time: string,
-  meetingLink: string
+  meetingLink: string,
+  userTimezone?: string
 ): { text: string; html: string } {
   // Plain text version
   const text = `
@@ -61,7 +62,7 @@ Hello ${name},
 Thank you for scheduling a consultation with B&B Technology!
 
 🗓 Date: ${date}
-⏰ Time: ${time}
+⏰ Time: ${time}${userTimezone ? ` (${userTimezone})` : ''}
 🌐 Service: ${service}
 
 Your Google Meet Link:
