@@ -288,7 +288,7 @@ export default function ConsultationBooking() {
               </div>
               <div className="flex justify-between">
                 <span>Time:</span>
-                <span className="font-medium">{time}</span>
+                <span className="font-medium">{time} <span className="text-gray-400 text-xs">(Your local time)</span></span>
               </div>
             </div>
             
@@ -319,6 +319,10 @@ export default function ConsultationBooking() {
               </div>
             )}
           </div>
+          <p className="text-sm text-gray-500 text-center mb-6">
+            <Info className="h-4 w-4 inline-block mr-1" />
+            The meeting will be created in our calendar in Europe/Amsterdam time zone, but the times shown are in your local time zone.
+          </p>
           <Button 
             onClick={handleBookAnother}
             className="bg-gradient-to-r from-[#4BA3F2] to-[#6e8eff] hover:from-[#3a82d2] hover:to-[#5470d6] text-white"
@@ -509,7 +513,7 @@ export default function ConsultationBooking() {
                     ) : timeSlots.length > 0 ? (
                       timeSlots.map((slot) => (
                         <SelectItem key={slot} value={slot}>
-                          {slot} <span className="text-gray-400 text-xs ml-1">(Europe/Istanbul)</span>
+                          {slot} <span className="text-gray-400 text-xs ml-1">(Your local time)</span>
                         </SelectItem>
                       ))
                     ) : (
@@ -527,7 +531,7 @@ export default function ConsultationBooking() {
             
             <div className="text-sm text-gray-500 flex items-center mb-4">
               <Info className="h-4 w-4 mr-2" />
-              <span>We're available Monday-Friday, 9:00 AM - 5:00 PM (Europe/Istanbul). Weekend slots are unavailable.</span>
+              <span>We're available Monday-Friday, 9:00 AM - 5:00 PM (Europe/Amsterdam). Weekend slots are unavailable.</span>
             </div>
           </div>
           

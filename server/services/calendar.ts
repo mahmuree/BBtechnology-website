@@ -200,11 +200,11 @@ This is an automatically generated event from the B&B Technology booking system.
       description,
       start: {
         dateTime: startTime.toISOString(),
-        timeZone: 'Europe/Istanbul', // Türkiye saat dilimi
+        timeZone: 'Europe/Amsterdam', // Hollanda saat dilimi
       },
       end: {
         dateTime: endTime.toISOString(),
-        timeZone: 'Europe/Istanbul', // Türkiye saat dilimi
+        timeZone: 'Europe/Amsterdam', // Hollanda saat dilimi
       },
       attendees: [
         { email: email, displayName: name },
