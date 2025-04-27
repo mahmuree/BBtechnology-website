@@ -1,9 +1,9 @@
 # 🌐 B&B Technology Official Website
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/your-username/your-repo-name/main/Logo.jpg" alt="B&B Technology Logo" width="200"/>
+  <img src="image.png"/>
 </p>
-![image](https://github.com/user-attachments/assets/b63f4eae-b880-4131-8a49-70229dcc7ab4)
+
 
 ---
 
