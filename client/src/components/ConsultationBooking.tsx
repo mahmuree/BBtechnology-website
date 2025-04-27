@@ -310,11 +310,11 @@ export default function ConsultationBooking() {
                     rel="noopener noreferrer"
                     className="text-blue-600 hover:text-blue-800 text-sm font-medium"
                   >
-                    Create a Google Meet meeting
+                    {meetingLink}
                   </a>
                 </div>
                 <p className="text-xs text-gray-500">
-                  Click the link above to create a Google Meet session. After creating the meeting, please share the link with info@bbtechnology.io so we can join at the scheduled time.
+                  Click the link above at your scheduled time to join the consultation. We'll also email you this link for your reference.
                 </p>
               </div>
             )}

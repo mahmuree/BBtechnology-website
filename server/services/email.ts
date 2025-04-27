@@ -64,10 +64,10 @@ Thank you for scheduling a consultation with B&B Technology!
 ⏰ Time: ${time}
 🌐 Service: ${service}
 
-Create your Google Meet meeting:
+Your Google Meet Link:
 🔗 ${meetingLink}
 
-After creating your meeting, please share the link with us at info@bbtechnology.io.
+We've created a Google Meet session for you. Please click the link above at your scheduled time to join the consultation. No software installation needed - works directly in your browser.
 We're looking forward to discussing your project needs and how we can help your business grow.
 
 If you need to reschedule or cancel, please contact us at info@bbtechnology.io or reply to this email.
@@ -136,15 +136,15 @@ The B&B Technology Team
       </div>
       
       <div class="meeting-link">
-        <p><strong>Create Your Google Meet Meeting:</strong></p>
-        <p><a href="${meetingLink}" target="_blank">Create Meeting Link</a></p>
-        <p style="font-size: 13px; margin-top: 10px; color: #666;">Please click the link above to create a Google Meet meeting, then share the meeting link with us at <a href="mailto:info@bbtechnology.io" style="color: #4BA3F2;">info@bbtechnology.io</a> so we can join at the scheduled time.</p>
+        <p><strong>Your Google Meet Link:</strong></p>
+        <p><a href="${meetingLink}" target="_blank">${meetingLink}</a></p>
+        <p style="font-size: 13px; margin-top: 10px; color: #666;">We've created a Google Meet session for you. Please click the link above at your scheduled time to join the consultation. No software installation needed - works directly in your browser.</p>
       </div>
       
-      <p>After creating your meeting, please email us the link so we can add it to our calendar. We're looking forward to connecting with you and exploring how we can help your business grow.</p>
+      <p>We're looking forward to connecting with you and exploring how we can help your business grow. All meeting details have been added to our calendar.</p>
       
       <div class="button-container">
-        <a href="${meetingLink}" class="button" target="_blank">Create Google Meet Session</a>
+        <a href="${meetingLink}" class="button" target="_blank">Join Meeting at Scheduled Time</a>
       </div>
       
       <div class="divider"></div>

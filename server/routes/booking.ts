@@ -101,10 +101,26 @@ router.post('/api/booking', async (req: Request, res: Response) => {
       });
     }
     
-    // Instead of creating a random meeting code that will cause security issues
-    // We'll use the official Google Meet new meeting page that will allow the user
-    // to create their own valid meeting
-    const meetingLink = "https://meet.google.com/new";
+    // Use Google Calendar API to create a real meeting
+    // This will use the provided Google API credentials to create a legitimate meeting
+    let meetingLink;
+    
+    try {
+      console.log('Attempting to create calendar event...');
+      meetingLink = await createCalendarEvent(
+        bookingData.name,
+        bookingData.email,
+        bookingData.service,
+        bookingData.date,
+        bookingData.time,
+        bookingData.message
+      );
+      console.log('Calendar event created successfully with link:', meetingLink);
+    } catch (error) {
+      console.error('Failed to create calendar event:', error);
+      // Fallback to the official Google Meet page if the calendar API fails
+      meetingLink = "https://meet.google.com/new";
+    }
     
     // Store the reservation
     const reservation = reservationStorage.createReservation({
