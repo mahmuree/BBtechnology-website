@@ -16,6 +16,24 @@ if (!GOOGLE_CLIENT_ID || !GOOGLE_CLIENT_SECRET || !GOOGLE_REDIRECT_URI || !GOOGL
  * Creates an authenticated OAuth2 client for Google APIs
  */
 function getOAuth2Client(): OAuth2Client {
+  // Verify we have all required environment variables
+  if (!GOOGLE_CLIENT_ID) {
+    throw new Error('GOOGLE_CLIENT_ID environment variable is missing');
+  }
+  if (!GOOGLE_CLIENT_SECRET) {
+    throw new Error('GOOGLE_CLIENT_SECRET environment variable is missing');
+  }
+  if (!GOOGLE_REDIRECT_URI) {
+    throw new Error('GOOGLE_REDIRECT_URI environment variable is missing');
+  }
+  if (!GOOGLE_REFRESH_TOKEN) {
+    throw new Error('GOOGLE_REFRESH_TOKEN environment variable is missing');
+  }
+  
+  // Log that we're initializing the OAuth2 client (without exposing secrets)
+  console.log('Initializing Google OAuth2 client with provided credentials');
+  
+  // Create an OAuth2 client using the environment variables
   const oAuth2Client = new google.auth.OAuth2(
     GOOGLE_CLIENT_ID,
     GOOGLE_CLIENT_SECRET,
@@ -26,6 +44,8 @@ function getOAuth2Client(): OAuth2Client {
   oAuth2Client.setCredentials({
     refresh_token: GOOGLE_REFRESH_TOKEN
   });
+  
+  console.log('Google OAuth2 client successfully initialized');
 
   return oAuth2Client;
 }
@@ -107,10 +127,10 @@ export async function createCalendarEvent(
   message?: string
 ): Promise<string> {
   try {
-    // If Google credentials aren't set, return a placeholder
+    // If Google credentials aren't set, fail with clear error
     if (!GOOGLE_CLIENT_ID || !GOOGLE_CLIENT_SECRET || !GOOGLE_REDIRECT_URI || !GOOGLE_REFRESH_TOKEN) {
-      console.warn('Cannot create calendar event: Missing Google credentials');
-      return "https://meet.google.com/placeholder-link";
+      console.error('Cannot create calendar event: Missing Google credentials');
+      throw new Error('Google Calendar credentials are not properly configured');
     }
 
     const auth = getOAuth2Client();
@@ -187,48 +207,35 @@ This is an automatically generated event from the B&B Technology booking system.
       conferenceDataVersion: 1, // Enable Google Meet integration
     });
 
-    // Return the Google Meet link if available
-    if (response.data.hangoutLink) {
-      console.log('Successfully created Google Meet link:', response.data.hangoutLink);
-      return response.data.hangoutLink;
-    } else {
-      console.warn('Calendar event created but no Google Meet link was generated. Using fallback URL.');
-      // If for some reason the Meet link wasn't created, generate a real-looking one
-      // This is a fallback that should rarely be used
-      const generateMeetCode = () => {
-        const chars = 'abcdefghijkmnopqrstuvwxyz';
-        const nums = '0123456789';
-        const all = chars + nums;
-        
-        let part1 = '';
-        for (let i = 0; i < 3; i++) {
-          part1 += chars.charAt(Math.floor(Math.random() * chars.length));
-        }
-        
-        let part2 = '';
-        let part3 = '';
-        for (let i = 0; i < 4; i++) {
-          part2 += all.charAt(Math.floor(Math.random() * all.length));
-          part3 += all.charAt(Math.floor(Math.random() * all.length));
-        }
-        
-        return `${part1}-${part2}-${part3}`;
-      };
-      
-      return `https://meet.google.com/${generateMeetCode()}`;
+    // Verify that we have a Google Meet link
+    if (!response.data.hangoutLink) {
+      throw new Error('Google Calendar event created but no Google Meet link was generated.');
     }
+    
+    console.log('Successfully created Google Meet link:', response.data.hangoutLink);
+    
+    // Store the event ID for future reference
+    console.log('Event created with ID:', response.data.id);
+    
+    // Return the legitimate Google Meet link
+    return response.data.hangoutLink;
   } catch (error) {
     console.error('Error creating calendar event:', error);
     
     // For better error handling, log specific error types
-    if (error.response && error.response.status === 401) {
-      console.warn('Google Calendar authentication failed when creating event. Credentials may be invalid or expired.');
+    if (error.response) {
+      if (error.response.status === 401) {
+        console.warn('Google Calendar authentication failed. Credentials may be invalid or expired.');
+        throw new Error('Google Calendar authentication failed. Please check your API credentials.');
+      } else if (error.response.status === 403) {
+        console.warn('Google Calendar permission denied. Check scopes and permissions.');
+        throw new Error('Google Calendar permission denied. Please check API permissions.');
+      } else {
+        console.warn(`Google Calendar API error: ${error.response.status}`);
+        throw new Error(`Google Calendar API error: ${error.response.status}`);
+      }
     }
     
-    // In case of error, create a fallback meeting link that looks legitimate
-    const fallbackMeetCode = 'aaa-bbbb-ccc'; // Use a static code that's obviously a fallback
-    const fallbackLink = `https://meet.google.com/${fallbackMeetCode}`;
-    console.log('Using fallback meeting link:', fallbackLink);
-    return fallbackLink;
+    throw new Error('Failed to create Google Calendar event and Google Meet link.');
   }
 }

@@ -101,13 +101,12 @@ router.post('/api/booking', async (req: Request, res: Response) => {
       });
     }
     
-    // Use Google Calendar API to create a real meeting
-    // This will use the provided Google API credentials to create a legitimate meeting
-    let meetingLink;
+    // Use Google Calendar API to create a real meeting with Google Meet
+    console.log('Attempting to create calendar event with Google Meet...');
     
     try {
-      console.log('Attempting to create calendar event...');
-      meetingLink = await createCalendarEvent(
+      // Create an event in Google Calendar including a Google Meet link
+      const meetingLink = await createCalendarEvent(
         bookingData.name,
         bookingData.email,
         bookingData.service,
@@ -115,56 +114,61 @@ router.post('/api/booking', async (req: Request, res: Response) => {
         bookingData.time,
         bookingData.message
       );
-      console.log('Calendar event created successfully with link:', meetingLink);
+      
+      console.log('Calendar event and Google Meet link successfully created:', meetingLink);
+      
+      // Store the reservation with the real Google Meet link
+      const reservation = reservationStorage.createReservation({
+        name: bookingData.name,
+        email: bookingData.email,
+        service: bookingData.service,
+        date: bookingData.date,
+        time: bookingData.time,
+        message: bookingData.message,
+        meetingLink
+      });
+      
+      // Generate email content
+      const emailContent = generateConsultationConfirmationEmail(
+        bookingData.name,
+        bookingData.service,
+        bookingData.date,
+        bookingData.time,
+        meetingLink
+      );
+      
+      // Send confirmation email
+      const emailSent = await sendEmail({
+        to: bookingData.email,
+        subject: 'Your Consultation with B&B Technology is Confirmed!',
+        text: emailContent.text,
+        html: emailContent.html
+      });
+      
+      if (!emailSent) {
+        console.warn('Failed to send confirmation email, but booking was recorded');
+      }
+      
+      return res.status(200).json({
+        success: true,
+        message: 'Consultation booked successfully',
+        emailSent,
+        reservation: {
+          id: reservation.id,
+          date: reservation.date,
+          time: reservation.time,
+          meetingLink: reservation.meetingLink
+        }
+      });
     } catch (error) {
       console.error('Failed to create calendar event:', error);
-      // Fallback to the official Google Meet page if the calendar API fails
-      meetingLink = "https://meet.google.com/new";
+      return res.status(500).json({
+        success: false,
+        message: `Failed to book consultation: ${error.message || 'Calendar service unavailable'}`
+      });
     }
     
-    // Store the reservation
-    const reservation = reservationStorage.createReservation({
-      name: bookingData.name,
-      email: bookingData.email,
-      service: bookingData.service,
-      date: bookingData.date,
-      time: bookingData.time,
-      message: bookingData.message,
-      meetingLink
-    });
-    
-    // Generate email content
-    const emailContent = generateConsultationConfirmationEmail(
-      bookingData.name,
-      bookingData.service,
-      bookingData.date,
-      bookingData.time,
-      meetingLink
-    );
-    
-    // Send confirmation email
-    const emailSent = await sendEmail({
-      to: bookingData.email,
-      subject: 'Your Consultation with B&B Technology is Confirmed!',
-      text: emailContent.text,
-      html: emailContent.html
-    });
-    
-    if (!emailSent) {
-      console.warn('Failed to send confirmation email, but booking was recorded');
-    }
-    
-    return res.status(200).json({
-      success: true,
-      message: 'Consultation booked successfully',
-      emailSent,
-      reservation: {
-        id: reservation.id,
-        date: reservation.date,
-        time: reservation.time,
-        meetingLink: reservation.meetingLink
-      }
-    });
+
   } catch (error) {
     console.error('Booking error:', error);
     return res.status(500).json({
