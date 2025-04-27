@@ -50,6 +50,10 @@ export default function ConsultationBooking() {
     }
   };
   
+  // Booking state
+  const [isCheckingAvailability, setIsCheckingAvailability] = useState(false);
+  const [bookedSlots, setBookedSlots] = useState<string[]>([]);
+  
   // Time slot generation (9am - 5pm, 30 min intervals)
   const generateTimeSlots = (selectedDate: Date | undefined): string[] => {
     if (!selectedDate) return [];
@@ -66,11 +70,62 @@ export default function ConsultationBooking() {
         // If it's today, only show future time slots
         if (isToday && !isAfter(slotTime, now)) continue;
         
-        slots.push(format(slotTime, "h:mm a"));
+        const timeString = format(slotTime, "h:mm a");
+        
+        // Check if the slot is already booked
+        if (!bookedSlots.includes(timeString)) {
+          slots.push(timeString);
+        }
       }
     }
     
     return slots;
+  };
+  
+  // Fetch booked slots when date changes
+  useEffect(() => {
+    async function fetchBookedSlots() {
+      if (!date) return;
+      
+      setIsCheckingAvailability(true);
+      try {
+        const formattedDate = format(date, "MMMM d, yyyy");
+        const response = await fetch(`/api/booking/booked-slots?date=${encodeURIComponent(formattedDate)}`);
+        
+        if (response.ok) {
+          const data = await response.json();
+          if (data.success) {
+            setBookedSlots(data.bookedSlots || []);
+          }
+        }
+      } catch (error) {
+        console.error("Error checking booked slots:", error);
+      } finally {
+        setIsCheckingAvailability(false);
+      }
+    }
+    
+    fetchBookedSlots();
+  }, [date]);
+  
+  // Check availability of a specific time slot
+  const checkTimeSlotAvailability = async (selectedTime: string): Promise<boolean> => {
+    if (!date) return false;
+    
+    try {
+      const formattedDate = format(date, "MMMM d, yyyy");
+      const response = await fetch(`/api/booking/availability?date=${encodeURIComponent(formattedDate)}&time=${encodeURIComponent(selectedTime)}`);
+      
+      if (response.ok) {
+        const data = await response.json();
+        return data.success && data.available;
+      }
+      
+      return false;
+    } catch (error) {
+      console.error("Error checking time slot availability:", error);
+      return false;
+    }
   };
   
   // Form validation
@@ -363,8 +418,44 @@ export default function ConsultationBooking() {
                 </Label>
                 <Select
                   value={time}
-                  onValueChange={setTime}
-                  disabled={!date || timeSlots.length === 0}
+                  onValueChange={async (newTime) => {
+                    // Clear any previous time selection first
+                    setTime("");
+                    
+                    // Set a loading state for when checking time slot
+                    setIsCheckingAvailability(true);
+                    
+                    try {
+                      // Double-check this specific time slot availability with Google Calendar
+                      const isAvailable = await checkTimeSlotAvailability(newTime);
+                      
+                      if (isAvailable) {
+                        setTime(newTime);
+                      } else {
+                        // This slot appeared available in our local cache but is booked in Google Calendar
+                        // Update our booked slots list
+                        setBookedSlots(prev => [...prev, newTime]);
+                        
+                        toast({
+                          title: "Time Slot Unavailable",
+                          description: "This time slot is no longer available. Please select another time.",
+                          variant: "destructive",
+                        });
+                      }
+                    } catch (error) {
+                      console.error("Error checking time availability:", error);
+                      // Still allow selection but warn the user
+                      setTime(newTime);
+                      toast({
+                        title: "Availability Check Warning",
+                        description: "We couldn't verify the availability of this time slot. You may proceed, but there's a small chance it might be unavailable.",
+                        variant: "default",
+                      });
+                    } finally {
+                      setIsCheckingAvailability(false);
+                    }
+                  }}
+                  disabled={!date || timeSlots.length === 0 || isCheckingAvailability}
                 >
                   <SelectTrigger
                     className={formErrors.time ? "border-red-500" : ""}
@@ -375,13 +466,23 @@ export default function ConsultationBooking() {
                           <Clock className="mr-2 h-4 w-4" />
                           {time}
                         </div>
+                      ) : isCheckingAvailability ? (
+                        <div className="flex items-center">
+                          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                          <span>Checking availability...</span>
+                        </div>
                       ) : (
-                        <span>{date ? "Select time slot" : "Select date first"}</span>
+                        <span>{date ? (timeSlots.length === 0 ? "No available times" : "Select time slot") : "Select date first"}</span>
                       )}
                     </SelectValue>
                   </SelectTrigger>
                   <SelectContent>
-                    {timeSlots.length > 0 ? (
+                    {isCheckingAvailability ? (
+                      <div className="py-8 flex justify-center items-center">
+                        <Loader2 className="h-6 w-6 animate-spin text-[#4BA3F2] mr-2" />
+                        <span>Checking availability...</span>
+                      </div>
+                    ) : timeSlots.length > 0 ? (
                       timeSlots.map((slot) => (
                         <SelectItem key={slot} value={slot}>
                           {slot}
