@@ -187,15 +187,29 @@ export default function SocialMediaMarketing() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-16 bg-gradient-to-r from-[#081C3A] to-[#0D2E5C] text-white">
-          <div className="container mx-auto px-4 text-center">
+        <section className="py-16 relative text-white overflow-hidden">
+          {/* Premium background effect with color gradient similar to homepage */}
+          <div className="absolute inset-0 z-0 overflow-hidden">
+            {/* Main background gradient with navy blue emphasis */}
+            <div className="absolute inset-0 bg-gradient-to-b from-[#02124d] via-[#02124d] via-[#092381] to-[#4b5a8b]"></div>
+            
+            {/* Premium overlay effect - subtle depth pattern */}
+            <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiIGlkPSJhIj48c3RvcCBzdG9wLWNvbG9yPSIjMDIxMjRkIiBzdG9wLW9wYWNpdHk9IjAuMDIiIG9mZnNldD0iMCUiLz48c3RvcCBzdG9wLWNvbG9yPSIjODA4OGEzIiBzdG9wLW9wYWNpdHk9Ii4wMSIgb2Zmc2V0PSIxMDAlIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHBhdGggZmlsbD0idXJsKCNhKSIgZD0iTTAgMGg2MHY2MEgweiIvPjwvc3ZnPg==')] opacity-40"></div>
+            
+            {/* Diagonal light accent */}
+            <div className="absolute top-0 right-0 bottom-0 left-0 overflow-hidden">
+              <div className="absolute top-[-10%] left-[-10%] w-[120%] h-[120%] bg-gradient-to-br from-[#02124d]/15 via-[#092381]/10 to-transparent transform rotate-12 opacity-30"></div>
+            </div>
+          </div>
+          
+          <div className="container mx-auto px-4 text-center relative z-10">
             <h2 className="text-3xl font-bold mb-6">Ready to Transform Your Social Media Presence?</h2>
             <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
               Let's build a strategic social media presence that connects with your audience and drives real business results.
             </p>
             <Button 
               asChild
-              className="bg-white text-[#081C3A] hover:bg-gray-100 px-8 py-3 text-lg"
+              className="bg-white text-[#02124d] hover:bg-gray-100 px-8 py-3 text-lg"
             >
               <Link href="/contact">
                 Get Started Today
