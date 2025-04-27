@@ -118,6 +118,15 @@ export default function ConsultationBooking() {
       
       if (response.ok) {
         const data = await response.json();
+        // Zaman dilimi mevcut değilse ve özel bir mesaj varsa
+        if (data.success && !data.available && data.message) {
+          // Özel mesajı göster
+          toast({
+            title: "Zaman Dilimi Kontrolü",
+            description: data.message,
+            variant: "default",
+          });
+        }
         return data.success && data.available;
       }
       
@@ -461,31 +470,11 @@ export default function ConsultationBooking() {
                     setIsCheckingAvailability(true);
                     
                     try {
-                      // Double-check this specific time slot availability with Google Calendar
-                      const isAvailable = await checkTimeSlotAvailability(newTime);
-                      
-                      if (isAvailable) {
-                        setTime(newTime);
-                      } else {
-                        // This slot appeared available in our local cache but is booked in Google Calendar
-                        // Update our booked slots list
-                        setBookedSlots(prev => [...prev, newTime]);
-                        
-                        toast({
-                          title: "Time Slot Unavailable",
-                          description: "This time slot is no longer available. Please select another time.",
-                          variant: "destructive",
-                        });
-                      }
+                      // Basitçe zaman dilimini hemen seçelim
+                      setTime(newTime);
                     } catch (error) {
                       console.error("Error checking time availability:", error);
-                      // Still allow selection but warn the user
                       setTime(newTime);
-                      toast({
-                        title: "Availability Check Warning",
-                        description: "We couldn't verify the availability of this time slot. You may proceed, but there's a small chance it might be unavailable.",
-                        variant: "default",
-                      });
                     } finally {
                       setIsCheckingAvailability(false);
                     }

@@ -76,7 +76,13 @@ export async function isTimeSlotAvailable(date: string, time: string): Promise<b
     return events.length === 0;
   } catch (error) {
     console.error('Error checking calendar availability:', error);
-    // In case of error, we'll say it's available and let the booking go through
+    
+    // For better error handling, log specific error types
+    if (error.response && error.response.status === 401) {
+      console.warn('Google Calendar authentication failed. Credentials may be invalid or expired.');
+    }
+    
+    // In case of auth error, we'll say it's available and let the booking go through
     // The worst case is a double-booking which can be manually resolved
     return true;
   }
@@ -164,6 +170,12 @@ Time: ${time}
     return meetLink;
   } catch (error) {
     console.error('Error creating calendar event:', error);
+    
+    // For better error handling, log specific error types
+    if (error.response && error.response.status === 401) {
+      console.warn('Google Calendar authentication failed when creating event. Credentials may be invalid or expired.');
+    }
+    
     // In case of error, return a placeholder
     return "https://meet.google.com/placeholder-link";
   }
