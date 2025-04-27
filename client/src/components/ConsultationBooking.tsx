@@ -301,7 +301,7 @@ export default function ConsultationBooking() {
                       <path d="M4 4v7a4 4 0 004 4h12"></path>
                     </svg>
                   </div>
-                  Zoom Meeting Link:
+                  Google Meet Link:
                 </h5>
                 <div className="bg-blue-50 p-3 rounded-md mb-2 break-all">
                   <a 

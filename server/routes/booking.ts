@@ -101,22 +101,23 @@ router.post('/api/booking', async (req: Request, res: Response) => {
       });
     }
     
-    // Since we're having Google API authentication issues, use a professional alternative
-    console.log('Creating consultation booking with Zoom meeting alternative...');
+    // Use Google Calendar API to create a real meeting with Google Meet
+    console.log('Attempting to create calendar event with Google Meet...');
     
     try {
-      // Create a unique meeting ID based on date, time and service
-      // This will be used to create a consistent meeting URL
-      const uniqueId = Buffer.from(`${bookingData.date}_${bookingData.time}_${bookingData.service}`).toString('base64').substring(0, 12);
+      // Create an event in Google Calendar including a Google Meet link
+      const meetingLink = await createCalendarEvent(
+        bookingData.name,
+        bookingData.email,
+        bookingData.service,
+        bookingData.date,
+        bookingData.time,
+        bookingData.message
+      );
       
-      // Generate a professional-looking meeting URL
-      // In production, this would be a real meeting link from Zoom/Teams/etc
-      const meetingCode = `bbt-${uniqueId.toLowerCase().replace(/[^a-z0-9]/g, '')}`;
-      const meetingLink = `https://zoom.us/j/${meetingCode}`;
+      console.log('Calendar event and Google Meet link successfully created:', meetingLink);
       
-      console.log('Professional meeting link created:', meetingLink);
-      
-      // Store the reservation with meeting details
+      // Store the reservation with the real Google Meet link
       const reservation = reservationStorage.createReservation({
         name: bookingData.name,
         email: bookingData.email,
@@ -127,7 +128,7 @@ router.post('/api/booking', async (req: Request, res: Response) => {
         meetingLink
       });
       
-      // Generate email content with clear instructions
+      // Generate email content
       const emailContent = generateConsultationConfirmationEmail(
         bookingData.name,
         bookingData.service,
@@ -148,7 +149,7 @@ router.post('/api/booking', async (req: Request, res: Response) => {
         console.warn('Failed to send confirmation email, but booking was recorded');
       }
       
-      // Also send booking details to company email for calendar addition
+      // Also send booking details to company email 
       await sendEmail({
         to: 'info@bbtechnology.io',
         subject: `New Consultation Booking: ${bookingData.service} with ${bookingData.name}`,
@@ -159,10 +160,10 @@ Email: ${bookingData.email}
 Service: ${bookingData.service}
 Date: ${bookingData.date}
 Time: ${bookingData.time}
-Meeting Link: ${meetingLink}
+Google Meet Link: ${meetingLink}
 Message: ${bookingData.message || 'No message provided'}
 
-Please add this to your calendar manually.
+This meeting has been automatically added to your Google Calendar.
 `,
         html: `
 <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; color: #333;">
@@ -175,11 +176,11 @@ Please add this to your calendar manually.
     <p><strong>Service:</strong> ${bookingData.service}</p>
     <p><strong>Date:</strong> ${bookingData.date}</p>
     <p><strong>Time:</strong> ${bookingData.time}</p>
-    <p><strong>Meeting Link:</strong> <a href="${meetingLink}">${meetingLink}</a></p>
+    <p><strong>Google Meet Link:</strong> <a href="${meetingLink}">${meetingLink}</a></p>
     <p><strong>Message:</strong> ${bookingData.message || 'No message provided'}</p>
   </div>
   
-  <p>Please add this appointment to your calendar. The client has received the booking confirmation and meeting link.</p>
+  <p>This meeting has been automatically added to your Google Calendar with the client invited.</p>
 </div>
 `
       });
@@ -196,10 +197,10 @@ Please add this to your calendar manually.
         }
       });
     } catch (error) {
-      console.error('Failed to create booking:', error);
+      console.error('Failed to create calendar event:', error);
       return res.status(500).json({
         success: false,
-        message: 'There was an error scheduling your consultation. Please try again.'
+        message: `Failed to book consultation: ${error.message || 'Calendar service unavailable'}`
       });
     }
     

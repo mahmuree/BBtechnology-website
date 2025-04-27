@@ -64,10 +64,10 @@ Thank you for scheduling a consultation with B&B Technology!
 ⏰ Time: ${time}
 🌐 Service: ${service}
 
-Your Zoom Meeting Link:
+Your Google Meet Link:
 🔗 ${meetingLink}
 
-We've created a Zoom meeting for your consultation. At your scheduled time, simply click the link above to join the meeting. If you don't have Zoom installed, it will prompt you to download it or join through your browser.
+We've created a Google Meet session for you. Please click the link above at your scheduled time to join the consultation. No software installation needed - works directly in your browser.
 We're looking forward to discussing your project needs and how we can help your business grow.
 
 If you need to reschedule or cancel, please contact us at info@bbtechnology.io or reply to this email.
@@ -136,15 +136,15 @@ The B&B Technology Team
       </div>
       
       <div class="meeting-link">
-        <p><strong>Your Zoom Meeting Link:</strong></p>
+        <p><strong>Your Google Meet Link:</strong></p>
         <p><a href="${meetingLink}" target="_blank">${meetingLink}</a></p>
-        <p style="font-size: 13px; margin-top: 10px; color: #666;">We've created a Zoom meeting for your consultation. At your scheduled time, simply click the link above to join the meeting. If you don't have Zoom installed, it will prompt you to download it or join through your browser.</p>
+        <p style="font-size: 13px; margin-top: 10px; color: #666;">We've created a Google Meet session for you. Please click the link above at your scheduled time to join the consultation. No software installation needed - works directly in your browser.</p>
       </div>
       
       <p>We're looking forward to connecting with you and exploring how we can help your business grow. All meeting details have been added to our calendar.</p>
       
       <div class="button-container">
-        <a href="${meetingLink}" class="button" target="_blank">Join Zoom Meeting at Scheduled Time</a>
+        <a href="${meetingLink}" class="button" target="_blank">Join Google Meet at Scheduled Time</a>
       </div>
       
       <div class="divider"></div>
