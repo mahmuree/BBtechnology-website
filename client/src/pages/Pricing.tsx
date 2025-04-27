@@ -55,7 +55,7 @@ export default function Pricing() {
                     Get a Custom Quote <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
-                <Button asChild variant="outline" className="border-white/30 text-white hover:bg-white/10">
+                <Button asChild variant="outline" className="border-white/20 bg-[#02124d]/70 text-white hover:bg-white/10">
                   <a href="#pricing-options">
                     View All Plans
                   </a>

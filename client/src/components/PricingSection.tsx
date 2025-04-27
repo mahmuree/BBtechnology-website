@@ -136,7 +136,7 @@ export default function PricingSection() {
             <p className="text-gray-600 mb-4">Check out our complete pricing page for detailed information about all our plans and packages.</p>
             <Button 
               asChild
-              className="bg-gradient-to-r from-[#4BA3F2] to-[#6e8eff] hover:from-[#3a82d2] hover:to-[#5470d6] text-white font-medium px-8 py-6 text-lg shadow-lg hover:shadow-xl transition-all duration-300"
+              className="bg-[#02124d]/90 text-white font-medium px-8 py-6 text-lg shadow-lg hover:shadow-xl transition-all duration-300 border border-white/20 hover:bg-[#02124d]"
             >
               <Link href="/pricing">
                 View All Plans <ArrowRight className="ml-2 h-5 w-5" />
