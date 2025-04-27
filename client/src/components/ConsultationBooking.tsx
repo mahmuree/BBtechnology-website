@@ -31,6 +31,7 @@ export default function ConsultationBooking() {
   const [time, setTime] = useState<string>("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isBooked, setIsBooked] = useState(false);
+  const [userTimezone, setUserTimezone] = useState(Intl.DateTimeFormat().resolvedOptions().timeZone);
   const [formErrors, setFormErrors] = useState<{
     name?: string;
     email?: string;
@@ -199,6 +200,7 @@ export default function ConsultationBooking() {
           service: getServiceName(selectedService),
           date: formattedDate,
           time,
+          userTimezone,
           message: message || undefined,
         }),
       });

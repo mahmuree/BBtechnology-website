@@ -172,6 +172,7 @@ export async function createCalendarEvent(
   service: string,
   date: string,
   time: string,
+  userTimezone: string,
   message?: string
 ): Promise<string> {
   try {
@@ -216,11 +217,11 @@ This is an automatically generated event from the B&B Technology booking system.
       description,
       start: {
         dateTime: startTime.toISOString(),
-        timeZone: 'Europe/Amsterdam', // Hollanda saat dilimi
+        timeZone: userTimezone, // Kullanıcının kendi saat dilimi
       },
       end: {
         dateTime: endTime.toISOString(),
-        timeZone: 'Europe/Amsterdam', // Hollanda saat dilimi
+        timeZone: userTimezone, // Kullanıcının kendi saat dilimi
       },
       attendees: [
         { email: email, displayName: name },

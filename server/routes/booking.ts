@@ -11,6 +11,7 @@ interface BookingRequest {
   service: string;
   date: string;
   time: string;
+  userTimezone: string;
   message?: string;
 }
 
@@ -114,6 +115,7 @@ router.post('/api/booking', async (req: Request, res: Response) => {
         bookingData.service,
         bookingData.date,
         bookingData.time,
+        bookingData.userTimezone,
         bookingData.message
       );
       
@@ -126,6 +128,7 @@ router.post('/api/booking', async (req: Request, res: Response) => {
         service: bookingData.service,
         date: bookingData.date,
         time: bookingData.time,
+        userTimezone: bookingData.userTimezone,
         message: bookingData.message,
         meetingLink
       });

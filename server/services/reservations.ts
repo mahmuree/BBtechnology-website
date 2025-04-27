@@ -8,6 +8,7 @@ interface Reservation {
   service: string;
   date: string;
   time: string;
+  userTimezone?: string;
   message?: string;
   meetingLink: string;
   createdAt: Date;

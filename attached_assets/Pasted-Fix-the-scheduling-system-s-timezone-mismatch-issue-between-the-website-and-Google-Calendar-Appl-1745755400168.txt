@@ -1,0 +1,70 @@
+Fix the scheduling system's timezone mismatch issue between the website and Google Calendar.
+
+Apply the following improvements:
+
+---
+
+🕑 1. Capture User's Local Timezone:
+- When a user books a consultation, automatically detect their local timezone from the browser.
+- Use JavaScript to get the timezone dynamically:
+  Example:
+  ```javascript
+  const userTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+Store this timezone value in a hidden input field inside the booking form.
+
+Submit this timezone along with the form data.
+
+🗓️ 2. Create Google Calendar Events with the Correct Timezone:
+
+When creating an event via Google Calendar API:
+
+Set the start.timeZone and end.timeZone fields to the user's detected timezone.
+
+Do not rely only on UTC or server timezone.
+
+Example event creation JSON:
+
+json
+Kopyala
+Düzenle
+{
+  "summary": "Web Development Consultation",
+  "start": {
+    "dateTime": "2025-04-29T14:00:00",
+    "timeZone": "{{user_timezone}}"
+  },
+  "end": {
+    "dateTime": "2025-04-29T14:30:00",
+    "timeZone": "{{user_timezone}}"
+  },
+  "conferenceData": {
+    "createRequest": {
+      "conferenceSolutionKey": {
+        "type": "hangoutsMeet"
+      },
+      "requestId": "{{unique_id}}"
+    }
+  },
+  "attendees": [
+    {"email": "{{user_email}}"}
+  ]
+}
+Replace {{user_timezone}} dynamically with the user's timezone captured during booking.
+
+✅ Expected Result:
+
+If the user selects 2:00 PM local time, the event will also appear at 2:00 PM in Google Calendar.
+
+No time offset issues (like 2PM showing as 4PM) will happen.
+
+Automatic Google Meet link generation will continue working properly.
+
+🎨 Additional Requirements:
+
+Keep form UX smooth and minimal.
+
+Show a loading spinner while creating the Google Meet and Calendar event.
+
+Confirm successful booking to the user clearly, mentioning the correct time in their local timezone.
+
+🎯 GOAL: Ensure the consultation booking system accurately respects each user's local time, creating Google Calendar events with the correct local time and timezone, eliminating confusion and missed meetings.
