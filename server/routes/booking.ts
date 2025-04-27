@@ -133,13 +133,14 @@ router.post('/api/booking', async (req: Request, res: Response) => {
         meetingLink
       });
       
-      // Generate email content
+      // Generate email content with timezone information
       const emailContent = generateConsultationConfirmationEmail(
         bookingData.name,
         bookingData.service,
         bookingData.date,
         bookingData.time,
-        meetingLink
+        meetingLink,
+        bookingData.userTimezone
       );
       
       // Send confirmation email to customer

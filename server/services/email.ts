@@ -128,7 +128,7 @@ The B&B Technology Team
         </div>
         <div class="details-item">
           <span class="icon">⏰</span>
-          <strong>Time:</strong> <span>${time}</span>
+          <strong>Time:</strong> <span>${time}${userTimezone ? ` (${userTimezone})` : ''}</span>
         </div>
         <div class="details-item">
           <span class="icon">🌐</span>
