@@ -118,22 +118,22 @@ export default function Footer() {
             </h4>
             <ul className="space-y-3">
               <li>
-                <Link href="#" className="text-gray-400 hover:text-white transition flex items-center">
+                <Link href="/privacy-policy" className="text-gray-400 hover:text-white transition flex items-center">
                   <span className="text-[#4BA3F2] mr-2">›</span> Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-gray-400 hover:text-white transition flex items-center">
+                <Link href="/terms-of-service" className="text-gray-400 hover:text-white transition flex items-center">
                   <span className="text-[#4BA3F2] mr-2">›</span> Terms of Service
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-gray-400 hover:text-white transition flex items-center">
+                <Link href="/cookie-policy" className="text-gray-400 hover:text-white transition flex items-center">
                   <span className="text-[#4BA3F2] mr-2">›</span> Cookie Policy
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-gray-400 hover:text-white transition flex items-center">
+                <Link href="/gdpr-compliance" className="text-gray-400 hover:text-white transition flex items-center">
                   <span className="text-[#4BA3F2] mr-2">›</span> GDPR Compliance
                 </Link>
               </li>

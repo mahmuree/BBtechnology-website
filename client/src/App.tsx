@@ -13,6 +13,10 @@ import WebDevelopment from "./pages/services/WebDevelopment";
 import Pricing from "@/pages/Pricing";
 import Contact from "@/pages/Contact";
 import Schedule from "@/pages/Schedule";
+import PrivacyPolicy from "@/pages/legal/PrivacyPolicy";
+import TermsOfService from "@/pages/legal/TermsOfService";
+import CookiePolicy from "@/pages/legal/CookiePolicy";
+import GDPRCompliance from "@/pages/legal/GDPRCompliance";
 import { useEffect } from "react";
 
 // Scroll to top component for page transitions
@@ -44,6 +48,10 @@ function Router() {
         <Route path="/pricing" component={Pricing} />
         <Route path="/contact" component={Contact} />
         <Route path="/schedule" component={Schedule} />
+        <Route path="/privacy-policy" component={PrivacyPolicy} />
+        <Route path="/terms-of-service" component={TermsOfService} />
+        <Route path="/cookie-policy" component={CookiePolicy} />
+        <Route path="/gdpr-compliance" component={GDPRCompliance} />
         <Route component={NotFound} />
       </Switch>
     </>
