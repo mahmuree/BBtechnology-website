@@ -509,7 +509,7 @@ export default function ConsultationBooking() {
                     ) : timeSlots.length > 0 ? (
                       timeSlots.map((slot) => (
                         <SelectItem key={slot} value={slot}>
-                          {slot}
+                          {slot} <span className="text-gray-400 text-xs ml-1">(Europe/Istanbul)</span>
                         </SelectItem>
                       ))
                     ) : (
@@ -527,7 +527,7 @@ export default function ConsultationBooking() {
             
             <div className="text-sm text-gray-500 flex items-center mb-4">
               <Info className="h-4 w-4 mr-2" />
-              <span>We're available Monday-Friday, 9:00 AM - 5:00 PM. Weekend slots are unavailable.</span>
+              <span>We're available Monday-Friday, 9:00 AM - 5:00 PM (Europe/Istanbul). Weekend slots are unavailable.</span>
             </div>
           </div>
           

@@ -52,18 +52,40 @@ function getOAuth2Client(): OAuth2Client {
 
 /**
  * Converts date and time strings to a JavaScript Date object
+ * Explicitly handles the time zone to prevent conversion issues
+ * 
  * @param date - Date string in "Month day, year" format (e.g., "April 15, 2023")
  * @param time - Time string in "h:mm a" format (e.g., "3:30 PM")
  * @returns Date object
  */
 function parseDateTime(date: string, time: string): Date {
-  // Dize formatında tarih ve saati birleştir
+  // Combine date and time into a string
   const combinedDateTimeStr = `${date} ${time}`;
   
-  // Parse işlemini gerçekleştir
-  const parsedDate = parse(combinedDateTimeStr, 'MMMM d, yyyy h:mm a', new Date());
+  // Parse the date and time
+  let parsedDate = parse(combinedDateTimeStr, 'MMMM d, yyyy h:mm a', new Date());
   
-  console.log(`Parsed date info - Original input: "${date} ${time}" -> Parsed as: "${parsedDate.toISOString()}"`);
+  // Prevent time zone adjustment issues by explicitly interpreting the time
+  // as entered by the user without automatic conversions
+  const [hours, minutes] = time.match(/(\d+):(\d+)/)?.slice(1).map(Number) || [0, 0];
+  const isPM = /pm/i.test(time);
+  
+  // Set hours with 12-hour format conversion
+  const adjustedHours = isPM && hours !== 12 ? hours + 12 : (!isPM && hours === 12 ? 0 : hours);
+  
+  // Create a new date with the correct hour and minute but in local time
+  parsedDate = new Date(parsedDate);
+  parsedDate.setHours(adjustedHours, minutes, 0, 0);
+  
+  // Log detailed information for debugging
+  console.log(`Time conversion check:
+  - Input date/time: "${date} ${time}"
+  - Extracted hours: ${hours}, minutes: ${minutes}, isPM: ${isPM}
+  - Adjusted hours: ${adjustedHours} 
+  - Final ISO time: ${parsedDate.toISOString()}
+  - Local representation: ${format(parsedDate, 'h:mm a')}
+  - Current system time zone: ${Intl.DateTimeFormat().resolvedOptions().timeZone}
+  `);
   
   return parsedDate;
 }
