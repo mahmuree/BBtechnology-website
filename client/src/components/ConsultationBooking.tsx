@@ -314,7 +314,7 @@ export default function ConsultationBooking() {
                   </a>
                 </div>
                 <p className="text-xs text-gray-500">
-                  At your scheduled time, click the link above to join the Zoom meeting. We've also emailed these details to you for reference.
+                  At your scheduled time, click the link above to join the Google Meet session. No software installation needed - works directly in your browser.
                 </p>
               </div>
             )}
