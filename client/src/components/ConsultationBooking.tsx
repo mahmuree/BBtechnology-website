@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -159,6 +159,9 @@ export default function ConsultationBooking() {
     return Object.keys(errors).length === 0;
   };
   
+  // Booking state
+  const [meetingLink, setMeetingLink] = useState<string>("");
+  
   // Handle form submission
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -194,10 +197,15 @@ export default function ConsultationBooking() {
       const data = await response.json();
       
       if (response.ok && data.success) {
+        // Store the meeting link if available
+        if (data.reservation && data.reservation.meetingLink) {
+          setMeetingLink(data.reservation.meetingLink);
+        }
+        
         setIsBooked(true);
         toast({
           title: "Consultation Scheduled Successfully",
-          description: "Thank you! Your consultation has been booked. You will receive a confirmation email shortly.",
+          description: "Thank you! Your consultation has been booked. You will receive a confirmation email with meeting details shortly.",
           action: (
             <div className="h-8 w-8 bg-green-100 rounded-full flex items-center justify-center">
               <Check className="h-5 w-5 text-green-600" />
@@ -274,6 +282,33 @@ export default function ConsultationBooking() {
                 <span className="font-medium">{time}</span>
               </div>
             </div>
+            
+            {meetingLink && (
+              <div className="mt-4 pt-4 border-t border-gray-200">
+                <h5 className="font-medium text-[#081C3A] mb-2 flex items-center">
+                  <div className="bg-blue-50 w-6 h-6 rounded-full flex items-center justify-center mr-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#4BA3F2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M15 10l5 5-5 5"></path>
+                      <path d="M4 4v7a4 4 0 004 4h12"></path>
+                    </svg>
+                  </div>
+                  Google Meet Link:
+                </h5>
+                <div className="bg-blue-50 p-3 rounded-md mb-2 break-all">
+                  <a 
+                    href={meetingLink}
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:text-blue-800 text-sm font-medium"
+                  >
+                    {meetingLink}
+                  </a>
+                </div>
+                <p className="text-xs text-gray-500">
+                  This Google Meet link has also been sent to your email. Click it at your scheduled time to join the meeting.
+                </p>
+              </div>
+            )}
           </div>
           <Button 
             onClick={handleBookAnother}

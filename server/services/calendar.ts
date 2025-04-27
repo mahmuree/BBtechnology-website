@@ -1,29 +1,44 @@
-import { google } from 'googleapis';
+import { google, calendar_v3 } from 'googleapis';
 import { OAuth2Client } from 'google-auth-library';
+import { parse, addHours, format } from 'date-fns';
 
-// Set up Google Calendar API client
-const credentials = {
-  clientId: process.env.GOOGLE_CLIENT_ID || '',
-  clientSecret: process.env.GOOGLE_CLIENT_SECRET || '',
-  redirectUri: process.env.GOOGLE_REDIRECT_URI || '',
-  refreshToken: process.env.GOOGLE_REFRESH_TOKEN || '',
-};
+// Load environment variables
+const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
+const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET;
+const GOOGLE_REDIRECT_URI = process.env.GOOGLE_REDIRECT_URI;
+const GOOGLE_REFRESH_TOKEN = process.env.GOOGLE_REFRESH_TOKEN;
+
+if (!GOOGLE_CLIENT_ID || !GOOGLE_CLIENT_SECRET || !GOOGLE_REDIRECT_URI || !GOOGLE_REFRESH_TOKEN) {
+  console.warn('Google Calendar credentials are not properly set up. Calendar integration will be limited.');
+}
 
 /**
  * Creates an authenticated OAuth2 client for Google APIs
  */
 function getOAuth2Client(): OAuth2Client {
   const oAuth2Client = new google.auth.OAuth2(
-    credentials.clientId,
-    credentials.clientSecret,
-    credentials.redirectUri
+    GOOGLE_CLIENT_ID,
+    GOOGLE_CLIENT_SECRET,
+    GOOGLE_REDIRECT_URI
   );
 
+  // Set credentials using refresh token
   oAuth2Client.setCredentials({
-    refresh_token: credentials.refreshToken
+    refresh_token: GOOGLE_REFRESH_TOKEN
   });
 
   return oAuth2Client;
+}
+
+/**
+ * Converts date and time strings to a JavaScript Date object
+ * @param date - Date string in "Month day, year" format (e.g., "April 15, 2023")
+ * @param time - Time string in "h:mm a" format (e.g., "3:30 PM")
+ * @returns Date object
+ */
+function parseDateTime(date: string, time: string): Date {
+  const combinedDateTimeStr = `${date} ${time}`;
+  return parse(combinedDateTimeStr, 'MMMM d, yyyy h:mm a', new Date());
 }
 
 /**
@@ -34,52 +49,36 @@ function getOAuth2Client(): OAuth2Client {
  */
 export async function isTimeSlotAvailable(date: string, time: string): Promise<boolean> {
   try {
-    if (!credentials.refreshToken) {
-      console.warn('Google Calendar credentials not set. Skipping availability check.');
-      return true; // Skip check if credentials are not set
+    // If Google credentials aren't set, assume available
+    if (!GOOGLE_CLIENT_ID || !GOOGLE_CLIENT_SECRET || !GOOGLE_REDIRECT_URI || !GOOGLE_REFRESH_TOKEN) {
+      console.warn('Cannot check calendar availability: Missing Google credentials');
+      return true;
     }
 
     const auth = getOAuth2Client();
     const calendar = google.calendar({ version: 'v3', auth });
 
-    // Parse the date and time
-    const [hours, minutes] = time.match(/(\d+):(\d+)/)?.slice(1).map(Number) || [0, 0];
-    const isPM = time.toLowerCase().includes('pm');
-    let hour24 = hours;
-    
-    // Convert to 24-hour format
-    if (isPM && hours < 12) {
-      hour24 += 12;
-    } else if (!isPM && hours === 12) {
-      hour24 = 0;
-    }
+    // Parse the date and time to create start and end times
+    const startTime = parseDateTime(date, time);
+    // Each consultation is 30 minutes
+    const endTime = addHours(startTime, 0.5);
 
-    // Create Date objects for start and end times (30-minute slot)
-    const startDate = new Date(date);
-    startDate.setHours(hour24, minutes, 0, 0);
-    
-    const endDate = new Date(startDate);
-    endDate.setMinutes(endDate.getMinutes() + 30);
-
-    // Format dates as ISO strings
-    const timeMin = startDate.toISOString();
-    const timeMax = endDate.toISOString();
-
-    // Check for events in this time period
+    // Check for conflicting events
     const response = await calendar.events.list({
       calendarId: 'primary',
-      timeMin,
-      timeMax,
-      maxResults: 10,
-      singleEvents: true,
-      orderBy: 'startTime',
+      timeMin: startTime.toISOString(),
+      timeMax: endTime.toISOString(),
+      singleEvents: true
     });
 
+    // If there are any events during this time, the slot is not available
     const events = response.data.items || [];
-    return events.length === 0; // Available if no events found
+    return events.length === 0;
   } catch (error) {
-    console.error('Error checking time slot availability:', error);
-    return true; // Assume available on error to prevent blocking bookings
+    console.error('Error checking calendar availability:', error);
+    // In case of error, we'll say it's available and let the booking go through
+    // The worst case is a double-booking which can be manually resolved
+    return true;
   }
 }
 
@@ -102,59 +101,53 @@ export async function createCalendarEvent(
   message?: string
 ): Promise<string> {
   try {
-    if (!credentials.refreshToken) {
-      console.warn('Google Calendar credentials not set. Skipping event creation.');
-      return 'https://meet.google.com/placeholder-link';
+    // If Google credentials aren't set, return a placeholder
+    if (!GOOGLE_CLIENT_ID || !GOOGLE_CLIENT_SECRET || !GOOGLE_REDIRECT_URI || !GOOGLE_REFRESH_TOKEN) {
+      console.warn('Cannot create calendar event: Missing Google credentials');
+      return "https://meet.google.com/placeholder-link";
     }
 
     const auth = getOAuth2Client();
     const calendar = google.calendar({ version: 'v3', auth });
 
-    // Parse the date and time
-    const [hours, minutes] = time.match(/(\d+):(\d+)/)?.slice(1).map(Number) || [0, 0];
-    const isPM = time.toLowerCase().includes('pm');
-    let hour24 = hours;
-    
-    // Convert to 24-hour format
-    if (isPM && hours < 12) {
-      hour24 += 12;
-    } else if (!isPM && hours === 12) {
-      hour24 = 0;
+    // Parse the date and time to create start and end times
+    const startTime = parseDateTime(date, time);
+    // Each consultation is 30 minutes
+    const endTime = addHours(startTime, 0.5);
+
+    // Format the description with the client's message if provided
+    let description = `
+Service: ${service}
+Client: ${name} (${email})
+Date: ${date}
+Time: ${time}
+`;
+
+    if (message) {
+      description += `\nClient's Message:\n${message}`;
     }
 
-    // Create Date objects for start and end times (30-minute slot)
-    const startDate = new Date(date);
-    startDate.setHours(hour24, minutes, 0, 0);
-    
-    const endDate = new Date(startDate);
-    endDate.setMinutes(endDate.getMinutes() + 30);
-
-    // Create event details
-    const eventDescription = `
-Consultation with ${name}
-Service: ${service}
-${message ? `\nClient message: ${message}` : ''}
-    `;
-
-    // Create the calendar event
-    const event = {
-      summary: `B&B Technology - ${service} Consultation with ${name}`,
-      description: eventDescription,
+    // Create event with Google Meet integration
+    const event: calendar_v3.Schema$Event = {
+      summary: `B&B Technology Consultation: ${service}`,
+      location: 'Google Meet',
+      description,
       start: {
-        dateTime: startDate.toISOString(),
+        dateTime: startTime.toISOString(),
         timeZone: 'UTC',
       },
       end: {
-        dateTime: endDate.toISOString(),
+        dateTime: endTime.toISOString(),
         timeZone: 'UTC',
       },
       attendees: [
         { email: email, displayName: name },
         { email: 'info@bbtechnology.io' }
       ],
+      // Automatically add Google Meet conference data
       conferenceData: {
         createRequest: {
-          requestId: `${Date.now()}-${Math.random().toString(36).substring(2, 11)}`,
+          requestId: `bbtechnology-${Date.now()}`,
           conferenceSolutionKey: { type: 'hangoutsMeet' }
         }
       }
@@ -163,17 +156,15 @@ ${message ? `\nClient message: ${message}` : ''}
     const response = await calendar.events.insert({
       calendarId: 'primary',
       requestBody: event,
-      conferenceDataVersion: 1
+      conferenceDataVersion: 1, // Enable Google Meet integration
     });
 
-    // Extract and return the Google Meet link
-    const meetLink = response.data.conferenceData?.entryPoints?.find(
-      (entryPoint: any) => entryPoint.entryPointType === 'video'
-    )?.uri || 'https://meet.google.com/placeholder-link';
-
+    // Return the Google Meet link if available, or a fallback
+    const meetLink = response.data.hangoutLink || "https://meet.google.com";
     return meetLink;
   } catch (error) {
     console.error('Error creating calendar event:', error);
-    return 'https://meet.google.com/placeholder-link';
+    // In case of error, return a placeholder
+    return "https://meet.google.com/placeholder-link";
   }
 }
